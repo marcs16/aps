@@ -20,8 +20,8 @@ class DeviceDatatable < AjaxDatatablesRails::ActiveRecord
   def data
     records.map do |record|
       {
-        user: record.user.full_name;
-        name: record.name;
+        user: record.user.full_name,
+        name: record.name,
         type_of_device: record.type_of_device,
         number: record.number,
         operative_system: record.operative_system,
@@ -35,8 +35,7 @@ class DeviceDatatable < AjaxDatatablesRails::ActiveRecord
   end
 
   def get_raw_records
-    # insert query here
-    # User.all
+    @device =Device.all
   end
 
 end
