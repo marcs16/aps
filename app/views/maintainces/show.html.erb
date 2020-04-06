@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @maintaince.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @maintaince.description %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @maintaince.date %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @maintaince.user %>
+</p>
+
+<p>
+  <strong>Device:</strong>
+  <%= @maintaince.device %>
+</p>
+
+<%= link_to 'Edit', edit_device_maintaince_path(@maintaince.device) %> |
+<%= link_to 'Back', device_maintainces_path %>

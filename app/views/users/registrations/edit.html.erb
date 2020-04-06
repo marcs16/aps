@@ -1,0 +1,134 @@
+<%=render 'layouts/partials/navbar'%>
+
+<div class="content-wrapper">
+  <!-- Main content -->
+  <section class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-9">
+          <h2>Editar Usuario</h2>
+          <div class="card card-primary">
+            <div class="card-header">
+              <h3>Perfil</h3>
+            </div>
+            <div class="card-body">
+              <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+                <%= render "devise/shared/error_messages", resource: resource %>
+                <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+                  <div>Esperando confirmación de: <%= resource.unconfirmed_email %></div>
+                <% end %>
+              <form class="form-horizontal">
+                <div class="form-group row">
+                  <%= f.label :full_name,"Nombre Completo", class:"col-sm-3 col-form-label" %>
+                  <div class="col-sm-8">
+                    <%= f.text_field :full_name, autofocus: true, autocomplete: "text" , class:"form-control"%>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <%= f.label :email, "Email", class: "col-sm-3 col-form-label" %>
+                  <div class="col-sm-8">
+                    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <%=f.label :type_of_id, "Tipo de documento", class:"col-sm-3 col-form-label"%>
+                  <div class="col-sm-8">
+                    <%= f.text_field :type_of_id, required: true, autofocus: true, class:"form-control"%>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <%=f.label :number_of_id, "Documento", class:"col-sm-3 col-form-label"%>
+                  <div class="col-sm-8">
+                  <%= f.text_field :number_of_id,required: true, autofocus: true, class:"form-control" %>
+                  </div>
+                </div>
+                 <div class="form-group row">
+                  <%=f.label :position, "Cargo que ocupa", class:"col-sm-3 col-form-label"%>
+                  <div class="col-sm-8">
+                  <%= f.text_field :position,required: true, autofocus: true, class:"form-control" %>
+                  </div>
+                </div>
+                 <div class="form-group row">
+                  <%=f.label :telephone, "Celular", class:"col-sm-3 col-form-label"%>
+                  <div class="col-sm-8">
+                  <%= f.text_field :telephone, autofocus: true, class:"form-control" %>
+                  </div>
+                </div>
+                 <div class="form-group row">
+                  <%=f.label :date_of_birth, "Fecha de nacimiento", class:"col-sm-3 col-form-label"%>
+                  <div class="col-sm-8">
+                  <%= f.text_field :date_of_birth, autofocus: true, class:"form-control" %>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <%=f.label :working_since, "Trabaja desde", class:"col-sm-3 col-form-label"%>
+                  <div class="col-sm-8">
+                  <%= f.text_field :working_since,required: true, autofocus: true, class:"form-control" %>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <%= f.label :current_password, "Contraseña Actual", class:"col-sm-3 col-form-label"%>
+                  <div class="col-sm-7">
+                    <%= f.password_field :current_password, autocomplete: "Contraseña Actual",class:"form-control" %>
+                    <i>(Necesitamos esta contraseña para confirmar cambios)</i>
+                  </div>
+                  <div class="">
+                    <span toggle="#password-field" class=" fa-2x  fa fa-eye  current-psd"></span>
+                  </div>
+                </div>
+                <div class="offset-sm-10 col-sm-2">
+                  <button  id= "btn-psd" class="btn btn-primary">
+                    <i class="fa fa-plus"></i>
+                  </button>
+                </div>
+                <br>
+                <div class="pass-fields" style="display: none;"> 
+                  <div class="form-group row">
+                    <%= f.label :password, "Nueva contraseña", class:"col-sm-3 col-form-label"  %> 
+                    <div class="col-sm-7">
+                      <%= f.password_field :password, autocomplete: "Nueva Contraseña", class:"form-control" %><i>(Dejar en blanco si no se quiere cambiar)</i>
+                      <% if @minimum_password_length %>
+                        <em><%= @minimum_password_length %> Caracteres mínimo</em>
+                      <% end %>
+                    </div>
+                    <div class="">
+                    <span  class=" fa-2x  fa fa-eye  new-psd"></span>
+                  </div>
+                  </div style= "padding-top: 10px ;">
+                   <div class="form-group row">
+                    <%= f.label :password_confirmation, "Confirmación de contraseña", class:"col-sm-3 col-form-label" %><br />
+                    <div class="col-sm-7">
+                      <%= f.password_field :password_confirmation, autocomplete: "Confirmación de contraseña", class:"form-control"%>
+                    </div>
+                    <div class="">
+                    <span toggle="#password-field" class=" fa-2x  fa fa-eye  confirm-psd"></span>
+                  </div>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="offset-sm-2 col-sm-8">
+                    <%= f.submit "Actualizar" , class:"btn btn-primary" %>
+                  </div>
+                  
+                </div>
+                <div class="form-group row">
+                  <div class="offset-sm-2 col-sm-8">
+                    <%= link_to "Atrás", :back , class:"btn btn-primary fa fa-arrow-left"%>
+                  </div>
+                </div>
+              </form>
+              <% end %>
+            </div><!-- /.card-body -->
+          </div>
+          <!-- /.nav-tabs-custom -->
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+    </div><!-- /.container-fluid -->
+  </section>
+  <!-- /.content -->
+</div>
+
+<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "¿Quieres hacer esto?" }, method: :delete %></p>
+

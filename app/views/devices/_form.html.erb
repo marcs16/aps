@@ -1,0 +1,51 @@
+<%= form_with(model: device, local: true) do |form| %>
+  <% if device.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(device.errors.count, "error") %> prohibited this device from being saved:</h2>
+
+      <ul>
+      <% device.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :type_of_device %>
+    <%= form.select :type_of_device, options_for_type_of_device,{}, :include_blank => "Seleccione uno" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :number %>
+    <%= form.text_field :number %>
+  </div>
+
+  <div class="field">
+    <%= form.label :operative_system %>
+    <%= form.text_field :operative_system %>
+  </div>
+
+  <div class="field">
+    <%= form.label :processor %>
+    <%= form.text_field :processor %>
+  </div>
+
+  <div class="field">
+    <%= form.label :memory %>
+    <%= form.text_field :memory %>
+  </div>
+
+  <div class="field">
+    <%= form.label :mac %>
+    <%= form.text_field :mac %>
+  </div>
+
+  <div class="actions">
+    <%=  form.submit %>
+  </div>
+<% end %>

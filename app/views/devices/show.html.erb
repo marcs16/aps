@@ -1,0 +1,42 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @device.name %>
+</p>
+
+<p>
+  <strong>Type of device:</strong>
+  <%= @device.type_of_device %>
+</p>
+
+<p>
+  <strong>Number:</strong>
+  <%= @device.number %>
+</p>
+
+<p>
+  <strong>Operative system:</strong>
+  <%= @device.operative_system %>
+</p>
+
+<p>
+  <strong>Processor:</strong>
+  <%= @device.processor %>
+</p>
+
+<p>
+  <strong>Memory:</strong>
+  <%= @device.memory %>
+</p>
+
+<p>
+  <strong>Mac:</strong>
+  <%= @device.mac %>
+</p>
+<div class="field">
+  <%=link_to 'ver mantenimientos', device_maintainces_path(@device)%>
+</div>
+
+<%= link_to 'Edit', edit_device_path(@device) %> |
+<%= link_to 'Back', devices_path %>

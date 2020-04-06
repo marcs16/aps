@@ -1,0 +1,45 @@
+<section class="user">
+  <div class="user_options-container">
+    <div class="user_options-text">
+      <div class="user_options-unregistered">
+        <h2 class="title-ppal">APS E.S.P S.A.S</h2>
+        <h2 class="user_unregistered-title">¿Aún no puedes ingresar?</h2>
+        <p class="user_unregistered-text">Pulsa el botón de abajo y registrate.</p>
+        <button class="user_unregistered-signup" id="signup-button">Registrarse</button>
+      </div>
+
+      <div class="user_options-registered">
+        <h2 class="user_registered-title">¿Tienes una cuenta?</h2>
+        <p class="user_registered-text">Pulsa el botón de abajo e inicia sesión.</p>
+        <button class="user_registered-login" id="login-button">Iniciar Sesión</button>
+      </div>
+    </div>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>  
+    <div class="user_options-forms " id="user_options-forms">
+      <div class="user_forms-login">
+        <h2 class="forms_title">Iniciar Sesión</h2>
+        <form class="forms_form">
+          <fieldset class="forms_fieldset">
+            <div class="forms_field">
+              <%= f.email_field :email,placeholder: "Email",required: true, autofocus: true, class:"forms_field-input",autocomplete: "email"%>
+            </div>
+            <div class="forms_field">
+              <%= f.password_field :password, autocomplete: "current-password",placeholder:"Contraseña", class:"forms_field-input",required: true%>
+            </div>
+            <% if devise_mapping.rememberable? %>
+            <div class="forms_field">
+              <%= f.check_box :remember_me %>
+              <%= f.label :remember_me, " Recordarme" %>
+            </div>
+          <% end %>
+          </fieldset>
+          <div class="forms_buttons">
+             <%= f.submit "Iniciar Sesión", class:"forms_buttons-action"%>
+          </div>
+        </form>
+      </div>
+  <%end%>
+      <%= render template: 'users/registrations/new'%>
+    </div>
+  </div>
+</section>

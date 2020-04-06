@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  type_of_device: MyString
+  number: MyString
+  operative_system: MyString
+  processor: MyString
+  memory: MyString
+  mac: MyString
+
+two:
+  name: MyString
+  type_of_device: MyString
+  number: MyString
+  operative_system: MyString
+  processor: MyString
+  memory: MyString
+  mac: MyString
