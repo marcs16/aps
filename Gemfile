@@ -78,7 +78,6 @@ group :production  do
   #jquery
   gem 'jquery-rails', '~> 4.3', '>= 4.3.5'
   gem 'pg'
-  gem 'rails_12factor'
 end
   
 
