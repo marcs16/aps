@@ -5,7 +5,10 @@ class DevicesController < ApplicationController
   # GET /devices.json
   def index
     @devices = Device.all
-   
+    respond_to do |format|
+      format.html
+      format.json { render json: DeviceDatatable.new(params, view_context: view_context) }
+    end
   end
 
   # GET /devices/1

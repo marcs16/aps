@@ -15,10 +15,14 @@
 //= require activestorage
 //= require bootstrap-sprockets
 //= require turbolinks
+//= require datatables
+//= require tables/call_datatables
+//= require tables/call_ajax
+//= requite adminlte
 //= require navbar/vendor/modernizr-2.8.3-respond-1.4.2.min.js
 //= require navbar/main.js
 //= require login/login.js
 //= require user/user.js
+//= require device/device.js
 //= require_tree .
-
 

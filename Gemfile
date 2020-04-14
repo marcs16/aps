@@ -14,6 +14,7 @@ gem 'bootstrap-sass'
 #font-awesome
 gem "font-awesome-rails"
 # datatables
+gem 'jquery-datatables'
 gem 'ajax-datatables-rails', '~> 1.1'
 #jquery
 gem 'jquery-rails', '~> 4.3', '>= 4.3.5'

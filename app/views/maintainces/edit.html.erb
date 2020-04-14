@@ -1,6 +1,30 @@
-<h1>Editing Maintaince</h1>
+<%=render 'layouts/partials/navbar'%>
 
-<%= render 'form', maintaince: @maintaince %>
+<div class="content-wrapper">
+  <!-- Main content -->
+  <section class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-9">
+          <h2>mantenimientos</h2>
+          <div class="card card-primary">
+            <div class="card-header">
+              <h3>editando mantenimmiento <%=@maintaince.name%></h3>
+              <div class="card-tools">
+                <button type="button" class="btn btn-tool btn-sm" data-card-widget="collapse" data-toggle="tooltip"
+                        title="Collapse">
+                  <i class="fa fa-minus"></i></button>
+              </div>
+            </div>
+            <%= render 'form', device: @device %>
+          </div>
+          <!-- /.nav-tabs-custom -->
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+    </div><!-- /.container-fluid -->
+  </section>
+  <!-- /.content -->
+</div>
 
-<%= link_to 'Show', @maintaince.device %> |
-<%= link_to 'Back', device_maintainces_path %>

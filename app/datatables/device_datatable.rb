@@ -1,8 +1,14 @@
 class DeviceDatatable < AjaxDatatablesRails::ActiveRecord
+  extend Forwardable
+
+  def_delegator :@view, :edit_device_path,:device_path,:current_user
+
+  def initialize(params, opts = {})
+    @view = opts[:view_context]
+    super
+  end
 
   def view_columns
-    # Declare strings in this format: ModelName.column_name
-    # or in aliased_join_table.column_name format
     @view_columns ||= {
       user: {source: "User.full_name", cond: :like,serchable: true, orderable: true},
       name: {source: "Device.name", cond: :like,serchable: true, orderable: true},
@@ -11,8 +17,7 @@ class DeviceDatatable < AjaxDatatablesRails::ActiveRecord
       operative_system: {source: "Device.operative_system", cond: :like,serchable: true, orderable: true},
       processor: {source: "Device.processor", cond: :like,serchable: true, orderable: true},
       memory: {source: "Device.memory", cond: :like,serchable: true, orderable: true},
-      mac: {source: "Device.mac", cond: :like,serchable: true, orderable: true}
-  
+      mac: {source: "Device.mac", cond: :like,serchable: true, orderable: true},
     }
     
   end
@@ -27,15 +32,19 @@ class DeviceDatatable < AjaxDatatablesRails::ActiveRecord
         operative_system: record.operative_system,
         processor: record.processor,
         memory: record.memory,
-        mac: record.mac
-        # id: record.id,
-        # name: record.name
+        mac: record.mac,
+        links: actions(record).html_safe,
       }
     end
   end
+  private 
+    def get_raw_records
+      Device.all
+    end
 
-  def get_raw_records
-    @device =Device.all
-  end
+    def actions(record)
+      sarta = "<a href ='#{edit_device_path(record)}'><i class='fa fa-edit'></i></a>"
+      sarta +=  " | <a href ='#{device_path(record)}'><i class='fa fa-eye'></i></a>"
+    end
 
 end

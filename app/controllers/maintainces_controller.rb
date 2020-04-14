@@ -44,7 +44,7 @@ class MaintaincesController < ApplicationController
   def update
     respond_to do |format|
       if @maintaince.update(maintaince_params)
-        format.html { redirect_to @maintaince.device, notice: 'Maintaince was successfully updated.' }
+        format.html { redirect_to device_maintaince_path(@maintaince.device.id,@maintaince), notice: 'Maintaince was successfully updated.' }
         format.json { render :show, status: :ok, location: @maintaince }
       else
         format.html { render :edit }

@@ -17,12 +17,19 @@
 
 <p>
   <strong>User:</strong>
-  <%= @maintaince.user %>
+  <%= @maintaince.user.full_name%>
 </p>
 
 <p>
-  <strong>Device:</strong>
-  <%= @maintaince.device %>
+  <strong>Device name:</strong>
+  <%= @maintaince.device.name%>
+
+</p>
+<p>
+  <strong>
+    Device number:
+  </strong>
+  <%= @maintaince.device.number %> 
 </p>
 
 <%= link_to 'Edit', edit_device_maintaince_path(@maintaince.device) %> |
