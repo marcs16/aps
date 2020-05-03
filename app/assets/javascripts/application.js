@@ -18,11 +18,18 @@
 //= require datatables
 //= require tables/call_datatables
 //= require tables/call_ajax
+//= require moment 
+//= require fullcalendar
+//= require fullcalendar/locale-all
+//= require fcalendar
 //= requite adminlte
 //= require navbar/vendor/modernizr-2.8.3-respond-1.4.2.min.js
 //= require navbar/main.js
 //= require login/login.js
 //= require user/user.js
 //= require device/device.js
+//= require select2/selects.js
+//= require select2/select2.js
+//= require select2/select2.full.js
 //= require_tree .
 

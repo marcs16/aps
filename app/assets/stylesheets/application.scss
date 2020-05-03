@@ -14,6 +14,7 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
  @import "app-background.scss";
+ @import "fullcalendar";
  @import "sidebar.scss";
  @import "login.scss";
  @import "adminlte.css";
@@ -24,3 +25,5 @@
  @import "adminlteplugins.css";
  @import "font-awesome";
  @import "datatables.css";
+ @import "select2.css";
+ @import "select2-bootstrap4.css";

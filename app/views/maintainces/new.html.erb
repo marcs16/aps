@@ -1,24 +1,32 @@
 <%=render 'layouts/partials/navbar'%>
-
 <div class="content-wrapper">
-  <!-- Main content -->
-  <section class="content">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
     <div class="container-fluid">
-      <div class="row">
-        <div class="col-md-9">
-          <h2>Mantenimientos</h2>
-          <div class="card card-primary">
-            <div class="card-header">
-              <h3>Nuevo Mantenimiento</h3>
-            </div>
-            <%= render 'form', maintaince: @maintaince %>
-          </div>
-          <!-- /.nav-tabs-custom -->
+      <div class="center-style-app">
+        <div class="content-wrapper">
+          <!-- Main content -->
+          <section class="content">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-md-9">
+                  <h2>Mantenimientos</h2>
+                  <div class="card card-primary">
+                    <div class="card-header">
+                      <h3>Nuevo Mantenimiento</h3>
+                    </div>
+                    <%= render 'form', maintaince: @maintaince %>
+                  </div>
+                  <!-- /.nav-tabs-custom -->
+                </div>
+                <!-- /.col -->
+              </div>
+              <!-- /.row -->
+            </div><!-- /.container-fluid -->
+          </section>
+          <!-- /.content -->
         </div>
-        <!-- /.col -->
       </div>
-      <!-- /.row -->
-    </div><!-- /.container-fluid -->
+    </div>
   </section>
-  <!-- /.content -->
 </div>

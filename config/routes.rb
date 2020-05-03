@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   
 
+  resources :events
   resources :devices do
     collection {post :import}
     resources :maintainces

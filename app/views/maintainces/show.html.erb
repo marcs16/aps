@@ -1,36 +1,108 @@
-<p id="notice"><%= notice %></p>
+<%=render 'layouts/partials/navbar'%>
+<div class="center-style-app">
+  <div class="content-wrapper">
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-9">
+            <h2>Mantenimientos</h2>
+            <p id="notice"><%= notice %></p>
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3>Mantenimiento para  <%= @maintaince.device.name%></h3>
+                <div class="card-tools">
+                    <i class="fa fa-sync-alt"></i></button>
+                  <button type="button" class="btn btn-tool btn-sm" data-card-widget="collapse" data-toggle="tooltip"
+                          title="Collapse">
+                    <i class="fa fa-minus"></i></button>
+                </div>
+              </div>
+              <div class="card-body">
+                <form class="form-horizontal">
+                  <div class="form-group row">
+                    <div class= "col-sm-4 col-form-label">
+                      <%= "<strong>Dispositivo</strong>".html_safe%>
+                    </div>
+                    <div class=" col-sm-7">
+                      <div class="form-control">
+                        <%= @maintaince.device.name%>
+                      </div> 
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class= "col-sm-4 col-form-label">
+                      <%= "<strong>Mantenimiento</strong>".html_safe%>
+                    </div>
+                    <div class=" col-sm-7">
+                      <div class="form-control">
+                        <%= @maintaince.name %>
+                      </div> 
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class= "col-sm-4 col-form-label">
+                      <%= "<strong>Description</strong>".html_safe%>
+                    </div>
+                    <div class=" col-sm-7">
+                      <div >
+                        <textarea class="form-control" rows="2" placeholder="<%= @maintaince.description %> " disabled></textarea>
+                      </div> 
+                    </div>
+                  </div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @maintaince.name %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @maintaince.description %>
-</p>
-
-<p>
-  <strong>Date:</strong>
-  <%= @maintaince.date %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @maintaince.user.full_name%>
-</p>
-
-<p>
-  <strong>Device name:</strong>
-  <%= @maintaince.device.name%>
-
-</p>
-<p>
-  <strong>
-    Device number:
-  </strong>
-  <%= @maintaince.device.number %> 
-</p>
-
-<%= link_to 'Edit', edit_device_maintaince_path(@maintaince.device) %> |
-<%= link_to 'Back', device_maintainces_path %>
+                  <div class="form-group row">
+                    <div class= "col-sm-4 col-form-label">
+                      <%= "<strong>Fecha de mantenimiento</strong>".html_safe%>
+                    </div>
+                    <div class=" col-sm-7">
+                      <div class="form-control">
+                        <%= @maintaince.date %>
+                      </div> 
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class= "col-sm-4 col-form-label">
+                      <%= "<strong>Usuario del dispositivo</strong>".html_safe%>
+                    </div>
+                    <div class=" col-sm-7">
+                      <div class="form-control">
+                        <%= @maintaince.user.full_name%>
+                      </div> 
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class= "col-sm-4 col-form-label">
+                      <%= "<strong>Número del dispositivo</strong>".html_safe%>
+                    </div>
+                    <div class=" col-sm-7">
+                      <div class="form-control">
+                        <%= @maintaince.device.number %> 
+                      </div> 
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class="offset-sm-2 col-sm-2">
+                      <%= link_to "Atrás", :back , class:"btn btn-primary fa fa-arrow-left"%>
+                    </div>
+                    <div class=" col-sm-1">
+                      <%= link_to 'Editar', edit_device_maintaince_path(@maintaince.device), class:"btn btn-primary fa fa-edit" %>
+                    </div>
+                    <div class=" offset-sm-2 col-sm-2">
+                      <%=link_to 'mantenimientos', device_maintainces_path(@device),class:"btn btn-primary fa fa-cog"%>
+                    </div>
+                  </div>
+                </form>
+              </div><!-- /.card-body -->
+            </div>
+            <!-- /.nav-tabs-custom -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+</div>
+   

@@ -1,0 +1,108 @@
+<%=render 'layouts/partials/navbar'%>
+<div class="center-style-app">
+  <div class="content-wrapper">
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-9">
+            <h2>Reuniones</h2>
+            <p id="notice"><%= notice %></p>
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3>Información de la reunión <%=@event.title%> </h3>
+                <div class="card-tools">
+                    <i class="fa fa-sync-alt"></i></button>
+                  <button type="button" class="btn btn-tool btn-sm" data-card-widget="collapse" data-toggle="tooltip"
+                          title="Collapse">
+                    <i class="fa fa-minus"></i></button>
+                </div>
+              </div>
+              <div class="card-body">
+                <p id="notice"><%= notice %></p>
+                <form class="form-horizontal">
+                  <div class="form-group row">
+                    <div class= "col-sm-4 col-form-label">
+                      <%= "<strong>Nombre de la reunión</strong>".html_safe%>
+                    </div>
+                    <div class=" col-sm-7">
+                      <div class="form-control">
+                        <%= @event.title%>
+                      </div> 
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class= "col-sm-4 col-form-label">
+                      <%= "<strong>Motivo de la reunión</strong>".html_safe%>
+                    </div>
+                    <div class=" col-sm-7">
+                      <div class="form-control">
+                        <%= @event.description%>
+                      </div> 
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class= "col-sm-4 col-form-label">
+                      <%= "<strong>Fecha de inicio</strong>".html_safe%>
+                    </div>
+                    <div class=" col-sm-7">
+                      <div class="form-control">
+                        <%= @event.start_date%>
+                      </div> 
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class= "col-sm-4 col-form-label">
+                      <%= "<strong>Fecha de finalización</strong>".html_safe%>
+                    </div>
+                    <div class=" col-sm-7">
+                      <div class="form-control">
+                        <%= @event.end_date%>
+                      </div> 
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class= "col-sm-4 col-form-label">
+                      <%= "<strong>Participantes</strong>".html_safe%>
+                    </div>
+                    <div class=" col-sm-7">
+                      <div class="">
+                         <%=select_tag :members, options_for_select(@users.collect{|x| [x.full_name]}, selected: @current_event), multiple: 'multiple', class:"col-sm-12 select2bs4", disabled: true%>
+                      </div> 
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class= "col-sm-4 col-form-label">
+                      <%= "<strong>Programó la reunión</strong>".html_safe%>
+                    </div>
+                    <div class=" col-sm-7">
+                      <div class="form-control">
+                        <%= @event.user.full_name%>
+                      </div> 
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class="offset-sm-2 col-sm-2">
+                      <%= link_to "Atrás", :back , class:"btn btn-primary fa fa-arrow-left"%>
+                    </div>
+                    <div class=" col-sm-1">
+                      <%= link_to 'Editar', edit_event_path(@event), class:"btn btn-primary fa fa-edit" %>
+                    </div>
+                    <div class="offset-sm-2 col-sm-2">
+                      <%=link_to 'Reuniones', events_path(),class:"btn btn-primary fa fa-cog"%>
+                    </div>
+                  </div>
+                </form>
+              </div><!-- /.card-body -->
+            </div>
+            <!-- /.nav-tabs-custom -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+</div>
+    

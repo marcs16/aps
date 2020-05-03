@@ -14,7 +14,10 @@ class DevicesController < ApplicationController
   # GET /devices/1
   # GET /devices/1.json
   def show
-     
+    respond_to do |format|
+      format.html
+      format.json{render inline: "location.reload();"}
+    end
   end
 
   # GET /devices/new
@@ -30,6 +33,7 @@ class DevicesController < ApplicationController
   # POST /devices.json
   def create
     @device = current_user.devices.new(device_params)
+    
 
 
     respond_to do |format|
