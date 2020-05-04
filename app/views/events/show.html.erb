@@ -36,8 +36,8 @@
                       <%= "<strong>Motivo de la reunión</strong>".html_safe%>
                     </div>
                     <div class=" col-sm-7">
-                      <div class="form-control">
-                        <%= @event.description%>
+                      <div >
+                        <textarea class="form-control" rows="2" placeholder="<%= @event.description %>" disabled></textarea>
                       </div> 
                     </div>
                   </div>
@@ -67,7 +67,7 @@
                     </div>
                     <div class=" col-sm-7">
                       <div class="">
-                         <%=select_tag :members, options_for_select(@users.collect{|x| [x.full_name]}, selected: @current_event), multiple: 'multiple', class:"col-sm-12 select2bs4", disabled: true%>
+                        <%=select_tag :members, options_for_select(@users.collect{|x| [x.full_name]}, selected: @current_event), multiple: 'multiple', class:"col-sm-12 select2bs4", disabled: true%>
                       </div> 
                     </div>
                   </div>

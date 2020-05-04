@@ -78,11 +78,16 @@ group :production  do
   #font-awesome
   gem "font-awesome-rails"
   # datatables
+  gem 'jquery-datatables'
   gem 'ajax-datatables-rails', '~> 1.1'
   #jquery
   gem 'jquery-rails', '~> 4.3', '>= 4.3.5'
   gem 'pg'
+  #calendar
+  gem 'fullcalendar-rails'
+  gem 'momentjs-rails'
 end
+
   
 
 group :test do
