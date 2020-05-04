@@ -13,9 +13,6 @@ gem 'devise', '~> 4.7', '>= 4.7.1'
 gem 'bootstrap-sass'
 #font-awesome
 gem "font-awesome-rails"
-# datatables
-gem 'jquery-datatables'
-gem 'ajax-datatables-rails', '~> 1.1'
 #calendar
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
@@ -77,9 +74,6 @@ group :production  do
   gem 'bootstrap-sass'
   #font-awesome
   gem "font-awesome-rails"
-  # datatables
-  gem 'jquery-datatables'
-  gem 'ajax-datatables-rails', '~> 1.1'
   #jquery
   gem 'jquery-rails', '~> 4.3', '>= 4.3.5'
   gem 'pg'
