@@ -3,9 +3,9 @@
     <div class="user_options-text">
       <div class="user_options-unregistered">
         <h2 class="title-ppal">APS E.S.P S.A.S</h2>
-        <h2 class="user_unregistered-title">¿Olvidaste tu contraseña?</h2>
-        <p class="user_unregistered-text">Pulsa el botón de abajo y recuperala.</p>
-        <button class="user_unregistered-signup" id="signup-button">Recuperar Contraseña</button>
+        <h2 class="user_unregistered-title">¿No tienes una cuenta?</h2>
+        <p class="user_unregistered-text">Pulsa el botón de abajo y registrate.</p>
+        <button class="user_unregistered-signup" id="signup-button">Registrarse</button>
       </div>
 
       <div class="user_options-registered">
@@ -27,10 +27,6 @@
               <%= f.password_field :password, autocomplete: "current-password",placeholder:"Contraseña", class:"forms_field-input",required: true%>
             </div>
             <% if devise_mapping.rememberable? %>
-            <div class="forms_field">
-              <%= f.check_box :remember_me %>
-              <%= f.label :remember_me, " Recordarme" %>
-            </div>
           <% end %>
           </fieldset>
           <div class="forms_buttons">
