@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
 
   
-
   resources :events
   resources :devices do
     collection {post :import}
@@ -9,6 +8,13 @@ Rails.application.routes.draw do
   end
   get 'welcome/index'
   get 'welcome/indexlog'
+  resources :users,:only => [:new, :edit,:update]
+  get 'users/index', to: 'users#index'
+  get 'users/:id/edit', to: 'users#edit'
+  put 'users/:id/update', to: 'users#update'
+  get 'users/:id/reset_password', to: 'users#reset_password', as: 'users_reset_password'
+  
+  
 	devise_for :users, controllers: {
   	registrations: 'users/registrations',
   	sessions: 'users/sessions',

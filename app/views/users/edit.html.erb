@@ -1,0 +1,109 @@
+<%=render 'layouts/partials/navbar'%>
+<div class="center-style-app">
+  <div class="content-wrapper">
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-9">
+            <h2>Editar Usuario</h2>
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3>Perfil</h3>
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool btn-sm" data-card-widget="collapse" data-toggle="tooltip"
+                          title="Collapse">
+                    <i class="fa fa-minus"></i></button>
+                </div>
+              </div>
+              <div class="card-body">
+                <%= form_for(@user, url: {action: 'update'}, html: { method: :put, class: 'form-horizontal' }) do |f| %>
+                  <% if @user.errors.any? %>
+                    <div id="error_explanation">
+                      <h2>
+                        <%= "#{pluralize(@user.errors.count, "error")} prohibited this user from being saved:" %>
+                      </h2>
+                      <ul>
+                        <% @user.errors.full_messages.each do |message| %>
+                          <li>
+                            <%= message %>
+                          </li>
+                        <% end %>
+                      </ul>
+                    </div>
+                  <% end %>
+                <form class="form-horizontal">
+                  <div class="form-group row">
+                    <%= f.label :full_name,"Nombre Completo", class:"col-sm-3 col-form-label" %>
+                    <div class="col-sm-8">
+                      <%= f.text_field :full_name, autofocus: true, autocomplete: "text" , class:"form-control"%>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <%= f.label :email, "Email", class: "col-sm-3 col-form-label" %>
+                    <div class="col-sm-8">
+                      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <%=f.label :type_of_id, "Tipo de documento", class:"col-sm-3 col-form-label"%>
+                    <div class="col-sm-8">
+                      <%= f.text_field :type_of_id, required: true, autofocus: true, class:"form-control"%>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <%=f.label :number_of_id, "Documento", class:"col-sm-3 col-form-label"%>
+                    <div class="col-sm-8">
+                    <%= f.text_field :number_of_id,required: true, autofocus: true, class:"form-control" %>
+                    </div>
+                  </div>
+                   <div class="form-group row">
+                    <%=f.label :position, "Cargo que ocupa", class:"col-sm-3 col-form-label"%>
+                    <div class="col-sm-8">
+                    <%= f.text_field :position,required: true, autofocus: true, class:"form-control" %>
+                    </div>
+                  </div>
+                   <div class="form-group row">
+                    <%=f.label :telephone, "Celular", class:"col-sm-3 col-form-label"%>
+                    <div class="col-sm-8">
+                    <%= f.text_field :telephone, autofocus: true, class:"form-control" %>
+                    </div>
+                  </div>
+                   <div class="form-group row">
+                    <%=f.label :date_of_birth, "Fecha de nacimiento", class:"col-sm-3 col-form-label"%>
+                    <div class="col-sm-8">
+                    <%= f.text_field :date_of_birth, autofocus: true, class:"form-control" %>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <%=f.label :working_since, "Trabaja desde", class:"col-sm-3 col-form-label"%>
+                    <div class="col-sm-8">
+                    <%= f.text_field :working_since,required: true, autofocus: true, class:"form-control" %>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class="offset-sm-2 col-sm-8">
+                      <%= f.submit "Actualizar" , class:"btn btn-primary" %>
+                    </div>
+                    
+                  </div>
+                  <div class="form-group row">
+                    <div class="offset-sm-2 col-sm-8">
+                      <%= link_to "Atrás", :back , class:"btn btn-primary fa fa-arrow-left"%>
+                    </div>
+                  </div>
+                </form>
+                <% end %>
+              </div><!-- /.card-body -->
+            </div>
+            <!-- /.nav-tabs-custom -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+    <%=render 'layouts/partials/footer'%>
+  </div>
+</div>
