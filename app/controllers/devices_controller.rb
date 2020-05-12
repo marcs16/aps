@@ -4,9 +4,12 @@ class DevicesController < ApplicationController
   # GET /devices
   # GET /devices.json
   def index
-    @devices = Device.all
+  
+  respond_to do |format|
+    format.html
+    format.json { render json: DeviceDatatable.new(params,{edit: edit_device_path('_'),show: device_path('_'),current_user: current_user}) }
   end
-
+end
   # GET /devices/1
   # GET /devices/1.json
   def show

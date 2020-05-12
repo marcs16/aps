@@ -15,6 +15,7 @@
 //= require activestorage
 //= require bootstrap-sprockets
 //= require turbolinks
+//= require datatables
 //= require moment 
 //= require fullcalendar
 //= require fullcalendar/locale-all
@@ -23,6 +24,8 @@
 //= require navbar/vendor/modernizr-2.8.3-respond-1.4.2.min.js
 //= require navbar/main.js
 //= require login/login.js
+//= require device/devicesdt
+//= require user/usersdt
 //= require user/user.js
 //= require device/device.js
 //= require select2/selects.js

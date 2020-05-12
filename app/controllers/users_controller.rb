@@ -4,7 +4,10 @@ class UsersController < ApplicationController
    
 	
   def index
-   	@users = User.where.not(id: current_user.id)
+    respond_to do |format|
+      format.html
+      format.json { render json: UserDatatable.new(params,{edit: edit_user_path('_'),reset_password: users_reset_password_path('_'),current_user: current_user}) }
+    end
   end
 
   def edit

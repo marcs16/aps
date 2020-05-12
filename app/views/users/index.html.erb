@@ -8,7 +8,7 @@
 
         <h1>Users</h1>
 
-        <table id="" data-source="">
+        <table  id="users-datatable" data-source="<%= users_index_path(format: :json) %>">
           <thead>
             <tr>
               <th>Nombre </th>
@@ -24,21 +24,7 @@
             </tr>
           </thead>
           <tbody>
-            <br>
-        <% @users.each do |user| %>
-              <tr>
-                <td><%=user.full_name%></td>
-                <td><%= user.type_of_id %></td>
-                <td><%= user.number_of_id %></td>
-                <td><%= user.position %></td>
-                <td><%= user.email %></td>
-                <td><%= user.telephone %></td>
-                <td><%= user.date_of_birth %></td>
-                <td><%= user.working_since %></td>
-                <td><%= link_to 'Editar', edit_user_path(user) %></td>
-                <td><%= link_to 'Cambiar contraseña', users_reset_password_path(user) %></td>
-              </tr>
-        <% end %>
+           
           </tbody>
         </table>
 

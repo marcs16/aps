@@ -16,6 +16,9 @@ gem "font-awesome-rails"
 #calendar
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
+#tables
+gem 'jquery-datatables', '~> 1.10', '>= 1.10.20'
+gem 'ajax-datatables-rails', '~> 1.2'
 #jquery
 gem 'jquery-rails', '~> 4.3', '>= 4.3.5'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
