@@ -5,7 +5,10 @@ class MaintaincesController < ApplicationController
   # GET /maintainces
   # GET /maintainces.json
   def index
-    @maintainces = Maintaince.where(device_id: @device.id)
+    respond_to do |format|
+    format.html
+    format.json { render json: MaintainceDatatable.new(params,{view_context: view_context,device: @device, current_user: current_user}) }
+  end
   end
 
   # GET /maintainces/1

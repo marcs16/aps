@@ -4,6 +4,7 @@ class DeviceDatatable < AjaxDatatablesRails::ActiveRecord
     # Declare strings in this format: ModelName.column_name
     # or in aliased_join_table.column_name format
     @view_columns ||= {
+      owner: {source: 'Device.user_id', cond: :like, searchable: true, orderable: true},
       name:     { source: 'Device.name', cond: :like, searchable: true, orderable: true },
       type_of_device:        { source: 'Device.type_of_device', cond: :like, searchable: true, orderable: true },
       number:         { source: 'Device.number', searchable: false, orderable: true },
@@ -19,6 +20,7 @@ class DeviceDatatable < AjaxDatatablesRails::ActiveRecord
   def data
     records.map do |record|
       {
+        owner: user_name(record.user_id),
         name: record.name, 
         type_of_device: record.type_of_device, 
         number: record.number, 

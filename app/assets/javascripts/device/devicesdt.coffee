@@ -1,11 +1,13 @@
 $ ->
   $('#devices-datatable').dataTable
+    destroy: true
     processing: true
     serverSide: true
     ajax:
-      url: $('#users-datatable').data('source')
+      url: $('#devices-datatable').data('source')
     pagingType: 'full_numbers'
     columns: [
+      {data: 'owner'}
       {data: 'name'}
       {data: 'type_of_device'}
       {data: 'number'}
