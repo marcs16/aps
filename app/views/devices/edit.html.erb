@@ -16,7 +16,75 @@
                     <i class="fa fa-minus"></i></button>
                 </div>
               </div>
-              <%= render 'form', device: @device %>
+              <div class="card-body">
+                <%= form_for(@device, url: {action: 'update'}, html: { method: :put, class: 'form-horizontal' }) do |f| %>
+                  <% if @device.errors.any? %>
+                    <div id="error_explanation">
+                      <h2><%= pluralize(@device.errors.count, "error") %> prohibited this @device from being saved:</h2>
+
+                      <ul>
+                      <% @device.errors.full_messages.each do |message| %>
+                        <li><%= message %></li>
+                      <% end %>
+                      </ul>
+                    </div>
+                  <% end %>
+                <form class="form-horizontal">
+                  <div class="form-group row">
+                    <%= f.label :name,"Nombre de dispositivo", class:"col-sm-3 col-form-label" %>
+                    <div class="col-sm-8">
+                      <%= f.text_field :name, autofocus: true, autocomplete: "text" , class:"form-control"%>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <%= f.label :type_of_device, "Tipo de dispositivo", class: "col-sm-3 col-form-label" %>
+                    <div class="col-sm-8">
+                      <%= f.select :type_of_device, options_for_type_of_device,{},selected: @device.type_of_device, class:"form-control"%> 
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <%=f.label :number, "Número de dispositivo", class:"col-sm-3 col-form-label"%>
+                    <div class="col-sm-8">
+                      <%= f.text_field :number, required: true, autofocus: true, class:"form-control"%>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <%=f.label :operative_system, "Sistema operativo", class:"col-sm-3 col-form-label"%>
+                    <div class="col-sm-8">
+                      <%=f.select :operative_system, options_for_operative_system,{},selected: @device.operative_system, class:"form-control"%>
+                    </div>
+                  </div>
+                   <div class="form-group row">
+                    <%=f.label :processor, "Procesador del dispositivo", class:"col-sm-3 col-form-label"%>
+                    <div class="col-sm-8">
+                      <%=f.select :processor, options_for_processor,{}, selected: @device.processor, class:"form-control"%>
+                    </div>
+                  </div>
+                   <div class="form-group row">
+                    <%=f.label :memory, "Memoria del dispositivo", class:"col-sm-3 col-form-label"%>
+                    <div class="col-sm-8">
+                      <%=f.select :memory, options_for_memory,{}, selected: @device.memory, class:"form-control"%>
+                    </div>
+                  </div>
+                   <div class="form-group row">
+                    <%=f.label :mac, "Mac del dispositivo", class:"col-sm-3 col-form-label"%>
+                    <div class="col-sm-8">
+                      <%= f.text_field :mac, autofocus: true, class:"form-control" %>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class="offset-sm-2 col-sm-8">
+                      <%= f.submit class:"btn btn-primary" %>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class="offset-sm-2 col-sm-8">
+                      <%= link_to "Atrás", :back , class:"btn btn-primary fa fa-arrow-left"%>
+                    </div>
+                  </div>
+                </form>
+                <% end %>
+              </div><!-- /.card-body -->
             </div>
             <!-- /.nav-tabs-custom -->
           </div>

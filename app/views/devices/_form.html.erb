@@ -22,7 +22,7 @@
     <div class="form-group row">
       <%= f.label :type_of_device, "Tipo de dispositivo", class: "col-sm-3 col-form-label" %>
       <div class="col-sm-8">
-        <%= f.select :type_of_device, options_for_type_of_device,{}, :include_blank => "Seleccione uno" , class:"form-control"%> 
+        <%= f.select :type_of_device, options_for_type_of_device,{:include_blank => "Seleccione un tipo" }, class:"form-control"%> 
       </div>
     </div>
     <div class="form-group row">
@@ -34,25 +34,25 @@
     <div class="form-group row">
       <%=f.label :operative_system, "Sistema operativo", class:"col-sm-3 col-form-label"%>
       <div class="col-sm-8">
-      <%= f.text_field :operative_system,required: true, autofocus: true, class:"form-control" %>
+        <%=f.select :operative_system, options_for_operative_system,{:include_blank=> "Seleccione un sistema operativo"}, class:"form-control"%>
       </div>
     </div>
      <div class="form-group row">
       <%=f.label :processor, "Procesador del dispositivo", class:"col-sm-3 col-form-label"%>
       <div class="col-sm-8">
-      <%= f.text_field :processor,required: true, autofocus: true, class:"form-control" %>
+        <%=f.select :processor, options_for_processor,{:include_blank=> "Seleccione un procesador"}, class:"form-control"%>
       </div>
     </div>
      <div class="form-group row">
       <%=f.label :memory, "Memoria del dispositivo", class:"col-sm-3 col-form-label"%>
       <div class="col-sm-8">
-      <%= f.text_field :memory, autofocus: true, class:"form-control" %>
+        <%=f.select :memory, options_for_memory,{:include_blank=> "Seleccione cantidad de memoria"}, class:"form-control"%>
       </div>
     </div>
      <div class="form-group row">
       <%=f.label :mac, "Mac del dispositivo", class:"col-sm-3 col-form-label"%>
       <div class="col-sm-8">
-      <%= f.text_field :mac, autofocus: true, class:"form-control" %>
+        <%= f.text_field :mac, autofocus: true, class:"form-control" %>
       </div>
     </div>
     <div class="form-group row">

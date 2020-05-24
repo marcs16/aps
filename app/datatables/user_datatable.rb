@@ -38,8 +38,7 @@ class UserDatatable < AjaxDatatablesRails::ActiveRecord
 
   private 
   def actions(record)
-    sarta = "<a href ='#{options[:edit].gsub('_',record.id.to_s)}'><i class='fa fa-edit'></i></a>"
-    sarta +=  " | <a href ='#{options[:reset_password].gsub('_',record.id.to_s)}'><i class='fa fa-lock'></i></a>"
-    sarta +=  " | <a href ='#{options[:reset_password].gsub('_',record.id.to_s)}'><i class='fa fa-lock'></i></a>"
+    sarta =  "<a href ='#{options[:edit].gsub('_',record.id.to_s)}'> <i class='fa fa-edit'></i></a>"
+    sarta +=  " | <a href ='#{options[:reset_password].gsub('_',record.id.to_s)}'> <i class='fa fa-lock'></i></a>"
   end
 end
