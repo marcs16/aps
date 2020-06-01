@@ -1,4 +1,13 @@
 class UserDatatable < AjaxDatatablesRails::ActiveRecord
+  extend Forwardable
+
+  def_delegators :@view,  :users_reset_password_path
+
+  def initialize(params, opts = {})
+    @view = opts[:view_context]
+    super
+  end
+
 
   def view_columns
     # Declare strings in this format: ModelName.column_name
@@ -39,6 +48,6 @@ class UserDatatable < AjaxDatatablesRails::ActiveRecord
   private 
   def actions(record)
     sarta =  "<a href ='#{options[:edit].gsub('_',record.id.to_s)}'> <i class='fa fa-edit'></i></a>"
-    sarta +=  " | <a href ='#{options[:reset_password].gsub('_',record.id.to_s)}'> <i class='fa fa-lock'></i></a>"
+    sarta +=  " | <a href ='#{users_reset_password_path(record)}'> <i class='fa fa-lock'></i></a>"
   end
 end
