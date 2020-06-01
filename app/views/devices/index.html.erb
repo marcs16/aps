@@ -7,7 +7,10 @@
         <p id="notice"><%= notice %></p>
 
         <h1>Devices</h1>
-
+        <div style="margin-bottom: 20px;margin-top: 20px; ">
+          <%= link_to 'Nueva reunión', new_device_path, class:'btn btn-primary '%>
+          <button id="btn-rel" class=" btn btn-primary">Recargar tabla</button>
+        </div>
         <table id="devices-datatable" data-source="<%= devices_path(format: :json) %>">
           <thead>
             <tr>
@@ -25,9 +28,6 @@
           <tbody>
           </tbody>
         </table>
-
-
-        <%= link_to 'New Device', new_device_path %>
       </div> 
     </div>
   </section>

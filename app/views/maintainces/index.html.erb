@@ -7,6 +7,9 @@
         <p id="notice"><%= notice %></p>
 
         <h1>Mantenimientos</h1>
+        <div style="margin-bottom: 20px;margin-top: 20px; ">
+              <%= link_to 'Agregar mantenimiento', new_device_maintaince_path, class:'btn btn-primary '%>
+            </div>
 
         <table id="maintainces-datatable" data-source="<%= device_maintainces_path(format: :json) %>">
           <thead >
@@ -25,7 +28,6 @@
           </tbody>
         </table>
 
-        <%= link_to 'Agregar mantenimiento', new_device_maintaince_path %>
       </div> 
     </div>
   </section>

@@ -1,4 +1,5 @@
 $ ->
+  
   $('#users-datatable').dataTable
     processing: true
     serverSide: true
@@ -16,4 +17,5 @@ $ ->
       {data: 'working_since'}
       {data: 'links'}
     ]
+    
   

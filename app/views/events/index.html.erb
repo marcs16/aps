@@ -8,6 +8,9 @@
           <div class="col-md-12">
             <h2>Reuniones</h2>
             <p id="notice"><%= notice %></p>
+            <div style="margin-bottom: 20px;margin-top: 20px; ">
+              <%= link_to 'Nueva reunión', new_event_path, class:'btn btn-primary '%>
+            </div>
             <div class="card card-primary">
               <div class="card-header">
                 <h3>Reuniones Aguas del Páramo</h3>
@@ -34,46 +37,3 @@
   </div>
 </div>
     
-
-
-
-<p id="notice"><%= notice %></p>
-
-<h1>Events</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Start date</th>
-      <th>End date</th>
-      <th>Members</th>
-      <th>User</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @events.each do |event| %>
-      <tr>
-        <td><%= event.title %></td>
-        <td><%= event.description %></td>
-        <td><%= event.start_date %></td>
-        <td><%= event.end_date %></td>
-        <td><%= JSON.parse(event.members).reject(&:empty?).join(", ") %></td>
-        <td><%= event.user.full_name %></td>
-        <td><%= link_to 'Show', event %></td>
-        <td><%= link_to 'Edit', edit_event_path(event) %></td>
-        <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-
-
-
-<%= link_to 'New Event', new_event_path %>

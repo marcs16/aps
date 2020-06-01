@@ -1,4 +1,5 @@
 $(document).ready(function() {
+	/* For editing password see characters*/
 		$(".current-psd").click(function(event) {
 			event.preventDefault();
 			$(this).removeClass("fa fa-eye");
@@ -12,7 +13,7 @@ $(document).ready(function() {
 	  	$(this).addClass("fa fa-eye");
 	  }
 	});
-
+    
 	$(".new-psd").click(function(event) {
 			event.preventDefault();
 			$(this).removeClass("fa fa-eye");
@@ -47,4 +48,10 @@ $(document).ready(function() {
     // Alternative animation for example
     // slideToggle("fast");
   });
+  /*For reload datatable*/
+  $('#btn-rel').click(function(event) {
+  	event.preventDefault();
+  	$('#users-datatable').DataTable.ajax.reload();
+  });
+ 
 });

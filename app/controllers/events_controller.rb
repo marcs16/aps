@@ -4,14 +4,26 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @events = Event.all
+    @event = Hash.new
+    @events= Event.where("members  ILIKE ANY ( array[?] )", "%#{current_user.full_name}%")
+
+    @evs = Event.all.select(:id,:members)
+    #@evs.each do |membs|
+    #  @event[membs.id] = JSON.parse(membs[:members])
+    #  if @event[membs.id].include? current_user.full_name
+    #    @events = Event.where(id: membs.id)
+    #  end
+    #end
+
+    
   end
 
   # GET /events/1
   # GET /events/1.json
   def show
     @current_event = JSON.parse(@event.members)
-    @eve = @current_event.reject(&:empty?).join(", ")
+    #@eve = @current_event.reject(&:empty?).join(", ")
+
   end
 
   # GET /events/new
@@ -23,6 +35,7 @@ class EventsController < ApplicationController
   def edit
     @users = User.select("full_name") 
     @current_event = JSON.parse(@event.members)
+
   end
 
   # POST /events

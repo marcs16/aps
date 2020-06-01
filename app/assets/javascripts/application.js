@@ -14,7 +14,6 @@
 //= require jquery
 //= require activestorage
 //= require bootstrap-sprockets
-//= require turbolinks
 //= require datatables
 //= require moment 
 //= require fullcalendar
@@ -31,5 +30,7 @@
 //= require select2/selects.js
 //= require select2/select2.js
 //= require select2/select2.full.js
+//= require turbolinks
+
 //= require_tree .
 
