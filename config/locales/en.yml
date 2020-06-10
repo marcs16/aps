@@ -30,4 +30,97 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  activerecord:
+    models:
+      device:
+        one: Device
+        other: Devices
+      Event:
+        one: Event
+        other: Events
+      language:
+        one: Language
+        other: Languages
+      maintaince:
+        one: maintaince
+        other: maintainces
+    attributes:
+        device:
+          name: Name of device
+          type_of_device: type of device
+          number: Number
+          operative_system: operative system
+          processor: processor
+          memory: Memory
+          mac: Mac
+          owner: User
+        event:
+          title: Title
+          description: Description
+          start_date: Start date
+          end_date: End date
+          members: Members
+          created_at: Created by
+        language:
+          abbreviation: Abbreviation
+          description: Description
+        maintaince:
+          name: Name
+          description: Description
+          date: Date of maintaince
+          device: Device
+          owner: User
+        user:
+          email: Email
+          full_name: Full name
+          type_of_id: Type of document
+          number_of_id: Document
+          telephone: Celphone
+          position: Position
+          date_of_birth: Date of birth
+          working_since:  Working since
+          can_login: Still working?
+  errors:
+    # The default format to use in full error messages.
+    format: '%{attribute} %{message}'
+    # The values :model, :attribute and :value are always available for interpolation
+    # The value :count is available when applicable. Can be used for pluralization.
+    messages:
+      taken: Already taken for another registry. 
+      inclusion: There is no included into the list.
+      exclusion: this is reserved.
+      invalid: this is invalid.
+      confirmation: There is no coincidence wthish %{attribute}
+      accepted: this should be accepted.
+      empty: this cannot be empty.
+      blank: this cannot be blank.
+      present: this should be in blank.
+      too_long:
+        one: this is too long (1 character maximum).
+        other: this is too long (%{count} characters maximum).
+      too_short:
+        one: this is too short (1 character at least).
+        other: this is too short (%{count} characters at least).
+      wrong_length:
+        one: this has a right lenght(this should be  1 character).
+        other: this has a right lenght(this should be %{count} characters).
+      not_a_number: this is not a number.
+      not_an_integer: this should be an integer.
+      greater_than: this should be greater than %{count}.
+      greater_than_or_equal_to: this should be greater or equal than %{count}.
+      equal_to: this should be equal to %{count}.
+      less_than: this should be less than %{count}.
+      less_than_or_equal_to: this should be less or equal than %{count}.
+      other_than: this should be different than %{count}.
+      odd: this should be an odd.
+      even: this should be a pair.
+      required: this is required.
+  helpers:
+    button:
+      add: "Add %{model}"
+      evaluate: "Evaluate %{model}"
+      edit: Edit
+      show: Show
+    submmit:
+      create: "Create %{model}"
+      update: "Update %{model}"

@@ -14,6 +14,7 @@
             <span class="badge badge-danger navbar-badge">3</span>
           </a>
         <!-- Notifications Dropdown Menu -->
+
         <li class="nav-item dropdown">
           <a class="nav-link" data-toggle="dropdown" href="#">
             <i class="fa fa-bell"></i>
@@ -40,6 +41,24 @@
             <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
           </div>
         </li>
+        <div class="dropdown pull-left" id="links-languages">
+          <button aria-expanded="true" aria-haspopup="true" class="btn btn-default dropdown-toggle" data-toggle="dropdown" id="dropdownLanguage" type="button">
+            <span class="flag-icon flag-icon-<%= I18n.locale.to_s %>"></span>
+            <span class="caret"></span>
+          </button>
+          <ul aria-labelledby="dropdownLanguage" class="dropdown-menu">
+            <% Language.where.not(abbreviation: I18n.locale.to_s).each do |language| %>
+              <li>
+                <a class="change_language" data-abbr="<%= language.abbreviation %>" data-url="<%= change_language_languages_path %>">
+                  <span class="flag-icon flag-icon-<%= language.abbreviation %>"></span>
+                  <span>
+                    <%= language.description %>
+                  </span>
+                </a>
+              </li>
+            <% end %>
+          </ul>
+        </div>
       </ul>
 
       <!-- SEARCH FORM -->

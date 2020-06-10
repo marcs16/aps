@@ -30,6 +30,8 @@
 //= require select2/selects.js
 //= require select2/select2.js
 //= require select2/select2.full.js
+//= require languages
+//= require call_ajax
 //= require turbolinks
 
 //= require_tree .

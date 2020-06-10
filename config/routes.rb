@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
   
+  resources :languages do
+      get '/change_language', to: 'languages#change_language', as: 'change_language', on: :collection
+  end
+  
   resources :events
   resources :devices do
     collection {post :import}

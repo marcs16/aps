@@ -3,12 +3,10 @@
   <%= form_with(model: device, local: true) do |f| %>
     <% if device.errors.any? %>
       <div id="error_explanation">
-        <h2><%= pluralize(device.errors.count, "error") %> prohibited this device from being saved:</h2>
-
         <ul>
-        <% device.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
+          <% device.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
         </ul>
       </div>
     <% end %>

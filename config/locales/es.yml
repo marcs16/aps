@@ -1,0 +1,96 @@
+es:
+  activerecord:
+    models:
+      device:
+        one: Dispositivo
+        other: Dispositivos
+      Event:
+        one: Reunión
+        other: Reuniones
+      language:
+        one: Idioma
+        other: Idiomas
+      maintaince:
+        one: Mantenimiento  
+        other: Mantenimientos
+    attributes:
+        device:
+          name: Nombre del Dispositivo
+          type_of_device: Tipo de Dispositivo
+          number: Número del Dispositivo
+          operative_system: Sistema operativo del Dispositivo
+          processor: Procesador del Dispositivo
+          memory: Memoria del Dispositivo
+          mac: Mac del Dispositivo
+          owner: Usuario del Dispositivo
+        event:
+          title: Nombre de la Reunión
+          description: Motivo de la Reunión
+          start_date: Inicio de la Reunión
+          end_date: Fin de la Reunión
+          members: Participantes
+          created_at: Creada por
+        language:
+          abbreviation: Abreviación
+          description: Descripcción
+        maintaince:
+          name: Nombre del Mantenimiento
+          description: Descripcción del Mantenimiento
+          date: Fecha de realización
+          device: Dispositivo
+          owner: Usuario del Dispositivo
+        user:
+          email: Correo Electrónico
+          full_name: Nombre Completo
+          type_of_id: Tipo de documento
+          number_of_id: Número de documento
+          telephone: Celular
+          position: Cargo
+          date_of_birth: Fecha de Nacimiento
+          working_since: Trabaja desde
+          can_login: ¿Esta activo?
+  errors:
+    # The default format to use in full error messages.
+    format: '%{attribute} %{message}'
+    # The values :model, :attribute and :value are always available for interpolation
+    # The value :count is available when applicable. Can be used for pluralization.
+    messages:
+      taken: ya ha sido tomado por otro registro
+      inclusion: no esta incluido en la lista
+      exclusion: esta reservado
+      invalid: no es valido
+      confirmation: no coincide con %{attribute}
+      accepted: debe ser aceptada
+      empty: no puede estar vacio
+      blank: no puede estar en blanco
+      present: debe estar en blanco
+      too_long:
+        one: es demasiado largo (1 caracter maximo)
+        other: es demasiado largo (%{count} caracteres maximo)
+      too_short:
+        one: es demasiado corto (1 caracter m&iacute;nimo)
+        other: es demasiado corto (%{count} caracteres m&iacute;nimo)
+      wrong_length:
+        one: tiene una longitud incorrecta (debe tener 1 caracter)
+        other: tiene una longitud incorrecta (debe tener %{count} caracteres)
+      not_a_number: no es un número
+      not_an_integer: debe ser un número entero
+      greater_than: debe ser mayor que %{count}
+      greater_than_or_equal_to: debe ser mayor o igual a %{count}
+      equal_to: debe ser igual a %{count}
+      less_than: debe ser menor que %{count}
+      less_than_or_equal_to: debe ser menor o igual a %{count}
+      other_than: debe ser diferente de %{count}
+      odd: debe ser impar
+      even: debe ser par
+      required: debe existir
+  helpers:
+    button:
+      add: "Adicionar %{model}"
+      evaluate: "Evaluar %{model}"
+      edit: Editar
+      show: Ver
+
+    submit:
+      create: "Crear %{model}"
+      update: "Actualizar %{model}"

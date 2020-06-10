@@ -1,0 +1,38 @@
+<div class="dropdown pull-left" id="links-languages">
+  <button aria-expanded="true" aria-haspopup="true" class="btn btn-default" data-toggle="dropdown" id="dropdownLanguage" type="button">
+    <span class="flag-icon flag-icon-<%= I18n.locale.to_s %>"></span>
+    <span class="caret"></span>
+  </button>
+  <ul aria-labelledby="dropdownLanguage" class="dropdown-menu">
+    <% Language.where.not(abbreviation: I18n.locale.to_s).each do |language| %>
+      <li>
+        <a class="change_language" data-abbr="<%= language.abbreviation %>" data-url="<%= change_language_languages_path %>">
+          <span class="flag-icon flag-icon-<%= language.abbreviation %>"></span>
+          <span>
+            <%= language.description %>
+          </span>
+        </a>
+      </li>
+    <% end %>
+  </ul>
+</div>
+
+
+<h1><%=t('activerecord.models.language.one')%></h1>
+
+<table class="responsive nowrap table table-hover" id="dttb-languages" data-sort="true" data-source="<%= url_for(format: :json)%>">
+  <thead>
+    <tr>
+      <th data-data="abbreviation"><%= Language.human_attribute_name(:abbreviation)%></th>
+      <th data-data="description"><%= Language.human_attribute_name(:description)%></th>
+      
+    </tr>
+  </thead>
+
+</table>
+
+<br>
+
+<%= link_to t('helpers.submit.create', model: model_name_singular(Language)), new_language_path %>
+
+
