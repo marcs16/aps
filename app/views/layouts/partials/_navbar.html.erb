@@ -42,7 +42,7 @@
           </div>
         </li>
         <div class="dropdown pull-left" id="links-languages">
-          <button aria-expanded="true" aria-haspopup="true" class="btn btn-default dropdown-toggle" data-toggle="dropdown" id="dropdownLanguage" type="button">
+          <button aria-expanded="true" aria-haspopup="true" class="btn btn-default" data-toggle="dropdown" id="dropdownLanguage" type="button"><%= t('helpers.button.switch', model: model_name_singular(Language))%>
             <span class="flag-icon flag-icon-<%= I18n.locale.to_s %>"></span>
             <span class="caret"></span>
           </button>
@@ -97,13 +97,13 @@
                 <li class="nav-item">
                   <div  class="nav-link">
                     <i class="fa fa-circle nav-icon"></i>
-                    <p><%=link_to ' Editar Perfil', edit_user_registration_path, style:"font-size: 1.5rem;"%></p>
+                    <p><%=link_to t('app_common.navbar.profile.edit_profile'), edit_user_registration_path, style:"font-size: 1.5rem;"%></p>
                   </div>
                 </li>
                 <li class="nav-item">
                   <div class="nav-link">
                     <i class="fa fa-circle nav-icon"></i>
-                    <p><%= link_to 'Cerrar Sesión', destroy_user_session_path , method: :delete ,style:"font-size: 1.5rem;"%></p>
+                    <p><%= link_to t('app_common.navbar.close_session'), destroy_user_session_path , method: :delete ,style:"font-size: 1.5rem;"%></p>
                   </div>
                 </li>
 
@@ -118,7 +118,7 @@
               <div  class="nav-link user-panel mt-3 pb-3 mb-3 d-flex">
                 <p>
                   <i class=" fa fa-user"></i>
-                  <%=link_to 'Usuarios', users_index_path, style:"font-size: 1.5rem;color:white;"%></p>
+                  <%=link_to t('app_common.navbar.users'), users_index_path, style:"font-size: 1.5rem;color:white;"%></p>
                   <span class="right badge badge-danger"></span>
                 </p>
               </div>
@@ -127,7 +127,7 @@
               <div  class="nav-link user-panel mt-3 pb-3 mb-3 d-flex">
                 <p>
                   <i class=" fa fa-tv  "></i>
-                  <%=link_to 'Dispositivos', devices_path, style:"font-size: 1.5rem;color:white;"%></p>
+                  <%=link_to t('app_common.navbar.devices'), devices_path, style:"font-size: 1.5rem;color:white;"%></p>
                   <span class="right badge badge-danger"></span>
                 </p>
               </div>
@@ -136,7 +136,7 @@
               <div  class="nav-link user-panel mt-3 pb-3 mb-3 d-flex">
                 <p>
                   <i class="fa fa-calendar "></i>
-                  <%=link_to 'Reuniones', events_path, style:"font-size: 1.5rem;color:white;"%></p>
+                  <%=link_to t('app_common.navbar.meetings'), events_path, style:"font-size: 1.5rem;color:white;"%></p>
                   <span class="right badge badge-danger"></span>
                 </p>
               </div>

@@ -68,12 +68,15 @@ class LanguagesController < ApplicationController
     if language.present?
       session[:selected_language] = language.abbreviation
       selected_language = session[:selected_language]
+      
     end
     respond_to do |format|
       format.json { render json: { language: selected_language } }
     end
+    
   end
-
+  
+ 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_language

@@ -13,6 +13,9 @@ es:
       maintaince:
         one: Mantenimiento  
         other: Mantenimientos
+      user:
+        one: Usuario
+        other: Usuarios
     attributes:
         device:
           name: Nombre del Dispositivo
@@ -40,7 +43,7 @@ es:
           device: Dispositivo
           owner: Usuario del Dispositivo
         user:
-          email: Correo Electrónico
+          email: Email
           full_name: Nombre Completo
           type_of_id: Tipo de documento
           number_of_id: Número de documento
@@ -88,9 +91,23 @@ es:
     button:
       add: "Adicionar %{model}"
       evaluate: "Evaluar %{model}"
+      switch: "Cambiar %{model}"
+      edit_model: "Editar %{model}"
+      show_model: "Ver %{model}"
       edit: Editar
       show: Ver
-
+      back: Atrás
     submit:
       create: "Crear %{model}"
       update: "Actualizar %{model}"
+  app_common:
+    navbar:
+      profile:
+        prof: "Perfil"
+        edit_profile: "Editar Perfil"
+      users: "Usuarios"
+      devices: "Dispositivos"
+      meetings: "Reuniones"
+      close_session: "Cerrar Sesión"
+    tables:
+      options: "Opcciones"

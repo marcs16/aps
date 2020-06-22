@@ -6,10 +6,10 @@
       <div class="container-fluid">
         <div class="row">
           <div class="col-md-9">
-            <h2>Editar Usuario</h2>
+            <h2><%= t('app_common.navbar.profile.edit_profile')%></h2>
             <div class="card card-primary">
               <div class="card-header">
-                <h3>Perfil</h3>
+                <h3><%=t('app_common.navbar.profile.prof')%></h3>
                 <div class="card-tools">
                   <button type="button" class="btn btn-tool btn-sm" data-card-widget="collapse" data-toggle="tooltip"
                           title="Collapse">
@@ -34,62 +34,62 @@
                   <% end %>
                 <form class="form-horizontal">
                   <div class="form-group row">
-                    <%= f.label :full_name,"Nombre Completo", class:"col-sm-3 col-form-label" %>
+                    <%= f.label :full_name,t('activerecord.attributes.user.full_name'), class:"col-sm-3 col-form-label" %>
                     <div class="col-sm-8">
                       <%= f.text_field :full_name, autofocus: true, autocomplete: "text" , class:"form-control"%>
                     </div>
                   </div>
                   <div class="form-group row">
-                    <%= f.label :email, "Email", class: "col-sm-3 col-form-label" %>
+                    <%= f.label :email,t('activerecord.attributes.user.email'), class: "col-sm-3 col-form-label" %>
                     <div class="col-sm-8">
                       <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
                     </div>
                   </div>
                   <div class="form-group row">
-                    <%=f.label :type_of_id, "Tipo de documento", class:"col-sm-3 col-form-label"%>
+                    <%=f.label :type_of_id,t('activerecord.attributes.user.type_of_id'), class:"col-sm-3 col-form-label"%>
                     <div class="col-sm-8">
-                      <%= f.text_field :type_of_id, required: true, autofocus: true, class:"form-control"%>
+                      <%= f.select :type_of_id,options_for_type_of_document,{},selected: @user.type_of_id, autofocus: true, class:"form-control"%>
                     </div>
                   </div>
                   <div class="form-group row">
-                    <%=f.label :number_of_id, "Documento", class:"col-sm-3 col-form-label"%>
+                    <%=f.label :number_of_id,t('activerecord.attributes.user.number_of_id'), class:"col-sm-3 col-form-label"%>
                     <div class="col-sm-8">
                     <%= f.text_field :number_of_id,required: true, autofocus: true, class:"form-control" %>
                     </div>
                   </div>
                    <div class="form-group row">
-                    <%=f.label :position, "Cargo que ocupa", class:"col-sm-3 col-form-label"%>
+                    <%=f.label :position,t('activerecord.attributes.user.position'), class:"col-sm-3 col-form-label"%>
                     <div class="col-sm-8">
                     <%= f.select :position,options_for_position,{},selected: @user.position, autofocus: true, class:"form-control"%>
                     </div>
                   </div>
                    <div class="form-group row">
-                    <%=f.label :telephone, "Celular", class:"col-sm-3 col-form-label"%>
+                    <%=f.label :telephone, t('activerecord.attributes.user.telephone'), class:"col-sm-3 col-form-label"%>
                     <div class="col-sm-8">
                     <%= f.text_field :telephone, autofocus: true, class:"form-control" %>
                     </div>
                   </div>
                    <div class="form-group row">
-                    <%=f.label :date_of_birth, "Fecha de nacimiento", class:"col-sm-3 col-form-label"%>
+                    <%=f.label :date_of_birth,t('activerecord.attributes.user.date_of_birth'), class:"col-sm-3 col-form-label"%>
                     <div class="col-sm-8">
                     <%= f.date_field :date_of_birth,min: "01-01-1950",value: @user.date_of_birth, autofocus: true, class:"form-control"%>
                     </div>
                   </div>
                   <div class="form-group row">
-                    <%=f.label :working_since, "Trabaja desde", class:"col-sm-3 col-form-label"%>
+                    <%=f.label :working_since,t('activerecord.attributes.user.working_since'), class:"col-sm-3 col-form-label"%>
                     <div class="col-sm-8">
                     <%= f.date_field :working_since,min:"01-01-2013",value: @user.working_since, autofocus: true, class:"form-control" %>
                     </div>
                   </div>
                   <div class="form-group row">
                     <div class="offset-sm-2 col-sm-8">
-                      <%= f.submit "Actualizar" , class:"btn btn-primary" %>
+                      <%= f.submit t('helpers.submit.update', model: model_name_singular(User)) , class:"btn btn-primary" %>
                     </div>
                     
                   </div>
                   <div class="form-group row">
                     <div class="offset-sm-2 col-sm-8">
-                      <%= link_to "Atrás", :back , class:"btn btn-primary fa fa-arrow-left"%>
+                      <%= link_to t('helpers.button.back'), :back , class:"btn btn-primary fa fa-arrow-left"%>
                     </div>
                   </div>
                 </form>

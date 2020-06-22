@@ -49,9 +49,5 @@ $(document).ready(function() {
     // slideToggle("fast");
   });
   /*For reload datatable*/
-  $('#btn-rel').click(function(event) {
-  	event.preventDefault();
-  	$('#users-datatable').DataTable.ajax.reload();
-  });
  
 });

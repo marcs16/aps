@@ -52,6 +52,19 @@ $(document).on('turbolinks:load', function() {
   if (!$.fn.DataTable.isDataTable("table[id^=dttb-]")) {
     $("table[id^=dttb-]").DataTable();
   }
+  $('#btn-rel-user').click(function(event) {
+    event.preventDefault();
+    window.location.reload();
+  });
+  $('#btn-rel-device').click(function(event) {
+    event.preventDefault();
+    window.location.reload();
+  });
+  $('#btn-rel-maintaince').click(function(event) {
+    event.preventDefault();
+    window.location.reload();
+  });
+ 
 });
 
 // turbolinks cache fix

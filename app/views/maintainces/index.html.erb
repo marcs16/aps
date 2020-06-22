@@ -3,12 +3,13 @@
   <!-- Content Header (Page header) -->
   <section class="content-header">
     <div class="container-fluid">
-      <div class="col-md-7">
+      <div class="col-md-8">
         <p id="notice"><%= notice %></p>
 
         <h1>Mantenimientos</h1>
         <div style="margin-bottom: 20px;margin-top: 20px; ">
               <%= link_to 'Agregar mantenimiento', new_device_maintaince_path, class:'btn btn-primary '%>
+              <button id="btn-rel-maintaince" class=" btn btn-primary">Recargar tabla</button>
             </div>
 
         <table id="maintainces-datatable" data-source="<%= device_maintainces_path(format: :json) %>">

@@ -14,7 +14,6 @@
 //= require jquery
 //= require activestorage
 //= require bootstrap-sprockets
-//= require datatables
 //= require moment 
 //= require fullcalendar
 //= require fullcalendar/locale-all
@@ -33,6 +32,7 @@
 //= require languages
 //= require call_ajax
 //= require turbolinks
+//= require datatables
 
 //= require_tree .
 

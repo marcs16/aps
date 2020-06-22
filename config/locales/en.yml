@@ -44,6 +44,9 @@ en:
       maintaince:
         one: maintaince
         other: maintainces
+      user:
+        one: Usuer
+        other: Users
     attributes:
         device:
           name: Name of device
@@ -119,8 +122,23 @@ en:
     button:
       add: "Add %{model}"
       evaluate: "Evaluate %{model}"
+      switch: "Change %{model}"
+      edit_model: "Edit %{model}"
+      show_model: "Show %{model}"
       edit: Edit
       show: Show
+      back: Back
     submmit:
       create: "Create %{model}"
       update: "Update %{model}"
+  app_common:
+    navbar:
+      profile:
+        prof: "Profile"
+        edit_profile: "Edit Profile"
+      users: "Users"
+      devices: "Devices"
+      meetings: "Meetings"
+      close_session: "Log Out"
+    tables:
+      options: "options"

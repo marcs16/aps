@@ -1,5 +1,8 @@
 module UsersHelper
-
+	def options_for_type_of_document
+    	['Cedula de ciudadania','Cedula de extranjeria',
+    	'Pasaporte']
+	end
 	def options_for_position
     	[
     		'Asistente Administrativo Y Financiero',

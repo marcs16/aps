@@ -1,17 +1,23 @@
 Rails.application.routes.draw do
 
-  
+  get 'welcome/index'
+  get 'welcome/indexlog'
+  resources :application do     
+    get 'application/current_language', to: 'application#current_language', as: 'c_language', on: :collection
+  end
   resources :languages do
       get '/change_language', to: 'languages#change_language', as: 'change_language', on: :collection
+
+      get '/current_language', to: 'languages#current_language', as: 'c_language', on: :collection
   end
-  
+
+ 
   resources :events
   resources :devices do
     collection {post :import}
     resources :maintainces
   end
-  get 'welcome/index'
-  get 'welcome/indexlog'
+
   resources :users,:only => [:new, :edit,:update]
   get 'users/index', to: 'users#index'
   get 'users/:id/edit', to: 'users#edit'

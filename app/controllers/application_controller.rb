@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
 		begin
 			unless session[:selected_language].present?
 				# Select Languages created in the system
-				languages = Language.select(:abbreviation).active
+				languages = Language.select(:abbreviation)
 				# Get Language browser client
 				language_browser = request.env['HTTP_ACCEPT_LANGUAGE'].split(',')[0].split(';')[0].sub('-', '_')
 
@@ -21,11 +21,14 @@ class ApplicationController < ActionController::Base
 		end
 
 		I18n.locale = session[:selected_language]
+		
 	end
-	
- 	protected
 
+ 	protected
   	def configure_permitted_parameters
     	devise_parameter_sanitizer.permit(:sign_up, keys: [:full_name,:email,:type_of_id,:number_of_id,:position,:date_of_birth,:working_since,:telephone])
   	end
+  	def current_language
+      @current_language = session[:selected_language] 
+    end
 end
