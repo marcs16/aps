@@ -42,10 +42,10 @@ en:
         one: Language
         other: Languages
       maintaince:
-        one: maintaince
-        other: maintainces
+        one: Maintaince
+        other: Maintainces
       user:
-        one: Usuer
+        one: User
         other: Users
     attributes:
         device:
@@ -73,6 +73,7 @@ en:
           date: Date of maintaince
           device: Device
           owner: User
+          done_by: Done by
         user:
           email: Email
           full_name: Full name
@@ -141,4 +142,5 @@ en:
       meetings: "Meetings"
       close_session: "Log Out"
     tables:
-      options: "options"
+      options: "Options"
+      reload_t: "Reload Table"

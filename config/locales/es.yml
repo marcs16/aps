@@ -42,6 +42,7 @@ es:
           date: Fecha de realización
           device: Dispositivo
           owner: Usuario del Dispositivo
+          done_by: Realizado por
         user:
           email: Email
           full_name: Nombre Completo
@@ -89,7 +90,7 @@ es:
       required: debe existir
   helpers:
     button:
-      add: "Adicionar %{model}"
+      add: "Nuevo %{model}"
       evaluate: "Evaluar %{model}"
       switch: "Cambiar %{model}"
       edit_model: "Editar %{model}"
@@ -111,3 +112,4 @@ es:
       close_session: "Cerrar Sesión"
     tables:
       options: "Opcciones"
+      reload_t: "Recargar Tabla"

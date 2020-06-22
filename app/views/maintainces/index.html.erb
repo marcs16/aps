@@ -6,21 +6,22 @@
       <div class="col-md-8">
         <p id="notice"><%= notice %></p>
 
-        <h1>Mantenimientos</h1>
+        <h1><%=t('activerecord.models.maintaince.other')%></h1>
         <div style="margin-bottom: 20px;margin-top: 20px; ">
-              <%= link_to 'Agregar mantenimiento', new_device_maintaince_path, class:'btn btn-primary '%>
-              <button id="btn-rel-maintaince" class=" btn btn-primary">Recargar tabla</button>
+              <%= link_to t('helpers.button.add', model: model_name_singular(Maintaince)), new_device_maintaince_path, class:'btn btn-primary '%>
+              <button id="btn-rel-maintaince" class=" btn btn-primary"><%=t('app_common.tables.reload_t')%></button>
             </div>
 
         <table id="maintainces-datatable" data-source="<%= device_maintainces_path(format: :json) %>">
           <thead >
             <tr>
-              <th>Realizado por</th>
-              <th>Nombre</th>
-              <th>Description</th>
-              <th>Fecha</th>
-              <th>Dispositivo</th>
-              <th>Acciones</th>
+             
+              <th><%=Maintaince.human_attribute_name(:done_by)%> </th>
+              <th><%=Maintaince.human_attribute_name(:name)%></th>
+              <th><%=Maintaince.human_attribute_name(:description)%> </th>
+              <th><%=Maintaince.human_attribute_name(:date)%></th>
+              <th><%=Maintaince.human_attribute_name(:device)%></th>
+              <th><%=t('app_common.tables.options')%></th>
               <th colspan="3"></th>
             </tr>
           </thead>

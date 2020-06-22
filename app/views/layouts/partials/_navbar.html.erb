@@ -42,7 +42,7 @@
           </div>
         </li>
         <div class="dropdown pull-left" id="links-languages">
-          <button aria-expanded="true" aria-haspopup="true" class="btn btn-default" data-toggle="dropdown" id="dropdownLanguage" type="button"><%= t('helpers.button.switch', model: model_name_singular(Language))%>
+          <button aria-expanded="true" aria-haspopup="true" class="btn btn-default" data-toggle="dropdown" id="dropdownLanguage" type="button" data-abbr="<%= I18n.locale.to_s %>"><%= t('helpers.button.switch', model: model_name_singular(Language))%>
             <span class="flag-icon flag-icon-<%= I18n.locale.to_s %>"></span>
             <span class="caret"></span>
           </button>
