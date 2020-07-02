@@ -41,24 +41,7 @@
             <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
           </div>
         </li>
-        <div class="dropdown pull-left" id="links-languages">
-          <button aria-expanded="true" aria-haspopup="true" class="btn btn-default" data-toggle="dropdown" id="dropdownLanguage" type="button" data-abbr="<%= I18n.locale.to_s %>"><%= t('helpers.button.switch', model: model_name_singular(Language))%>
-            <span class="flag-icon flag-icon-<%= I18n.locale.to_s %>"></span>
-            <span class="caret"></span>
-          </button>
-          <ul aria-labelledby="dropdownLanguage" class="dropdown-menu">
-            <% Language.where.not(abbreviation: I18n.locale.to_s).each do |language| %>
-              <li>
-                <a class="change_language" data-abbr="<%= language.abbreviation %>" data-url="<%= change_language_languages_path %>">
-                  <span class="flag-icon flag-icon-<%= language.abbreviation %>"></span>
-                  <span>
-                    <%= language.description %>
-                  </span>
-                </a>
-              </li>
-            <% end %>
-          </ul>
-        </div>
+        <%=render 'layouts/partials/language_switcher'%>
       </ul>
 
       <!-- SEARCH FORM -->

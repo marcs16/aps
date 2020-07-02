@@ -374,6 +374,14 @@ en:
       short: "%d %b %H:%M"
     pm: pm
   app_common:
+    session:
+      company: "APS E.S.P S.A.S"
+      acc: "Have an account??"
+      no_acc: "Have no account yet ??"
+      register: "Push the button down below and sign up"
+      sign_in: "push the button down below and sign in"
+      sign_up: "Sign up"
+      login: "LogIn"
     edits:
       editing: "Editing %{model}:"
     navbar:
