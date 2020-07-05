@@ -382,8 +382,18 @@ en:
       sign_in: "push the button down below and sign in"
       sign_up: "Sign up"
       login: "LogIn"
+      selector:
+        document: "Document"
+        position: "Position"
+        phone: "Phone"
+        select_type: "Select a type"
+        select_os: "Select an operative system"
+        select_processor: "Select a processor"
+        select_ram: "Ram quantity"
     edits:
       editing: "Editing %{model}:"
+      shows:
+      showing: "Showing %{model}:"
     navbar:
       profile:
         prof: "Profile"

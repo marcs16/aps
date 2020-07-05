@@ -12,43 +12,43 @@
     <% end %>
   <form class="form-horizontal">
     <div class="form-group row">
-      <%= f.label :name,"Nombre de dispositivo", class:"col-sm-3 col-form-label" %>
+      <%= f.label :name,t('activerecord.attributes.device.name'), class:"col-sm-3 col-form-label" %>
       <div class="col-sm-8">
         <%= f.text_field :name, autofocus: true, autocomplete: "text" , class:"form-control"%>
       </div>
     </div>
     <div class="form-group row">
-      <%= f.label :type_of_device, "Tipo de dispositivo", class: "col-sm-3 col-form-label" %>
+      <%= f.label :type_of_device, t('activerecord.attributes.device.type_of_device'), class: "col-sm-3 col-form-label" %>
       <div class="col-sm-8">
-        <%= f.select :type_of_device, options_for_type_of_device,{:include_blank => "Seleccione un tipo" }, class:"form-control"%> 
+        <%= f.select :type_of_device, options_for_type_of_device,{:include_blank => t('app_common.selector.select_type') }, class:"form-control"%> 
       </div>
     </div>
     <div class="form-group row">
-      <%=f.label :number, "Número de dispositivo", class:"col-sm-3 col-form-label"%>
+      <%=f.label :number, t('activerecord.attributes.device.number'), class:"col-sm-3 col-form-label"%>
       <div class="col-sm-8">
         <%= f.text_field :number, required: true, autofocus: true, class:"form-control"%>
       </div>
     </div>
     <div class="form-group row">
-      <%=f.label :operative_system, "Sistema operativo", class:"col-sm-3 col-form-label"%>
+      <%=f.label :operative_system, t('activerecord.attributes.device.operative_system'), class:"col-sm-3 col-form-label"%>
       <div class="col-sm-8">
-        <%=f.select :operative_system, options_for_operative_system,{:include_blank=> "Seleccione un sistema operativo"}, class:"form-control"%>
+        <%=f.select :operative_system, options_for_operative_system,{:include_blank=> t('app_common.selector.select_os')}, class:"form-control"%>
       </div>
     </div>
      <div class="form-group row">
-      <%=f.label :processor, "Procesador del dispositivo", class:"col-sm-3 col-form-label"%>
+      <%=f.label :processor, t('activerecord.attributes.device.proccesor'), class:"col-sm-3 col-form-label"%>
       <div class="col-sm-8">
-        <%=f.select :processor, options_for_processor,{:include_blank=> "Seleccione un procesador"}, class:"form-control"%>
+        <%=f.select :processor, options_for_processor,{:include_blank=> t('app_common.selector.select_processor')}, class:"form-control"%>
       </div>
     </div>
      <div class="form-group row">
-      <%=f.label :memory, "Memoria del dispositivo", class:"col-sm-3 col-form-label"%>
+      <%=f.label :memory, t('activerecord.attributes.device.memory'), class:"col-sm-3 col-form-label"%>
       <div class="col-sm-8">
-        <%=f.select :memory, options_for_memory,{:include_blank=> "Seleccione cantidad de memoria"}, class:"form-control"%>
+        <%=f.select :memory, options_for_memory,{:include_blank=> t('app_common.selector.select_ram')}, class:"form-control"%>
       </div>
     </div>
      <div class="form-group row">
-      <%=f.label :mac, "Mac del dispositivo", class:"col-sm-3 col-form-label"%>
+      <%=f.label :mac, t('activerecord.attributes.device.mac'), class:"col-sm-3 col-form-label"%>
       <div class="col-sm-8">
         <%= f.text_field :mac, autofocus: true, class:"form-control" %>
       </div>
@@ -60,7 +60,7 @@
     </div>
     <div class="form-group row">
       <div class="offset-sm-2 col-sm-8">
-        <%= link_to "Atrás", :back , class:"btn btn-primary fa fa-arrow-left"%>
+        <%= link_to t('helpers.button.back'), :back , class:"btn btn-primary fa fa-arrow-left"%>
       </div>
     </div>
   </form>

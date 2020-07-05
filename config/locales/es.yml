@@ -353,9 +353,19 @@ es:
       sign_in: "Pulsa el botón de abajo e inicia sesión."
       sign_up: "Registrarse"
       login:  "Iniciar Sesión"
+      selector:
+        document: "Documento"
+        position: "Cargo"
+        phone: "Teléfono"
+        select_type: "Seleccione un tipo"
+        select_os: "Seleccione un sistema operativo"
+        select_processor: "Seleccione un procesador"
+        select_ram: "Cantidad de ram"
 
     edits:
       editing: "Editando %{model}:"
+    shows:
+      showing: "Mostrando %{model}:"
     navbar:
       profile:
         prof: "Perfil"

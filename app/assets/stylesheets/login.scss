@@ -57,7 +57,7 @@ input:-ms-input-placeholder {
   font-family: "Montserrat", sans-serif;
   font-weight: 300;
   letter-spacing: 0.1rem;
-  color: rgba(34, 34, 34, 0.85);;
+  color: rgba(34, 34, 34, 0.85);
 }
 input::-ms-input-placeholder {
   font-size: 1.2rem;
@@ -181,7 +181,7 @@ input::placeholder {
   -webkit-box-pack: justify;
           justify-content: space-between;
   width: 100%;
-  background-color: rgba(38, 47, 89, 0.85);
+  background-color: rgba(1, 53, 127, 0.85);
   border-radius: 3px;
 }
 
@@ -265,10 +265,10 @@ input::placeholder {
 .user_options-forms .forms_title {
   margin-bottom: 15px;
   font-size: 1.5rem;
-  font-weight: 500;
+  font-weight: 600;
   line-height: 1em;
   text-transform: uppercase;
-  color: rgba(38, 47, 89, 0.85);
+  color: rgba(1, 53, 127, 0.85);
   letter-spacing: 0.1rem;
 }
 .user_options-forms .forms_field:not(:last-of-type) {
@@ -288,7 +288,7 @@ input::placeholder {
 }
 
 .user_options-forms .forms_field-input:focus {
-  border-color: rgba(38, 47, 89, 0.85);
+  border-color: rgba(1, 53, 127, 0.85);
 }
 
 .user_options-forms .forms_buttons {
@@ -312,7 +312,7 @@ input::placeholder {
   color: #b3b3b3;
 }
 .user_options-forms .forms_buttons-action {
-  background-color: rgba(38, 47, 89, 0.85);
+  background-color: rgba(1, 53, 127, 0.85);
   border-radius: 3px;
   padding: 10px 35px;
   font-size: 1.2rem;
@@ -325,7 +325,7 @@ input::placeholder {
   transition: background-color 0.2s ease-in-out;
 }
 .user_options-forms .forms_buttons-action:hover {
-  background-color: rgba(38, 47, 89, 0.98);
+  background-color: rgba(1, 80, 126, 0.85);
 }
 .user_options-forms .user_forms-signup{
   position: absolute;

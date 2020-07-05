@@ -1,38 +1,38 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
   <div class="user_forms-signup">
-    <h2 class="forms_title">Registrarse</h2>
+    <h2 class="forms_title"><%=t('app_common.session.sign_up')%></h2>
       <form class="forms_form">
         <fieldset class="forms_fieldset">
           <div class="forms_field ">
-            <%= f.text_field :full_name,placeholder: "Nombre completo",required: true, autofocus: true, class:"forms_field-input",autocomplete: "full_name"%>
-            <%= f.email_field :email,placeholder: "Email",required: true, autofocus: true, class:"forms_field-input",autocomplete: "email"%>
+            <%= f.text_field :full_name,placeholder: t('activerecord.attributes.user.full_name'),required: true, autofocus: true, class:"forms_field-input",autocomplete: t('activerecord.attributes.user.full_name')%>
+            <%= f.email_field :email,placeholder: "Email",required: true, autofocus: true, class:"forms_field-input",autocomplete: t('activerecord.attributes.user.email')%>
           </div>
           <div class="forms_field">
-            <%= f.select :type_of_id, options_for_type_of_document,{:include_blank => 'Tipo de documento'},required: true, autofocus: true, class:"forms_field-input"%>
-            <%= f.text_field :number_of_id,placeholder: "Documento",required: true, autofocus: true, class:"forms_field-input"%>
+            <%= f.select :type_of_id, options_for_type_of_document,{:include_blank => t('activerecord.attributes.user.type_of_id')},required: true, autofocus: true, class:"forms_field-input"%>
+            <%= f.text_field :number_of_id,placeholder: t('app_common.session.selector.document'),required: true, autofocus: true, class:"forms_field-input"%>
           </div>
           <div class="forms_field"> 
-            <%= f.select :position,options_for_position,{:include_blank => 'Cargo'},required: true, autofocus: true, class:"forms_field-input"%>
+            <%= f.select :position,options_for_position,{:include_blank => t('app_common.session.selector.position')},required: true, autofocus: true, class:"forms_field-input"%>
   
-            <%= f.text_field :telephone,placeholder: "Celular",required: true, autofocus: true, class:"forms_field-input",autocomplete: "telephone"%>
+            <%= f.text_field :telephone,placeholder: t('app_common.session.selector.phone'),required: true, autofocus: true, class:"forms_field-input",autocomplete: "telephone"%>
           </div>
           <div class="forms_field"> 
             <%= f.date_field :date_of_birth,required: true, autofocus: true, class:"forms_field-input"%>
-            <a>Fecha de nacimiento</a>  
+            <a><%=t('activerecord.attributes.user.date_of_birth')%></a>  
           </div>
           <br>
           <div class="forms_field">
             <%= f.date_field :working_since,required: true, autofocus: true, class:"forms_field-input"%>
-            <a>Trabaja desde</a>
+            <a><%= t('activerecord.attributes.user.working_since')%></a>
           </div>
           <div class="forms_field">
-            <%= f.password_field :password, autocomplete: "new-password",placeholder:"Contraseña", class:"forms_field-input",required: true%>
-             <%= f.password_field :password_confirmation, autocomplete: "new-password",placeholder:"Confirmar Contraseña", class:"forms_field-input",required: true %>
+            <%= f.password_field :password, autocomplete: "new-password",placeholder: t('activerecord.attributes.user.password'), class:"forms_field-input",required: true%>
+             <%= f.password_field :password_confirmation, autocomplete: "new-password",placeholder: t('activerecord.attributes.user.password_confirmation'), class:"forms_field-input",required: true %>
           </div> 
         </fieldset>
         <div class="forms_buttons">
-          <%= f.submit "Registrarse", class:"forms_buttons-action"%>
+          <%= f.submit t('app_common.session.sign_up'), class:"forms_buttons-action"%>
         </div>
       </form>
   </div>
