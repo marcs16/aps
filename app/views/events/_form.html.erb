@@ -13,31 +13,31 @@
     <% end %>
   <form class="form-horizontal">
     <div class="form-group row">
-      <%= f.label :title,"Nombre de reunión", class:"col-sm-3 col-form-label" %>
+      <%= f.label :title,t('activerecord.attributes.event.title'), class:"col-sm-3 col-form-label" %>
       <div class="col-sm-8">
         <%= f.text_field :title, autofocus: true, autocomplete: "text" , class:"form-control"%>
       </div>
     </div>
     <div class="form-group row">
-      <%= f.label :description, "Descripcción de  lareunión", class: "col-sm-3 col-form-label" %>
+      <%= f.label :description, t('activerecord.attributes.event.description'), class: "col-sm-3 col-form-label" %>
       <div class="col-sm-8">
         <%= f.text_area :description,autofocus: true, class:"form-control"%> 
       </div>
     </div>
     <div class="form-group row">
-      <%=f.label :start_date, "Inicio de la reunión", class:"col-sm-3 col-form-label"%>
+      <%=f.label :start_date, t('activerecord.attributes.event.start_date'), class:"col-sm-3 col-form-label"%>
       <div class="col-sm-8">
         <%= f.datetime_select :start_date, {required: true, autofocus: true,:start_year => 2020}, class:'form-control'%>
       </div>
     </div>
     <div class="form-group row">
-      <%=f.label :end_date, "Final de la reunión", class:"col-sm-3 col-form-label"%>
+      <%=f.label :end_date, t('activerecord.attributes.event.end_date'), class:"col-sm-3 col-form-label"%>
       <div class="col-sm-8">
         <%= f.datetime_select :end_date,{required: true, autofocus: true,:start_year => 2020}, class:'form-control ' %>
       </div>
     </div>
     <div class="form-group row">
-        <%=f.label :members, "Participantes", class:"col-sm-3 col-form-label"%>
+        <%=f.label :members, t('activerecord.attributes.event.members'), class:"col-sm-3 col-form-label"%>
       <div class="col-sm-8">
         <%=f.select :members, options_for_select(@users.collect{|x| [x.full_name]}),{}, {multiple: 'multiple', class:"col-sm-12 select2bs4"}%>
       </div>
@@ -49,7 +49,7 @@
     </div>
     <div class="form-group row">
       <div class="offset-sm-2 col-sm-8">
-        <%= link_to "Atrás", :back , class:"btn btn-primary fa fa-arrow-left"%>
+        <%= link_to t('helpers.button.back'), :back , class:"btn btn-primary fa fa-arrow-left"%>
       </div>
     </div>
   </form>

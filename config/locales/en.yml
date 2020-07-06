@@ -63,7 +63,7 @@ en:
           start_date: Start Date
           end_date: End Date
           members: Members
-          created_at: Created By
+          created_by: Created By
         language:
           abbreviation: Abbreviation
           description: Description
@@ -374,6 +374,8 @@ en:
       short: "%d %b %H:%M"
     pm: pm
   app_common:
+    event:
+      information: "Information for Meet: "
     session:
       company: "APS E.S.P S.A.S"
       acc: "Have an account??"

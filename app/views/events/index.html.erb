@@ -6,14 +6,14 @@
       <div class="container-fluid">
         <div class="row">
           <div class="col-md-12">
-            <h2>Reuniones</h2>
+            <h2><%=t('activerecord.models.event.other')%></h2>
             <p id="notice"><%= notice %></p>
             <div style="margin-bottom: 20px;margin-top: 20px; ">
-              <%= link_to 'Nueva reunión', new_event_path, class:'btn btn-primary '%>
+              <%= link_to t('helpers.submit.create', model: model_name_singular(Event)), new_event_path, class:'btn btn-primary '%>
             </div>
             <div class="card card-primary">
               <div class="card-header">
-                <h3>Reuniones Aguas del Páramo</h3>
+                <h3><%=t('activerecord.models.event.other')%> Aguas del Páramo de Sonsón</h3>
                 <div class="card-tools">
                     <i class="fa fa-sync-alt"></i></button>
                   <button type="button" class="btn btn-tool btn-sm" data-card-widget="collapse" data-toggle="tooltip"

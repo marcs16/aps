@@ -75,7 +75,7 @@
                     <%= f.label :current_password,t('activerecord.attributes.user.current_password'), class:"col-sm-3 col-form-label"%>
                     <div class="col-sm-7">
                       <%= f.password_field :current_password, autocomplete: t('activerecord.attributes.user.current_password'),class:"form-control" %>
-                      <i>(Necesitamos esta contraseña para confirmar cambios)</i>
+                      <i><%=t('devise.registrations.edit.we_need_your_current_password_to_confirm_your_changes')%></i>
                     </div>
                     <div class="">
                       <span toggle="#password-field" class=" fa-2x  fa fa-eye  current-psd"></span>
@@ -91,9 +91,9 @@
                     <div class="form-group row">
                       <%= f.label :password, t('activerecord.attributes.user.password'), class:"col-sm-3 col-form-label"  %> 
                       <div class="col-sm-7">
-                        <%= f.password_field :password, autocomplete: t('activerecord.attributes.user.password'), class:"form-control" %><i>(Dejar en blanco si no se quiere cambiar)</i>
+                        <%= f.password_field :password, autocomplete: t('activerecord.attributes.user.password'), class:"form-control" %><i>(<%=t('devise.registrations.edit.leave_blank_if_you_don_t_want_to_change_it')%></i>
                         <% if @minimum_password_length %>
-                          <em><%= @minimum_password_length %> Caracteres mínimo</em>
+                          <em><%= @minimum_password_length %> <%=t('%{@minimum_password_length} device.shared.minimum_password_length')%></em>
                         <% end %>
                       </div>
                       <div class="">

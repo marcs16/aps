@@ -3,7 +3,7 @@
     <span class="flag-icon flag-icon-<%= I18n.locale.to_s %>"></span>
     <span class="caret"></span>
   </button>
-  <ul aria-labelledby="dropdownLanguage" class="dropdown-menu">
+  <ul aria-labelledby="dropdownLanguage" class="dropdown-menu btn btn-default">
     <% Language.where.not(abbreviation: I18n.locale.to_s).each do |language| %>
       <li>
         <a class="change_language" data-abbr="<%= language.abbreviation %>" data-url="<%= change_language_languages_path %>">

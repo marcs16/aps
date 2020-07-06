@@ -6,11 +6,11 @@
       <div class="container-fluid">
         <div class="row">
           <div class="col-md-12">
-            <h2>Reuniones</h2>
+            <h2><%=t('activerecord.models.event.other')%></h2>
             <p id="notice"><%= notice %></p>
             <div class="card card-primary">
               <div class="card-header">
-                <h3>Información de la reunión <%=@event.title%> </h3>
+                <h3><%=t('app_common.event.information')%> <%=@event.title%> </h3>
                 <div class="card-tools">
                     <i class="fa fa-sync-alt"></i></button>
                   <button type="button" class="btn btn-tool btn-sm" data-card-widget="collapse" data-toggle="tooltip"
@@ -22,7 +22,7 @@
                 <form class="form-horizontal">
                   <div class="form-group row">
                     <div class= "col-sm-4 col-form-label">
-                      <%= "<strong>Nombre de la reunión</strong>".html_safe%>
+                      <strong><%= t('activerecord.attributes.event.title')%></strong>
                     </div>
                     <div class=" col-sm-7">
                       <div class="form-control">
@@ -32,7 +32,7 @@
                   </div>
                   <div class="form-group row">
                     <div class= "col-sm-4 col-form-label">
-                      <%= "<strong>Motivo de la reunión</strong>".html_safe%>
+                      <strong><%=t('activerecord.attributes.event.description')%></strong>
                     </div>
                     <div class=" col-sm-7">
                       <div >
@@ -42,7 +42,7 @@
                   </div>
                   <div class="form-group row">
                     <div class= "col-sm-4 col-form-label">
-                      <%= "<strong>Fecha de inicio</strong>".html_safe%>
+                      <strong><%= t('activerecord.attributes.event.start_date')%></strong>
                     </div>
                     <div class=" col-sm-7">
                       <div class="form-control">
@@ -52,7 +52,7 @@
                   </div>
                   <div class="form-group row">
                     <div class= "col-sm-4 col-form-label">
-                      <%= "<strong>Fecha de finalización</strong>".html_safe%>
+                      <strong><%= t('activerecord.attributes.event.end_date')%></strong>
                     </div>
                     <div class=" col-sm-7">
                       <div class="form-control">
@@ -62,7 +62,7 @@
                   </div>
                   <div class="form-group row">
                     <div class= "col-sm-4 col-form-label">
-                      <%= "<strong>Participantes</strong>".html_safe%>
+                      <strong><%=t('activerecord.attributes.event.members')%></strong>
                     </div>
                     <div class=" col-sm-7">
                       <div class="">
@@ -72,23 +72,23 @@
                   </div>
                   <div class="form-group row">
                     <div class= "col-sm-4 col-form-label">
-                      <%= "<strong>Programó la reunión</strong>".html_safe%>
+                      <strong><%=t('activerecord.attributes.event.created_by')%></strong>
                     </div>
                     <div class=" col-sm-7">
                       <div class="form-control">
-                        <%= @event.user.full_name%>
+                        <strong><%= @event.user.full_name%></strong>
                       </div> 
                     </div>
                   </div>
                   <div class="form-group row">
                     <div class="offset-sm-2 col-sm-2">
-                      <%= link_to "Atrás", :back , class:"btn btn-primary fa fa-arrow-left"%>
+                      <%= link_to t('helpers.button.back'), :back , class:"btn btn-primary fa fa-arrow-left"%>
                     </div>
                     <div class=" col-sm-1">
-                      <%= link_to 'Editar', edit_event_path(@event), class:"btn btn-primary fa fa-edit" %>
+                      <%= link_to t('helpers.submit.edit'), edit_event_path(@event), class:"btn btn-primary fa fa-edit" %>
                     </div>
                     <div class="offset-sm-2 col-sm-2">
-                      <%=link_to 'Reuniones', events_path(),class:"btn btn-primary fa fa-cog"%>
+                      <%=link_to t('activerecord.models.event.other'), events_path(),class:"btn btn-primary fa fa-cog"%>
                     </div>
                   </div>
                 </form>

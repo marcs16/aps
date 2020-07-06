@@ -32,7 +32,7 @@ es:
           start_date: Inicio de la Reunión
           end_date: Fin de la Reunión
           members: Participantes
-          created_at: Creada por
+          created_by: Creada por
         language:
           abbreviation: Abreviación
           description: Descripcción
@@ -205,11 +205,11 @@ es:
       blank: no puede estar en blanco
       present: debe estar en blanco
       too_long:
-        one: es demasiado largo (1 caracter maximo)
-        other: es demasiado largo (%{count} caracteres maximo)
+        one: es demasiado larga (1 caracter maximo)
+        other: es demasiado larga (%{count} caracteres maximo)
       too_short:
-        one: es demasiado corto (1 caracter m&iacute;nimo)
-        other: es demasiado corto (%{count} caracteres m&iacute;nimo)
+        one: es demasiado corta (1 caracter mínimo)
+        other: es demasiado corta (%{count} caracteres mínimo)
       wrong_length:
         one: tiene una longitud incorrecta (debe tener 1 caracter)
         other: tiene una longitud incorrecta (debe tener %{count} caracteres)
@@ -345,6 +345,9 @@ es:
       short: "%-d de %b %H:%M"
     pm: pm
   app_common:
+    event:
+      information: "Información de la reunión: "
+
     session:
       company: "APS E.S.P S.A.S"
       acc: "¿Tienes una cuenta?"
