@@ -1,0 +1,38 @@
+<%= render 'layouts/partials/navbar'%>
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <div class="container-fluid">
+      <div class="col-md-12">
+        <p id="notice"><%= notice %></p>
+
+        <h1><%=t('activerecord.models.device.other')%></h1>
+        <div style="margin-bottom: 20px;margin-top: 20px; ">
+          <%= link_to t('helpers.button.add', model: model_name_singular(Device)), new_contract_path, class:'btn btn-primary '%>
+          <button id="btn-rel-contract" class=" btn btn-primary"><%=t('app_common.tables.reload_t')%></button>
+        </div>
+        <table class="responsive nowrap table table-hover" id="dttb-contracts" data-sort="true" data-source="<%= url_for(format: :json)%>">
+          <thead>
+            <tr>
+              <th data-data="code">Code</th>
+              <th data-data="contractor">Contractor</th>
+              <th data-data="object">Object</th>
+              <th data-data="supervisor">Supervisor</th>
+              <th data-data="initiation_act">Initiation act</th>
+              <th data-data="dead_line">Dead line</th>
+              <th data-data="value">Value</th>
+              <th data-data= "value">Executed value</th>
+              <th data-data="execution_rate">Execution rate</th>
+              <th data-data="observations">Observations</th>
+              <th data-data="links">Options</th>
+              <th data-data="url" data-orderable="false" data-class-name="all" data-searchable="false" class="skip-export" width="100px"></th>
+            </tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+      </div> 
+    </div>
+  </section>
+  <%=render 'layouts/partials/footer'%>
+</div>

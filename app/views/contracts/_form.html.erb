@@ -1,0 +1,67 @@
+<%= form_with(model: contract, local: true) do |form| %>
+  <% if contract.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(contract.errors.count, "error") %> prohibited this contract from being saved:</h2>
+
+      <ul>
+      <% contract.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :code %>
+    <%= form.text_field :code %>
+  </div>
+
+  <div class="field">
+    <%= form.label :contractor %>
+    <%= form.text_field :contractor %>
+  </div>
+
+  <div class="field">
+    <%= form.label :object %>
+    <%= form.text_field :object %>
+  </div>
+
+  <div class="field">
+    <%= form.label :supervisor %>
+    <%= form.text_field :supervisor %>
+  </div>
+
+  <div class="field">
+    <%= form.label :initiation_act %>
+    <%= form.text_field :initiation_act %>
+  </div>
+
+  <div class="field">
+    <%= form.label :dead_line %>
+    <%= form.text_field :dead_line %>
+  </div>
+
+  <div class="field">
+    <%= form.label :value %>
+    <%= form.text_field :value %>
+  </div>
+
+  <div class="field">
+    <%= form.label :executed_value %>
+    <%= form.text_field :executed_value %>
+  </div>
+
+  <div class="field">
+    <%= form.label :execution_rate %>
+    <%= form.text_field :execution_rate %>
+  </div>
+
+  <div class="field">
+    <%= form.label :observations %>
+    <%= form.text_field :observations %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

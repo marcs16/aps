@@ -56,6 +56,10 @@ $(document).on('turbolinks:load', function() {
     event.preventDefault();
     window.location.reload();
   });
+  $('#btn-rel-contract').click(function(event) {
+    event.preventDefault();
+    window.location.reload();
+  });
   $('#btn-rel-device').click(function(event) {
     event.preventDefault();
     window.location.reload();

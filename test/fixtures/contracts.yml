@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  code: MyString
+  contractor: MyString
+  object: MyString
+  supervisor: MyString
+  initiation_act: MyString
+  dead_line: MyString
+  value: MyString
+  executed_value: MyString
+  execution_rate: MyString
+  observations: MyString
+
+two:
+  code: MyString
+  contractor: MyString
+  object: MyString
+  supervisor: MyString
+  initiation_act: MyString
+  dead_line: MyString
+  value: MyString
+  executed_value: MyString
+  execution_rate: MyString
+  observations: MyString
