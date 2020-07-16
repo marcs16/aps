@@ -21,16 +21,16 @@ class ContractDatatable < AjaxDatatablesRails::ActiveRecord
     records.map do |record|
       {
         
-        code: record.oode
-        contractor: record.contractor
-        object: record.object
-        supervisor: record.supervisor
-        initiation_act: record.initiation_act
-        dead_line: record.dead_line
-        value: record.value
-        executed_value: record.executed_value
-        execution_rate: record.execution_rate
-        observations: record.observations
+        code: record.code,
+        contractor: record.contractor,
+        object: record.object,
+        supervisor: record.supervisor,
+        initiation_act: record.initiation_act,
+        dead_line: record.dead_line,
+        value: record.value,
+        executed_value: record.executed_value,
+        execution_rate: record.execution_rate,
+        observations: record.observations,
         links: actions(record).html_safe
       }
     end
