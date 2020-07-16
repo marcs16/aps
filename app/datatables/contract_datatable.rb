@@ -10,7 +10,7 @@ class ContractDatatable < AjaxDatatablesRails::ActiveRecord
       supervisor:     { source: 'Contract.supervisor', searchable: false, orderable: true },
       initiation_act: { source: 'Contract.initiation_act', searchable: false, orderable: true },
       dead_line:      {source: 'Contract.dead_line',searchable:false, orderable: true},
-      value:          { source: 'Contract.value', cond: :like, searchable:, false, orderable: true },
+      value:          { source: 'Contract.value', cond: :like, searchable: false, orderable: true },
       executed_value: { source: 'Contract.executed_value', cond: :like, searchable: false, orderable: true },
       execution_rate: { source: 'Contract.execution_rate', cond: :like, searchable: false, orderable: true },
       observations:   { source: 'Contract.observations', cond: :like, searchable: false, orderable: true },
