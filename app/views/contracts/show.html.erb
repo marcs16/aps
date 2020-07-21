@@ -128,7 +128,7 @@
                       <%= link_to t('helpers.button.edit'), edit_contract_path(@contract), class:"btn btn-primary fa fa-edit" %>
                     </div>
                     <div class="offset-sm-2 col-sm-2">
-                      <%=link_to t('activerecord.models.contract.other'), contract_path(@contract),class:"btn btn-primary fa fa-cog"%>
+                      <%=link_to t('activerecord.models.contract.other'), contracts_path(),class:"btn btn-primary fa fa-cog"%>
                     </div>
                   </div>
                 </form>
@@ -145,52 +145,3 @@
     <%=render 'layouts/partials/footer'%>
   </div>
 </div>
-<p>
-  <strong>Code:</strong>
-  <%= @contract.code %>
-</p>
-
-<p>
-  <strong>Contractor:</strong>
-  <%= @contract.contractor %>
-</p>
-
-<p>
-  <strong>Object:</strong>
-  <%= @contract.object %>
-</p>
-
-<p>
-  <strong>Supervisor:</strong>
-  <%= @contract.supervisor %>
-</p>
-
-<p>
-  <strong>Initiation act:</strong>
-  <%= @contract.initiation_act %>
-</p>
-
-<p>
-  <strong>Dead line:</strong>
-  <%= @contract.dead_line %>
-</p>
-
-<p>
-  <strong>Value:</strong>
-  <%= @contract.value %>
-</p>
-
-<p>
-  <strong>Executed value:</strong>
-  <%= @contract.executed_value %>
-</p>
-
-<p>
-  <strong>Execution rate:</strong>
-  <%= @contract.execution_rate %>
-</p>
-
-<p>
-  <strong>Observations:</strong>
-  <%= @contract.observations %>
-</p>
