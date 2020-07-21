@@ -1,6 +1,9 @@
 es:
   activerecord:
     models:
+      contract:
+        one: Contrato
+        other: Contratos
       device:
         one: Dispositivo
         other: Dispositivos
@@ -17,6 +20,17 @@ es:
         one: Usuario
         other: Usuarios
     attributes:
+        contract:
+          code: Código
+          contractor: Contratista
+          object: Objeto
+          supervisor: Supervisor
+          initiation_act: Acta de Inicio
+          dead_line: Fecha limite
+          value: Valor
+          executed_value: Valor ejecutado
+          execution_rate: Porcentaje de ejecución
+          observations: Observaciones
         device:
           name: Nombre del Dispositivo
           type_of_device: Tipo de Dispositivo
@@ -347,7 +361,6 @@ es:
   app_common:
     event:
       information: "Información de la reunión: "
-
     session:
       company: "APS E.S.P S.A.S"
       acc: "¿Tienes una cuenta?"
@@ -364,7 +377,6 @@ es:
         select_os: "Seleccione un sistema operativo"
         select_processor: "Seleccione un procesador"
         select_ram: "Cantidad de ram"
-
     edits:
       editing: "Editando %{model}:"
     shows:

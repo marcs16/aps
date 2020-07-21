@@ -1,67 +1,85 @@
-<%= form_with(model: contract, local: true) do |form| %>
-  <% if contract.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(contract.errors.count, "error") %> prohibited this contract from being saved:</h2>
-
-      <ul>
-      <% contract.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<div class="card-body">
+  <%= form_with(model: contract, local: true) do |f| %>
+    <% if contract.errors.any? %>
+      <div id="error_explanation">
+        <ul>
+          <% contract.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+  <form class="form-horizontal">
+    <div class="form-group row">
+      <%= f.label :code,t('activerecord.attributes.contract.code'), class:"col-sm-3 col-form-label" %>
+      <div class="col-sm-8">
+        <%= f.text_field :code, autofocus: true, autocomplete: "text" , class:"form-control"%>
+      </div>
     </div>
+    <div class="form-group row">
+      <%=f.label :contractor, t('activerecord.attributes.contract.contractor'), class:"col-sm-3 col-form-label"%>
+      <div class="col-sm-8">
+        <%= f.text_field :contractor, required: true, autofocus: true, class:"form-control"%>
+      </div>
+    </div>
+    <div class="form-group row">
+      <%=f.label :object, t('activerecord.attributes.contract.object'), class:"col-sm-3 col-form-label"%>
+      <div class="col-sm-8">
+        <%= f.text_field :object, autofocus: true, class:"form-control" %>
+      </div>
+    </div>
+    <div class="form-group row">
+      <%=f.label :supervisor, t('activerecord.attributes.contract.supervisor'), class:"col-sm-3 col-form-label"%>
+      <div class="col-sm-8">
+        <%= f.text_field :supervisor, autofocus: true, class:"form-control" %>
+      </div>
+    </div>
+    <div class="form-group row">
+      <%=f.label :initiation_act, t('activerecord.attributes.contract.initiation_act'), class:"col-sm-3 col-form-label"%>
+      <div class="col-sm-8">
+        <%= f.text_field :initiation_act, autofocus: true, class:"form-control" %>
+      </div>
+    </div>
+    <div class="form-group row">
+      <%=f.label :dead_line, t('activerecord.attributes.contract.dead_line'), class:"col-sm-3 col-form-label"%>
+      <div class="col-sm-8">
+        <%= f.text_field :dead_line, autofocus: true, class:"form-control" %>
+      </div>
+    </div>
+    <div class="form-group row">
+      <%=f.label :value, t('activerecord.attributes.contract.value'), class:"col-sm-3 col-form-label"%>
+      <div class="col-sm-8">
+        <%= f.text_field :value, autofocus: true, class:"form-control" %>
+      </div>
+    </div>
+    <div class="form-group row">
+      <%=f.label :executed_value, t('activerecord.attributes.contract.executed_value'), class:"col-sm-3 col-form-label"%>
+      <div class="col-sm-8">
+        <%= f.text_field :executed_value, autofocus: true, class:"form-control" %>
+      </div>
+    </div>
+    <div class="form-group row">
+      <%=f.label :execution_rate, t('activerecord.attributes.contract.execution_rate'), class:"col-sm-3 col-form-label"%>
+      <div class="col-sm-8">
+        <%= f.text_field :execution_rate, autofocus: true, class:"form-control" %>
+      </div>
+    </div>
+    <div class="form-group row">
+      <%=f.label :observations, t('activerecord.attributes.contract.observations'), class:"col-sm-3 col-form-label"%>
+      <div class="col-sm-8">
+        <%= f.text_field :observations, autofocus: true, class:"form-control" %>
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="offset-sm-2 col-sm-8">
+        <%= f.submit class:"btn btn-primary" %>
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="offset-sm-2 col-sm-8">
+        <%= link_to t('helpers.button.back'), :back , class:"btn btn-primary fa fa-arrow-left"%>
+      </div>
+    </div>
+  </form>
   <% end %>
-
-  <div class="field">
-    <%= form.label :code %>
-    <%= form.text_field :code %>
-  </div>
-
-  <div class="field">
-    <%= form.label :contractor %>
-    <%= form.text_field :contractor %>
-  </div>
-
-  <div class="field">
-    <%= form.label :object %>
-    <%= form.text_field :object %>
-  </div>
-
-  <div class="field">
-    <%= form.label :supervisor %>
-    <%= form.text_field :supervisor %>
-  </div>
-
-  <div class="field">
-    <%= form.label :initiation_act %>
-    <%= form.text_field :initiation_act %>
-  </div>
-
-  <div class="field">
-    <%= form.label :dead_line %>
-    <%= form.text_field :dead_line %>
-  </div>
-
-  <div class="field">
-    <%= form.label :value %>
-    <%= form.text_field :value %>
-  </div>
-
-  <div class="field">
-    <%= form.label :executed_value %>
-    <%= form.text_field :executed_value %>
-  </div>
-
-  <div class="field">
-    <%= form.label :execution_rate %>
-    <%= form.text_field :execution_rate %>
-  </div>
-
-  <div class="field">
-    <%= form.label :observations %>
-    <%= form.text_field :observations %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div><!-- /.card-body -->

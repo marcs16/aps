@@ -1,6 +1,118 @@
-<h1>Editing Contract</h1>
+<%=render 'layouts/partials/navbar'%>
+<div class="center-style-app">
+  <div class="content-wrapper">
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12">
+            <h2><%=t('activerecord.models.contract.other')%></h2>
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3><%=t('app_common.shows.editing', model: model_name_singular(Contract))%> <%=@contract.code%></h3>
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool btn-sm" data-card-widget="collapse" data-toggle="tooltip"
+                          title="Collapse">
+                    <i class="fa fa-minus"></i></button>
+                </div>
+              </div>
+              <div class="card-body">
+                <%= form_for(@contract, url: {action: 'update'}, html: { method: :put, class: 'form-horizontal' }) do |f| %>
 
-<%= render 'form', contract: @contract %>
+				    <% if @contract.errors.any? %>
+				      <div id="error_explanation">
+				        <ul>
+				          <% @contract.errors.full_messages.each do |message| %>
+				            <li><%= message %></li>
+				          <% end %>
+				        </ul>
+				      </div>
+				    <% end %>
+				  <form class="form-horizontal">
+				    <div class="form-group row">
+				      <%= f.label :code,t('activerecord.attributes.contract.code'), class:"col-sm-3 col-form-label" %>
+				      <div class="col-sm-8">
+				        <%= f.text_field :code, autofocus: true, autocomplete: "text" , class:"form-control"%>
+				      </div>
+				    </div>
+				    <div class="form-group row">
+				      <%=f.label :contractor, t('activerecord.attributes.contract.contractor'), class:"col-sm-3 col-form-label"%>
+				      <div class="col-sm-8">
+				        <%= f.text_field :contractor, required: true, autofocus: true, class:"form-control"%>
+				      </div>
+				    </div>
+				    <div class="form-group row">
+				      <%=f.label :object, t('activerecord.attributes.contract.object'), class:"col-sm-3 col-form-label"%>
+				      <div class="col-sm-8">
+				        <%= f.text_field :object, autofocus: true, class:"form-control" %>
+				      </div>
+				    </div>
+				    <div class="form-group row">
+				      <%=f.label :supervisor, t('activerecord.attributes.contract.supervisor'), class:"col-sm-3 col-form-label"%>
+				      <div class="col-sm-8">
+				        <%= f.text_field :supervisor, autofocus: true, class:"form-control" %>
+				      </div>
+				    </div>
+				    <div class="form-group row">
+				      <%=f.label :initiation_act, t('activerecord.attributes.contract.initiation_act'), class:"col-sm-3 col-form-label"%>
+				      <div class="col-sm-8">
+				        <%= f.text_field :initiation_act, autofocus: true, class:"form-control" %>
+				      </div>
+				    </div>
+				    <div class="form-group row">
+				      <%=f.label :dead_line, t('activerecord.attributes.contract.dead_line'), class:"col-sm-3 col-form-label"%>
+				      <div class="col-sm-8">
+				        <%= f.text_field :dead_line, autofocus: true, class:"form-control" %>
+				      </div>
+				    </div>
+				    <div class="form-group row">
+				      <%=f.label :value, t('activerecord.attributes.contract.value'), class:"col-sm-3 col-form-label"%>
+				      <div class="col-sm-8">
+				        <%= f.text_field :value, autofocus: true, class:"form-control" %>
+				      </div>
+				    </div>
+				    <div class="form-group row">
+				      <%=f.label :executed_value, t('activerecord.attributes.contract.executed_value'), class:"col-sm-3 col-form-label"%>
+				      <div class="col-sm-8">
+				        <%= f.text_field :executed_value, autofocus: true, class:"form-control" %>
+				      </div>
+				    </div>
+				    <div class="form-group row">
+				      <%=f.label :execution_rate, t('activerecord.attributes.contract.execution_rate'), class:"col-sm-3 col-form-label"%>
+				      <div class="col-sm-8">
+				        <%= f.text_field :execution_rate, autofocus: true, class:"form-control" %>
+				      </div>
+				    </div>
+				    <div class="form-group row">
+				      <%=f.label :observations, t('activerecord.attributes.contract.observations'), class:"col-sm-3 col-form-label"%>
+				      <div class="col-sm-8">
+				        <%= f.text_field :observations, autofocus: true, class:"form-control" %>
+				      </div>
+				    </div>
+				    <div class="form-group row">
+				      <div class="offset-sm-2 col-sm-8">
+				        <%= f.submit class:"btn btn-primary" %>
+				      </div>
+				    </div>
+				    <div class="form-group row">
+				      <div class="offset-sm-2 col-sm-8">
+				        <%= link_to t('helpers.button.back'), :back , class:"btn btn-primary fa fa-arrow-left"%>
+				      </div>
+				    </div>
+				  </form>
+				  <% end %>
+              </div><!-- /.card-body -->
+            </div>
+            <!-- /.nav-tabs-custom -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+    <%=render 'layouts/partials/footer'%>
+  </div>
+</div>
+    
 
-<%= link_to 'Show', @contract %> |
-<%= link_to 'Back', contracts_path %>

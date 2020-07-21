@@ -1,5 +1,150 @@
-<p id="notice"><%= notice %></p>
-
+<%=render 'layouts/partials/navbar'%>
+<div class="center-style-app">
+  <div class="content-wrapper">
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12">
+            <h2><%=t('activerecord.models.contract.other')%></h2>
+            <p id="notice"><%= notice %></p>
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3><%=t('app_common.shows.showing', model: model_name_singular(Contract))%> <%=@contract.code%></h3>
+                <div class="card-tools">
+                    <i class="fa fa-sync-alt"></i></button>
+                  <button type="button" class="btn btn-tool btn-sm" data-card-widget="collapse" data-toggle="tooltip"
+                          title="Collapse">
+                    <i class="fa fa-minus"></i></button>
+                </div>
+              </div>
+              <div class="card-body">
+                <form class="form-horizontal">
+                  <div class="form-group row">
+                    <div class= "col-sm-4 col-form-label">
+                      <strong><%= t('activerecord.attributes.contract.code')%></strong>
+                    </div>
+                    <div class=" col-sm-7">
+                      <div class="form-control">
+                        <%= @contract.code%>
+                      </div> 
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class= "col-sm-4 col-form-label">
+                      <strong><%= t('activerecord.attributes.contract.contractor')%></strong>
+                    </div>
+                    <div class=" col-sm-7">
+                      <div class="form-control">
+                        <%= @contract.contractor%>
+                      </div> 
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class= "col-sm-4 col-form-label">
+                      <strong><%= t('activerecord.attributes.contract.object')%></strong>
+                    </div>
+                    <div class=" col-sm-7">
+                      <div class="form-control">
+                        <%= @contract.object%>
+                      </div> 
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class= "col-sm-4 col-form-label">
+                      <strong><%= t('activerecord.attributes.contract.supervisor')%></strong>
+                    </div>
+                    <div class=" col-sm-7">
+                      <div class="form-control">
+                        <%= @contract.supervisor%>
+                      </div> 
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class= "col-sm-4 col-form-label">
+                      <strong><%= t('activerecord.attributes.contract.initiation_act')%></strong>
+                    </div>
+                    <div class=" col-sm-7">
+                      <div class="form-control">
+                        <%= @contract.initiation_act%>
+                      </div> 
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class= "col-sm-4 col-form-label">
+                      <strong><%= t('activerecord.attributes.contract.dead_line')%></strong>
+                    </div>
+                    <div class=" col-sm-7">
+                      <div class="form-control">
+                        <%= @contract.dead_line%>
+                      </div> 
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class= "col-sm-4 col-form-label">
+                      <strong><%= t('activerecord.attributes.contract.value')%></strong>
+                    </div>
+                    <div class=" col-sm-7">
+                      <div class="form-control">
+                        <%= @contract.value%>
+                      </div> 
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class= "col-sm-4 col-form-label">
+                     <strong><%= t('activerecord.attributes.contract.executed_value')%></strong>
+                    </div>
+                    <div class=" col-sm-7">
+                      <div class="form-control">
+                        <%= @contract.executed_value%>
+                      </div> 
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class= "col-sm-4 col-form-label">
+                     <strong><%= t('activerecord.attributes.contract.execution_rate')%></strong>
+                    </div>
+                    <div class=" col-sm-7">
+                      <div class="form-control">
+                        <%= @contract.execution_rate%>
+                      </div> 
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class= "col-sm-4 col-form-label">
+                     <strong><%= t('activerecord.attributes.contract.observations')%></strong>
+                    </div>
+                    <div class=" col-sm-7">
+                      <div class="form-control">
+                        <%= @contract.observations%>
+                      </div> 
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class="offset-sm-2 col-sm-2">
+                      <%= link_to t('helpers.button.back'), :back , class:"btn btn-primary fa fa-arrow-left"%>
+                    </div>
+                    <div class=" col-sm-1">
+                      <%= link_to t('helpers.button.edit'), edit_contract_path(@contract), class:"btn btn-primary fa fa-edit" %>
+                    </div>
+                    <div class="offset-sm-2 col-sm-2">
+                      <%=link_to t('activerecord.models.contract.other'), contract_path(@contract),class:"btn btn-primary fa fa-cog"%>
+                    </div>
+                  </div>
+                </form>
+              </div><!-- /.card-body -->
+            </div>
+            <!-- /.nav-tabs-custom -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+    <%=render 'layouts/partials/footer'%>
+  </div>
+</div>
 <p>
   <strong>Code:</strong>
   <%= @contract.code %>
@@ -49,6 +194,3 @@
   <strong>Observations:</strong>
   <%= @contract.observations %>
 </p>
-
-<%= link_to 'Edit', edit_contract_path(@contract) %> |
-<%= link_to 'Back', contracts_path %>

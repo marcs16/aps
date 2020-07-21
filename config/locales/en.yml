@@ -32,6 +32,9 @@
 en:
   activerecord:
     models:
+      contract:
+        one: Contract
+        other: Contrats
       device:
         one: Device
         other: Devices
@@ -48,6 +51,17 @@ en:
         one: User
         other: Users
     attributes:
+        contract:
+          code: Code
+          contractor: Contractor
+          object: Object
+          supervisor: Supervisor
+          initiation_act: Initiation Act
+          dead_line: Dead Line
+          value: value
+          executed_value: Executed Value
+          execution_rate: Execution Rate
+          observations: Observations
         device:
           name: Name of Device
           type_of_device: type of Device

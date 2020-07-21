@@ -43,11 +43,6 @@ class ContractDatatable < AjaxDatatablesRails::ActiveRecord
   end
 
   private 
-  def user_name(usr)
-    name = User.where(id: usr).select(:full_name)
-    @name = name
-    return @name[0][:full_name]
-  end
   
   def actions(record)
     sarta = "<a href ='#{options[:edit].gsub('_',record.id.to_s)}'><i class='fa fa-edit'></i></a>"
