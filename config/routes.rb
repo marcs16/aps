@@ -15,8 +15,11 @@ Rails.application.routes.draw do
  
   resources :events
   resources :devices do
+    get '/devices.xls', to: 'devices#report_devices', as: 'export', on: :collection
     collection {post :import}
-    resources :maintainces
+    resources :maintainces do
+      get '/device_maintainces.xls', to: 'maintainces#export_maintainces', as: 'export', on: :collection
+    end
   end
 
   resources :users,:only => [:new, :edit,:update]

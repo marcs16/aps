@@ -1,0 +1,19 @@
+wb = xlsx_package.workbook
+wb.styles do |s|
+    header_cell = s.add_style bg_color: "EFEFEF", 
+        fg_color: "00", 
+        sz: 14,
+        alignment: { horizontal: :center }
+    wb.add_worksheet(name: "Manteminiemtos  registrados") do |sheet|
+        sheet.add_row ["Realizado por","Dispositivo","Mantenimiento", "Descripccion","Fecha"],
+            :style => [header_cell,header_cell,header_cell,header_cell,header_cell] 
+        @maintainces.each do |t|
+            sheet.add_row [
+                t[:done_by],
+                t[:device],
+                t[:name],  
+                t[:description],
+                t[:date]]
+        end
+    end
+end

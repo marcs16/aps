@@ -9,6 +9,8 @@ ruby '2.6.3'
 gem 'haml', '~> 5.1', '>= 5.1.2'
 #devise
 gem 'devise', '~> 4.7', '>= 4.7.1'
+#export excel
+gem 'caxlsx_rails', '~> 0.6.2'
 #booststrap
 gem 'bootstrap-sass'
 #font-awesome

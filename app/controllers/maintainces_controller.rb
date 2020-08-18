@@ -8,7 +8,7 @@ class MaintaincesController < ApplicationController
     respond_to do |format|
     format.html
     format.json { render json: MaintainceDatatable.new(params,{view_context: view_context,device: @device, current_user: current_user}) }
-  end
+    end
   end
 
   # GET /maintainces/1
@@ -65,7 +65,12 @@ class MaintaincesController < ApplicationController
       format.json { head :no_content }
     end
   end
-
+  def export_maintainces()
+    @maintainces = User.joins(:devices, :maintainces).select('users.full_name as done_by,devices.name as device ,
+      maintainces.name, maintainces.description, maintainces.date').where(devices:{user_id: @device.user_id})
+     render xlsx: 'Reporte mantenimientos '+ Time.now.to_s, 
+        template: 'reports/export_maintainces.xlsx.axlsx'
+  end
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_device

@@ -66,6 +66,16 @@ end
     end
   end
 
+  def report_devices   
+    @devices = User.joins(:devices).select('users.full_name, devices.name,
+    devices.type_of_device, devices.number, devices.operative_system,
+    devices.processor, devices.memory, devices.mac')
+    #La variable @personal contiene a la lista del personal de una empresa x.
+    render xlsx: 'Reporte de dispositivos existentes '+ Time.now.to_s, 
+        template: 'reports/export_devices.xlsx.axlsx'
+
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_device

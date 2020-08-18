@@ -1,0 +1,23 @@
+wb = xlsx_package.workbook
+wb.styles do |s|
+    header_cell = s.add_style bg_color: "EFEFEF", 
+        fg_color: "00", 
+        sz: 14,
+        alignment: { horizontal: :center }
+    wb.add_worksheet(name: "Dispositivos registrados") do |sheet|
+        sheet.add_row ["Usuario","Nombre", "Tipo de dispositivo", "Placa","Sistema Operativo",
+            "Procesador","Memoria","Mac"],
+            :style => [header_cell,header_cell,header_cell, header_cell, header_cell, 
+                header_cell, header_cell, header_cell] 
+        @devices.each do |t|
+            sheet.add_row [t[:full_name],
+                t[:name], 
+                t[:type_of_device], 
+                t[:number], 
+                t[:operative_system],
+                t[:processor],
+                t[:memory],
+                t[:mac]]
+        end
+    end
+end
