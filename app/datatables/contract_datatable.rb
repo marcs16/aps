@@ -1,4 +1,11 @@
 class ContractDatatable < AjaxDatatablesRails::ActiveRecord
+  extend Forwardable
+  def_delegator :@view, :truncate
+
+  def initialize(params, opts = {})
+    @view = opts[:view_context]
+    super
+  end
 
   def view_columns
     # Declare strings in this format: ModelName.column_name
@@ -23,7 +30,7 @@ class ContractDatatable < AjaxDatatablesRails::ActiveRecord
         
         code: record.code,
         contractor: record.contractor,
-        object: record.object,
+        object: truncate(record.object, length:30),
         supervisor: record.supervisor,
         initiation_act: record.initiation_act,
         dead_line: record.dead_line,
@@ -38,9 +45,9 @@ class ContractDatatable < AjaxDatatablesRails::ActiveRecord
 
   
   def get_raw_records
-    Contract.all
-         
+    Contract.all     
   end
+  
 
   private 
   

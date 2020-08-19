@@ -5,10 +5,10 @@ class ContractsController < ApplicationController
   # GET /contracts
   # GET /contracts.json
   def index
-    
+    @contracts = Contract.all
     respond_to do |format|
     format.html
-    format.json { render json: ContractDatatable.new(params,{edit: edit_contract_path('_'),show: contract_path('_')}) }
+    format.json { render json: ContractDatatable.new(params,{view_context: view_context,edit: edit_contract_path('_'),show: contract_path('_')}) }
   end
   end
 
