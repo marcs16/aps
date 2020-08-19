@@ -9,7 +9,7 @@
             <h2><%=t('activerecord.models.contract.other')%></h2>
             <div class="card card-primary">
               <div class="card-header">
-                <h3><%=t('app_common.shows.editing', model: model_name_singular(Contract))%> <%=@contract.code%></h3>
+                <h3><%=t('app_common.edits.editing', model: model_name_singular(Contract))%> <%=@contract.code%></h3>
                 <div class="card-tools">
                   <button type="button" class="btn btn-tool btn-sm" data-card-widget="collapse" data-toggle="tooltip"
                           title="Collapse">
@@ -44,7 +44,7 @@
 				    <div class="form-group row">
 				      <%=f.label :object, t('activerecord.attributes.contract.object'), class:"col-sm-3 col-form-label"%>
 				      <div class="col-sm-8">
-				        <%= f.text_field :object, autofocus: true, class:"form-control" %>
+				        <%= f.text_area :object, autofocus: true, class:"form-control" %>
 				      </div>
 				    </div>
 				    <div class="form-group row">
