@@ -21,6 +21,7 @@ class ContractDatatable < AjaxDatatablesRails::ActiveRecord
       executed_value: { source: 'Contract.executed_value', cond: :like, searchable: false, orderable: true },
       execution_rate: { source: 'Contract.execution_rate', cond: :like, searchable: false, orderable: true },
       observations:   { source: 'Contract.observations', cond: :like, searchable: false, orderable: true },
+      status:   { source: 'Contract.status', cond: :like, searchable: true, orderable: true },
     }
   end
 
@@ -38,6 +39,7 @@ class ContractDatatable < AjaxDatatablesRails::ActiveRecord
         executed_value: record.executed_value,
         execution_rate: record.execution_rate,
         observations: record.observations,
+        status: record.status,
         links: actions(record).html_safe
       }
     end

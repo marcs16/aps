@@ -17,6 +17,7 @@ class ContractsController < ApplicationController
   def show
     rate = calculate_percentaje(@contract.executed_value, @contract.value)
     @contract.execution_rate = rate
+
   end
 
   # GET /contracts/new
@@ -90,6 +91,6 @@ class ContractsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def contract_params
-      params.require(:contract).permit(:code, :contractor, :object, :supervisor, :initiation_act, :dead_line, :value, :executed_value, :execution_rate, :observations)
+      params.require(:contract).permit(:code, :contractor, :object, :supervisor, :initiation_act, :dead_line, :value, :executed_value, :execution_rate, :observations, :status)
     end
 end

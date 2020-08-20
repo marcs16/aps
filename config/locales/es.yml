@@ -31,6 +31,7 @@ es:
           executed_value: Valor ejecutado
           execution_rate: Porcentaje de ejecución
           observations: Observaciones
+          status: Estado
         device:
           name: Nombre del Dispositivo
           type_of_device: Tipo de Dispositivo
@@ -369,14 +370,15 @@ es:
       sign_in: "Pulsa el botón de abajo e inicia sesión."
       sign_up: "Registrarse"
       login:  "Iniciar Sesión"
-      selector:
-        document: "Documento"
-        position: "Cargo"
-        phone: "Teléfono"
-        select_type: "Seleccione un tipo"
-        select_os: "Seleccione un sistema operativo"
-        select_processor: "Seleccione un procesador"
-        select_ram: "Cantidad de ram"
+    selector:
+      document: "Documento"
+      position: "Cargo"
+      phone: "Teléfono"
+      select_type: "Seleccione un tipo"
+      select_os: "Seleccione un sistema operativo"
+      select_processor: "Seleccione un procesador"
+      select_status: "Seleccione un estado"
+      select_ram: "Cantidad de ram"
     edits:
       editing: "Editando %{model}:"
     shows:
