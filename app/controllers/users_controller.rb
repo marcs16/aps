@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:edit, :update, :reset_password]
+  before_action :authenticate_user!
    
    
 	
