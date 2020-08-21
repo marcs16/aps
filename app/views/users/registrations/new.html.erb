@@ -10,12 +10,12 @@
           </div>
           <div class="forms_field">
             <%= f.select :type_of_id, options_for_type_of_document,{:include_blank => t('activerecord.attributes.user.type_of_id')},required: true, autofocus: true, class:"forms_field-input"%>
-            <%= f.text_field :number_of_id,placeholder: t('app_common.session.selector.document'),required: true, autofocus: true, class:"forms_field-input"%>
+            <%= f.text_field :number_of_id,placeholder: t('app_common.selector.document'),required: true, autofocus: true, class:"forms_field-input"%>
           </div>
           <div class="forms_field"> 
-            <%= f.select :position,options_for_position,{:include_blank => t('app_common.session.selector.position')},required: true, autofocus: true, class:"forms_field-input"%>
+            <%= f.select :position,options_for_position,{:include_blank => t('app_common.selector.position')},required: true, autofocus: true, class:"forms_field-input"%>
   
-            <%= f.text_field :telephone,placeholder: t('app_common.session.selector.phone'),required: true, autofocus: true, class:"forms_field-input",autocomplete: "telephone"%>
+            <%= f.text_field :telephone,placeholder: t('app_common.selector.phone'),required: true, autofocus: true, class:"forms_field-input",autocomplete: "telephone"%>
           </div>
           <div class="forms_field"> 
             <%= f.date_field :date_of_birth,required: true, autofocus: true, class:"forms_field-input"%>
