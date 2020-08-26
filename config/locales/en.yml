@@ -133,7 +133,8 @@ en:
       inactive: Your account is not activated yet.
       invalid: Invalid %{authentication_keys} or password.
       last_attempt: You have one more attempt before your account is locked.
-      locked: Your account is locked.
+      locked: Your account is locked, contact an administrator.
+      disabled: Your account is disabled, contact an administrator.
       not_found_in_database: Invalid %{authentication_keys} or password.
       timeout: Your session expired. Please sign in again to continue.
       unauthenticated: You need to sign in or sign up before continuing.
@@ -398,7 +399,11 @@ en:
       register: "Push the button down below and sign up"
       sign_in: "push the button down below and sign in"
       sign_up: "Sign up"
-      login: "LogIn"
+      login: "Log In"
+    users:
+      disabled_users: "Disabled Users"
+      go_users: "Go to Users"
+      go_disabled: "Go to Disabled Users"
     selector:
       document: "Document"
       position: "Position"

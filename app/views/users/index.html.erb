@@ -10,6 +10,7 @@
         <div style="margin-bottom: 20px;margin-top: 20px; ">
           <%= link_to t('helpers.button.add', model: model_name_singular(User)), new_user_registration_path, class:'btn btn-primary '%>
           <button id="btn-rel-user" class=" btn btn-primary"><%=t('app_common.tables.reload_t')%></button>
+          <%= link_to t('app_common.users.go_disabled'), disabled_users_index_path, class:'btn btn-primary '%>
         </div>
 
         <table  id="users-datatable" data-source="<%= users_index_path(format: :json) %>">

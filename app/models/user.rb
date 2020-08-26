@@ -4,8 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :devices
-  has_many :maintainces
+  has_many :devices, :dependent => :delete_all
+  has_many :maintainces, :dependent => :delete_all
 
   enum role: [:general_administrator, :administrator,:pqrsr, :simple_user]
 

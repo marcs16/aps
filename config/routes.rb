@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :contracts
   get 'welcome/index'
   get 'welcome/indexlog'
+  get 'welcome/logout_disable'
   resources :application do     
     get 'application/current_language', to: 'application#current_language', as: 'c_language', on: :collection
   end
@@ -24,9 +25,12 @@ Rails.application.routes.draw do
 
   resources :users,:only => [:new, :edit,:update]
   get 'users/index', to: 'users#index'
-  get 'users/:id/edit', to: 'users#edit'
+  get 'users/disabled_users_index', to: 'users#disabled_users_index', as: 'disabled_users_index'
+  get 'users/:id/edit', to: 'users#edit' 
   put 'users/:id/update', to: 'users#update'
   get 'users/:id/reset_password', to: 'users#reset_password', as: 'users_reset_password'
+  get 'users/:id/disable_user', to: 'users#disable_user', as: 'user_disable'
+  get 'users/:id/enable_user', to: 'users#enable_user', as: 'user_enable'
   
   
 	devise_for :users, controllers: {

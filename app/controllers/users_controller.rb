@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:edit, :update, :reset_password]
+  before_action :set_user, only: [:edit, :update, :reset_password, :enable_user, :disable_user]
   before_action :authenticate_user!
    
    
@@ -11,6 +11,12 @@ class UsersController < ApplicationController
     end
   end
 
+  def disabled_users_index
+    respond_to do |format|
+      format.html
+      format.json { render json: DisableUserDatatable.new(params,{view_context: view_context,edit: edit_user_path('_'),current_user: current_user}) }
+    end
+  end
   def edit
     @user = User.find(params[:id])
   end
@@ -30,9 +36,26 @@ class UsersController < ApplicationController
   def reset_password
     @user.password = '123456'
     @user.save
-    
     respond_to do |format|
       format.html { redirect_to users_index_path, notice: 'Contraseña reseteada con exito.'}
+      format.json { head :no_content }
+    end
+  end
+
+  def enable_user
+    @user.can_login = 'si'
+    @user.save
+    respond_to do |format|
+      format.html { redirect_to disabled_users_index_path, notice: 'Habilitado con exito.'}
+      format.json { head :no_content }
+    end
+    
+  end
+  def disable_user
+    @user.can_login = 'no'
+    @user.save
+    respond_to do |format|
+      format.html { redirect_to users_index_path, notice: 'Desabilitado con exito.'}
       format.json { head :no_content }
     end
   end

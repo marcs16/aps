@@ -1,7 +1,7 @@
-class UserDatatable < AjaxDatatablesRails::ActiveRecord
+class DisableUserDatatable < AjaxDatatablesRails::ActiveRecord
   extend Forwardable
 
-  def_delegators :@view,  :users_reset_password_path, :user_disable_path, :user_enable_path , :t
+  def_delegators :@view,  :users_reset_password_path,  :user_enable_path , :t
 
   def initialize(params, opts = {})
     @view = opts[:view_context]
@@ -41,14 +41,12 @@ class UserDatatable < AjaxDatatablesRails::ActiveRecord
   end
 
   def get_raw_records
-    User.where.not(id: options[:current_user].id).where(can_login: 'si')
+    User.where.not(id: options[:current_user].id).where(can_login: 'no')
          
   end
 
   private 
   def actions(record)
-    sarta =  "<a href ='#{options[:edit].gsub('_',record.id.to_s)}'> <i class='fa fa-edit'></i></a>"
-    sarta +=  " | <a href ='#{users_reset_password_path(record)}'> <i class='fa fa-lock'></i></a>"
-    sarta += " | <a href ='#{ user_disable_path(record)}'><i class='fa fa-toggle-off'></i></a>"
+    sarta = " <a href ='#{ user_enable_path(record)}'><i class='fa fa-toggle-on'></i></a>"
   end
 end

@@ -102,7 +102,8 @@ es:
       inactive: Tu cuenta aún no ha sido activada.
       invalid: "%{authentication_keys} o contraseña inválidos."
       last_attempt: Tienes un intento más antes de que tu cuenta sea bloqueada.
-      locked: Tu cuenta está bloqueada.
+      locked: Tu cuenta está bloqueada, contacta a un administrador.
+      disabled: Tu cuenta está deshabilitada, contacta a un administrador.
       not_found_in_database: "%{authentication_keys} o contraseña inválidos."
       timeout: Tu sesión expiró. Por favor, inicia sesión nuevamente para continuar.
       unauthenticated: Tienes que iniciar sesión o registrarte para poder continuar.
@@ -370,6 +371,11 @@ es:
       sign_in: "Pulsa el botón de abajo e inicia sesión."
       sign_up: "Registrarse"
       login:  "Iniciar Sesión"
+      come_back_login: "Volver al inicio de sesión."
+    users:
+      disabled_users: "Usuarios Desabilitados"
+      go_users: "Ir a usuarios"
+      go_disabled: "Ir a usuarios deshabilitados"
     selector:
       document: "Documento"
       position: "Cargo"

@@ -1,0 +1,39 @@
+<%= render 'layouts/partials/navbar'%>
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <div class="container-fluid">
+      <div class="col-md-12">
+        <p id="notice"><%= notice %></p>
+
+        <h1><%=t('app_common.users.disabled_users')%></h1>
+        <div style="margin-bottom: 20px;margin-top: 20px; ">
+          <button id="btn-rel-user" class=" btn btn-primary"><%=t('app_common.tables.reload_t')%></button>
+          <%= link_to t('app_common.users.go_users'), users_index_path, class:'btn btn-primary '%>
+        </div>
+
+        <table  id="disabled-users-datatable" data-source="<%= disabled_users_index_path(format: :json) %>">
+          <thead>
+            <tr>
+              <th><%=User.human_attribute_name(:full_name)%></th>
+              <th><%=User.human_attribute_name(:type_of_id)%></th>
+              <th><%=User.human_attribute_name(:number_of_id)%> </th>
+              <th><%=User.human_attribute_name(:position)%> </th>
+              <th><%=User.human_attribute_name(:email)%></th>
+              <th><%=User.human_attribute_name(:telephone)%> </th>
+              <th><%=User.human_attribute_name(:date_of_birth)%></th>
+              <th><%=User.human_attribute_name(:working_since)%></th>
+              <th><%=t('app_common.tables.options')%></th>
+              <th colspan="3"></th>
+            </tr>
+          </thead>
+          <tbody>
+           
+          </tbody>
+        </table>
+        
+      </div> 
+    </div>
+  </section>
+  <%=render 'layouts/partials/footer'%>
+</div>
