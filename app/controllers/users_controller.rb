@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:edit, :update, :reset_password, :enable_user, :disable_user]
+  before_action :set_user, only: [:show, :edit, :update, :reset_password, :enable_user, :disable_user]
   before_action :authenticate_user!
    
    
@@ -10,6 +10,7 @@ class UsersController < ApplicationController
       format.json { render json: UserDatatable.new(params,{view_context: view_context,edit: edit_user_path('_'),current_user: current_user}) }
     end
   end
+
 
   def disabled_users_index
     respond_to do |format|

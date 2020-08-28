@@ -1,6 +1,6 @@
 class LanguagesController < ApplicationController
   before_action :set_language, only: [:show, :edit, :update, :destroy]
-   before_action :authenticate_user!
+   before_action :authenticate_user!, except: [:change_language]
 
   # GET /languages
   # GET /languages.json

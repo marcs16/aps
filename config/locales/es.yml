@@ -367,9 +367,10 @@ es:
       company: "APS E.S.P S.A.S"
       acc: "¿Tienes una cuenta?"
       no_acc: "¿No tienes una cuenta?"
-      register: "Pulsa el botón de abajo y registrate."
+      register: "Pulsa el botón de abajo y  obten una cuenta."
       sign_in: "Pulsa el botón de abajo e inicia sesión."
-      sign_up: "Registrarse"
+      sign_up: "Obtener una cuenta"
+      get_acc: "Por favor contacta a la persona encargada de crear las cuentas, para obtener la tuya."
       login:  "Iniciar Sesión"
       come_back_login: "Volver al inicio de sesión."
     users:
