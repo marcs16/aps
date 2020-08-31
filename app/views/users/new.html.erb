@@ -1,0 +1,117 @@
+<%=render 'layouts/partials/navbar'%>
+<div class="center-style-app">
+  <div class="content-wrapper">
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-9">
+            <h2><%=t('app_common.navbar.profile.edit_profile')%></h2>
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3><%=t('app_common.navbar.profile.prof')%></h3>
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool btn-sm" data-card-widget="collapse" data-toggle="tooltip"
+                          title="Collapse">
+                    <i class="fa fa-minus"></i></button>
+                </div>
+              </div>
+              <div class="card-body">
+                <%= form_for(@user, url: {action: 'new'}, html: { method: :put }) do |f| %>
+                  <% if @user.errors.any? %>
+                    <div id="error_explanation">
+                      <ul>
+                        <% @user.errors.full_messages.each do |message| %>
+                          <li><%= message %></li>
+                        <% end %>
+                      </ul>
+                    </div>
+                  <% end %>
+                  <form class="form-horizontal">
+                    <div class="form-group row">
+                      <%= f.label :full_name,t('activerecord.attributes.user.full_name'), class:"col-sm-3 col-form-label" %>
+                      <div class="col-sm-8">
+                        <%= f.text_field :full_name,placeholder: t('activerecord.attributes.user.full_name'),required: true, autofocus: true, class:"form-control",autocomplete: t('activerecord.attributes.user.full_name')%>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <%= f.label :email,t('activerecord.attributes.user.email'), class: "col-sm-3 col-form-label" %>
+                      <div class="col-sm-8">
+                        <%= f.email_field :email,placeholder: "Email",required: true, autofocus: true, class:"form-control",autocomplete: t('activerecord.attributes.user.email')%>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <%=f.label :type_of_id,t('activerecord.attributes.user.type_of_id'), class:"col-sm-3 col-form-label"%>
+                      <div class="col-sm-8">
+                        <%= f.select :type_of_id, options_for_type_of_document,{:include_blank => t('activerecord.attributes.user.type_of_id')},required: true, autofocus: true, class:"form-control"%>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <%=f.label :number_of_id,t('activerecord.attributes.user.number_of_id'), class:"col-sm-3 col-form-label"%>
+                      <div class="col-sm-8">
+                        <%= f.text_field :number_of_id,placeholder: t('app_common.selector.document'),required: true, autofocus: true, class:"form-control"%>
+                      </div>
+                    </div>
+                     <div class="form-group row">
+                      <%=f.label :position,t('activerecord.attributes.user.position'), class:"col-sm-3 col-form-label"%>
+                      <div class="col-sm-8">
+                        <%= f.select :position,options_for_position,{:include_blank => t('app_common.selector.position')},required: true, autofocus: true, class:"form-control"%>
+                      </div>
+                    </div>
+                     <div class="form-group row">
+                      <%=f.label :telephone, "Celular", class:"col-sm-3 col-form-label"%>
+                      <div class="col-sm-8">
+                      <%= f.text_field :telephone,placeholder: t('app_common.selector.phone'),required: true, autofocus: true, class:"form-control",autocomplete: "telephone"%>
+                      </div>
+                    </div>
+                     <div class="form-group row">
+                      <%=f.label :date_of_birth ,t('activerecord.attributes.user.date_of_birth'), class:"col-sm-3 col-form-label"%>
+                      <div class="col-sm-8">
+                      <%= f.date_field :date_of_birth,min: "01-01-1950",max: "01-01-2002",value: :date_of_birth, autofocus: true, class:"form-control"%>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <%=f.label :working_since,t('activerecord.attributes.user.working_since'), class:"col-sm-3 col-form-label"%>
+                      <div class="col-sm-8">
+                      <%= f.date_field :working_since,min:"01-01-2013",value: :working_since, autofocus: true, class:"form-control" %>
+                      </div>
+                    </div>
+                   
+                    <div class="form-group row">
+                      <%= f.label :password_confirmation,t('activerecord.attributes.user.password'), class:"col-sm-3 col-form-label"%>
+                      <div class="col-sm-8">
+                        <%= f.password_field :password, autocomplete: "new-password",placeholder: t('activerecord.attributes.user.password'), class:"form-control",required: true%>
+                      </div>
+
+                      <%= f.label :password_confirmation,t('activerecord.attributes.user.password_confirmation'), class:"col-sm-3 col-form-label" %>
+                        <div class="col-sm-8">
+                          <br>
+                          <%= f.password_field :password_confirmation, autocomplete: "new-password",placeholder: t('activerecord.attributes.user.password_confirmation'), class:"form-control",required: true %>
+                        </div>
+                      </div> 
+                    </div> 
+                    <div class="form-group row">
+                      <div class="offset-sm-2 col-sm-8">
+                        <%= f.submit t('app_common.session.sign_up') , class:"btn btn-primary" %>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <div class="offset-sm-2 col-sm-8">
+                        <%= link_to t('helpers.button.back'), :back , class:"btn btn-primary fa fa-arrow-left"%>
+                      </div>
+                    </div>
+                  </form>
+                <% end %>
+              </div><!-- /.card-body -->
+            </div>
+            <!-- /.nav-tabs-custom -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+    <%=render 'layouts/partials/footer'%>
+  </div>
+</div>
