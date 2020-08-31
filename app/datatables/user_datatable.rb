@@ -14,11 +14,11 @@ class UserDatatable < AjaxDatatablesRails::ActiveRecord
     # or in aliased_join_table.column_name format
     @view_columns ||= {
       full_name:     { source: 'User.full_name', cond: :like, searchable: true, orderable: true },
-      type_of_id:        { source: 'User.type_of_id', cond: :like, searchable: false, orderable: true },
-      number_of_id:         { source: 'User.number_of_id', searchable: true, orderable: true },
+      type_of_id:        { source: 'User.type_of_id', cond: :like, searchable: true, orderable: true },
+      number_of_id:         { source: 'User.number_of_id', searchable: false, orderable: true },
       position:    { source: 'User.position', searchable: false, orderable: true },
-      email:  {source: 'User.email',searchable:true, orderable: true},
-      telephone:        { source: 'User.telephone', cond: :like, searchable: true, orderable: true },
+      email:  {source: 'User.email',searchable:false, orderable: true},
+      telephone:        { source: 'User.telephone', cond: :like, searchable: false, orderable: true },
       date_of_birth:         { source: 'User.date_of_birth', searchable: false, orderable: true },
       working_since:    { source: 'User.working_since', searchable: false, orderable: true }, 
     }
