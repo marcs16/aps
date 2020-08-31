@@ -402,10 +402,33 @@ en:
       get_acc: "Please contact the person in charge of create the accounts, to get yor own"
       login: "LogIn"
       come_back_login: "Come back to login."
-    users:
-      disabled_users: "Disabled Users"
-      go_users: "Go to Users"
-      go_disabled: "Go to Disabled Users"
+    models:
+      contracts:
+        actions:
+          created: "Contract has been created successfully"
+          updated: "Contract has been updated successfully"
+      devices:
+        actions:
+          created:  "Device has been created successfully"
+          updated:  "Device has been updated successfully"        
+      events:
+        actions:
+          created:  "Event has been created successfully"
+          updated:  "Event has been updated successfully"      
+      maintainces:
+        actions:
+          created:  "Maintaince has been created successfully"
+          updated:  "Maintaince has been updated successfully"
+      users:
+        disabled_users: "Disabled Users"
+        go_users: "Go to Users"
+        go_disabled: "Go to Disabled Users"
+        actions:
+          created: "User has been created successfully"
+          updated: "User has been updated successfully"
+          disabled: "User has been disabled successfully"
+          enabled:  "User has been enabled successfully"
+          changed_password: "User's password has been reseted successfully"
     selector:
       document: "Document"
       position: "Position"
@@ -430,3 +453,4 @@ en:
     tables:
       options: "Options"
       reload_t: "Reload Table"
+      confirm: "Do you want to do this??" 

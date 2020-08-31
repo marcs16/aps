@@ -373,10 +373,33 @@ es:
       get_acc: "Por favor contacta a la persona encargada de crear las cuentas, para obtener la tuya."
       login:  "Iniciar Sesión"
       come_back_login: "Volver al inicio de sesión."
-    users:
-      disabled_users: "Usuarios Desabilitados"
-      go_users: "Ir a usuarios"
-      go_disabled: "Ir a usuarios deshabilitados"
+    models:
+      contracts:
+        actions:
+          created: "Contracto creado con éxito"
+          updated: "Contracto actualizado con éxito"
+      devices:
+        actions:
+          created:  "Dispositivo creado con éxito"
+          updated:  "Dispositivo actualizado con éxito"        
+      events:
+        actions:
+          created:  "Reunión creada con éxito"
+          updated:  "Reunión actualizada con éxito"      
+      maintainces:
+        actions:
+          created:  "Mantenimiento creado con éxito"
+          updated:  "Mantenimiento actualizado con éxito"
+      users:
+        disabled_users: "Usuarios Desabilitados"
+        go_users: "Ir a usuarios"
+        go_disabled: "Ir a usuarios deshabilitados"
+        actions:
+          created: "Usuario creado con éxito"
+          updated: "Usuario actualizado con éxito"
+          disabled: "Usuario deshabilitado con éxito"
+          enabled:  "Usuario habilitado con éxito"
+          changed_password: "Contraseña restablecida con exito"
     selector:
       document: "Documento"
       position: "Cargo"
@@ -401,3 +424,4 @@ es:
     tables:
       options: "Opcciones"
       reload_t: "Recargar Tabla"
+      confirm: "¿Quiere realizar esta acción?"

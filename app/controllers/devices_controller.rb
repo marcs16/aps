@@ -33,7 +33,7 @@ end
 
     respond_to do |format|
       if @device.save
-        format.html { redirect_to @device, notice: 'Device was successfully created.' }
+        format.html { redirect_to @device, notice: t('app_common.models.devices.actions.created') }
         format.json { render :show, status: :created, location: @device }
       else
         format.html { render :new }
@@ -47,7 +47,7 @@ end
   def update
     respond_to do |format|
       if @device.update(device_params)
-        format.html { redirect_to @device, notice: 'Device was successfully updated.' }
+        format.html { redirect_to @device, notice: t('app_common.models.contracts.actions.updated') }
         format.json { render :show, status: :ok, location: @device }
       else
         format.html { render :edit }

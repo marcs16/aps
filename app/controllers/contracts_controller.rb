@@ -41,7 +41,7 @@ class ContractsController < ApplicationController
     respond_to do |format|
       if @contract.save
 
-        format.html { redirect_to @contract, notice: 'Contract was successfully created.' }
+        format.html { redirect_to @contract, notice: t('app_common.models.contracts.actions.created') }
         format.json { render :show, status: :created, location: @contract }
       else
         format.html { render :new }
@@ -57,7 +57,7 @@ class ContractsController < ApplicationController
       rate = calculate_percentaje(@contract.executed_value, @contract.value)
       @contract.execution_rate = rate
       if @contract.update(contract_params)
-        format.html { redirect_to @contract, notice: 'Contract was successfully updated.' }
+        format.html { redirect_to @contract, notice:  t('app_common.models.contracts.actions.updated') }
         format.json { render :show, status: :ok, location: @contract }
       else
         format.html { render :edit }

@@ -33,7 +33,7 @@ class MaintaincesController < ApplicationController
     @maintaince.device = @device
     respond_to do |format|
       if @maintaince.save
-        format.html { redirect_to @maintaince.device, notice: 'Maintaince was successfully created.' }
+        format.html { redirect_to @maintaince.device, notice: t('app_common.models.maintainces.actions.created') }
         format.json { render :show, status: :created, location: @maintaince }
       else
         format.html { render :new }
@@ -47,7 +47,7 @@ class MaintaincesController < ApplicationController
   def update
     respond_to do |format|
       if @maintaince.update(maintaince_params)
-        format.html { redirect_to device_maintaince_path(@maintaince.device.id,@maintaince), notice: 'Maintaince was successfully updated.' }
+        format.html { redirect_to device_maintaince_path(@maintaince.device.id,@maintaince), notice: t('app_common.models.maintainces.actions.created') }
         format.json { render :show, status: :ok, location: @maintaince }
       else
         format.html { render :edit }

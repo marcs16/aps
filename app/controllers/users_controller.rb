@@ -25,7 +25,7 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to users_index_path, notice: 'Datos de usuario actualizados con exito.'}
+        format.html { redirect_to users_index_path, notice: t('app_common.models.user.actions.created')}
         format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit }
@@ -38,7 +38,7 @@ class UsersController < ApplicationController
     @user.password = '123456'
     @user.save
     respond_to do |format|
-      format.html { redirect_to users_index_path, notice: 'Contraseña reseteada con exito.'}
+      format.html { redirect_to users_index_path, notice: t('app_common.models.user.actions.changed_password')}
       format.json { head :no_content }
     end
   end
@@ -47,7 +47,7 @@ class UsersController < ApplicationController
     @user.can_login = 'si'
     @user.save
     respond_to do |format|
-      format.html { redirect_to disabled_users_index_path, notice: 'Habilitado con exito.'}
+      format.html { redirect_to disabled_users_index_path, notice: t('app_common.models.user.actions.enabled')}
       format.json { head :no_content }
     end
     
@@ -56,7 +56,7 @@ class UsersController < ApplicationController
     @user.can_login = 'no'
     @user.save
     respond_to do |format|
-      format.html { redirect_to users_index_path, notice: 'Desabilitado con exito.'}
+      format.html { redirect_to users_index_path, notice: t('app_common.models.user.actions.disabled')}
       format.json { head :no_content }
     end
   end

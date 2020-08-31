@@ -6,10 +6,10 @@
       <div class="col-md-12">
         <p id="notice"><%= notice %></p>
 
-        <h1><%=t('app_common.users.disabled_users')%></h1>
+        <h1><%=t('app_common.models.users.disabled_users')%></h1>
         <div style="margin-bottom: 20px;margin-top: 20px; ">
           <button id="btn-rel-user" class=" btn btn-primary"><%=t('app_common.tables.reload_t')%></button>
-          <%= link_to t('app_common.users.go_users'), users_index_path, class:'btn btn-primary '%>
+          <%= link_to t('app_common.models.users.go_users'), users_index_path, class:'btn btn-primary '%>
         </div>
 
         <table  id="disabled-users-datatable" data-source="<%= disabled_users_index_path(format: :json) %>">
