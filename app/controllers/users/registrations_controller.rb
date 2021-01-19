@@ -14,29 +14,33 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def create
     #authorize! :create, User
     @user = User.new(sign_up_params)
-    
+    if @user.password = ""
+      @user.password  = "1234567"
+    elsif @user.password_confirmation =""
+      @user.password_confirmation = @user.password
+    end
     respond_to do |format|
       if @user.save
-        format.html { redirect_to users_index_path, notice: 'User was successfully created.' }
+        format.html { redirect_to users_index_path, notice: t('app_common.models.users.actions.created') }
         format.json { render :show, status: :created, location: @device }
       else
         format.html { render :new }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
-    
+
   end
 
- 
+
   protected
-  
+
 
   def sign_up_params
-    params.require(:user).permit(:full_name,:email,:type_of_id,:number_of_id,:position,:date_of_birth,:working_since,:telephone,:password, :password_confirmation)
+    params.require(:user).permit(:full_name,:email,:type_of_id,:number_of_id,:position,:date_of_birth,:working_since,:telephone,:current_password,:password, :password_confirmation)
   end
 
   def account_update_params
-    params.require(:user).permit(:full_name,:email,:type_of_id,:number_of_id,:position,:date_of_birth,:working_since,:telephone, :password, :password_confirmation)
+    params.require(:user).permit(:full_name,:email,:type_of_id,:number_of_id,:position,:date_of_birth,:working_since,:telephone,:current_password, :password, :password_confirmation)
   end
   #before_action :configure_sign_up_params, only: [:create]
   #before_action :configure_account_update_params, only: [:update]

@@ -14,7 +14,7 @@ es:
         one: Idioma
         other: Idiomas
       maintaince:
-        one: Mantenimiento  
+        one: Mantenimiento
         other: Mantenimientos
       user:
         one: Usuario
@@ -196,7 +196,7 @@ es:
       send_instructions: Vas a recibir instrucciones para desbloquear tu cuenta en unos pocos minutos.
       send_paranoid_instructions: Si tu cuenta existe, vas a recibir instrucciones para desbloquear tu cuenta en unos pocos minutos.
       unlocked: Tu cuenta ha sido desbloqueada. Ya puedes iniciar sesión.
-      
+
   errors:
     # The default format to use in full error messages.
     format: '%{attribute} %{message}'
@@ -264,7 +264,7 @@ es:
         - vie
         - sáb
     abbr_month_names:
-        - 
+        -
         - ene
         - feb
         - mar
@@ -290,7 +290,7 @@ es:
       long: "%-d de %B de %Y"
       short: "%-d de %b"
     month_names:
-      - 
+      -
       - enero
       - febrero
       - marzo
@@ -369,7 +369,7 @@ es:
       no_acc: "¿No tienes una cuenta?"
       register: "Pulsa el botón de abajo y  obten una cuenta."
       sign_in: "Pulsa el botón de abajo e inicia sesión."
-      sign_up: "Obtener una cuenta"
+      sign_up: "Creando nuevo empleado"
       get_acc: "Por favor contacta a la persona encargada de crear las cuentas, para obtener la tuya."
       login:  "Iniciar Sesión"
       come_back_login: "Volver al inicio de sesión."
@@ -381,11 +381,11 @@ es:
       devices:
         actions:
           created:  "Dispositivo creado con éxito"
-          updated:  "Dispositivo actualizado con éxito"        
+          updated:  "Dispositivo actualizado con éxito"
       events:
         actions:
           created:  "Reunión creada con éxito"
-          updated:  "Reunión actualizada con éxito"      
+          updated:  "Reunión actualizada con éxito"
       maintainces:
         actions:
           created:  "Mantenimiento creado con éxito"

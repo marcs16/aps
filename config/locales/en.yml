@@ -226,7 +226,7 @@ en:
         resend_unlock_instructions: Resend unlock instructions
       send_instructions: You will receive an email with instructions for how to unlock your account in a few minutes.
       send_paranoid_instructions: If your account exists, you will receive an email with instructions for how to unlock it in a few minutes.
-      unlocked: Your account has been unlocked successfully. Please sign in to continue.    
+      unlocked: Your account has been unlocked successfully. Please sign in to continue.
   errors:
     # The default format to use in full error messages.
     format: '%{attribute} %{message}'
@@ -241,7 +241,7 @@ en:
       not_saved:
         one: '1 error prohibited this %{resource} from being saved:'
         other: "%{count} errors prohibited this %{resource} from being saved:"
-      taken: Already taken for another registry. 
+      taken: Already taken for another registry.
       inclusion: There is no included into the list.
       exclusion: this is reserved.
       invalid: this is invalid.
@@ -293,7 +293,7 @@ en:
       - Fri
       - Sat
     abbr_month_names:
-      - 
+      -
       - Jan
       - Feb
       - Mar
@@ -319,7 +319,7 @@ en:
       long: "%B %d, %Y"
       short: "%b %d"
     month_names:
-      - 
+      -
       - January
       - February
       - March
@@ -398,7 +398,7 @@ en:
       no_acc: "Have no account yet ??"
       register: "Push the button down below and get an account"
       sign_in: "push the button down below and sign in"
-      sign_up: "Get an account"
+      sign_up: "Creating a new employe"
       get_acc: "Please contact the person in charge of create the accounts, to get yor own"
       login: "LogIn"
       come_back_login: "Come back to login."
@@ -410,11 +410,11 @@ en:
       devices:
         actions:
           created:  "Device has been created successfully"
-          updated:  "Device has been updated successfully"        
+          updated:  "Device has been updated successfully"
       events:
         actions:
           created:  "Event has been created successfully"
-          updated:  "Event has been updated successfully"      
+          updated:  "Event has been updated successfully"
       maintainces:
         actions:
           created:  "Maintaince has been created successfully"
@@ -453,4 +453,4 @@ en:
     tables:
       options: "Options"
       reload_t: "Reload Table"
-      confirm: "Do you want to do this??" 
+      confirm: "Do you want to do this??"

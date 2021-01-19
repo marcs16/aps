@@ -47,8 +47,14 @@ class UserDatatable < AjaxDatatablesRails::ActiveRecord
 
   private 
   def actions(record)
-    sarta =  "<a href ='#{options[:edit].gsub('_',record.id.to_s)}'> <i class='fa fa-edit'></i></a>"
-    sarta +=  " | <a href ='#{users_reset_password_path(record)}'> <i class='fa fa-lock'></i></a>"
-    sarta += " | <a data-confirm='#{t('app_common.tables.confirm') }' href ='#{ user_disable_path(record)}'><i class='fa fa-toggle-off'></i></a>"
+   
+    if options[:current_user].is_gerente_general? 
+      sarta =  "<a href ='#{options[:edit].gsub('_',record.id.to_s)}'> <i class='fa fa-edit'></i></a>"
+      sarta +=  " | <a href ='#{users_reset_password_path(record)}'> <i class='fa fa-lock'></i></a>"
+      sarta += " | <a data-confirm='#{t('app_common.tables.confirm') }' href ='#{ user_disable_path(record)}'><i class='fa fa-toggle-off'></i></a>"
+    elsif options[:current_user].is_lector?
+      sarta =  "&nbsp;&nbsp&nbsp;&nbsp&nbsp;&nbsp<a href ='#{options[:edit].gsub('_',record.id.to_s)}'> <i class='fa fa-edit'></i></a>" 
+    end
+    
   end
 end

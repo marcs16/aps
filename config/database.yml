@@ -15,7 +15,7 @@
 # gem 'pg'
 #
 default: &default
-  host: 192.168.20.159
+  host: 192.168.20.21
   port: 5433
   adapter: postgresql
   encoding: unicode
@@ -27,7 +27,7 @@ development:
   <<: *default
   database: aps_development
   username: postgres
-  password: adl
+  password: Aguas
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -63,7 +63,7 @@ test:
   <<: *default
   database: aps_test
   username: postgres
-  password: adl
+  password: Aguas
 
 
 # As with config/secrets.yml, you never want to store sensitive information,
@@ -88,5 +88,5 @@ test:
 production:
   <<: *default
   database: aps_production
-  username: aps
+  username: Aguas
   password: <%= ENV['APS_DATABASE_PASSWORD'] %>

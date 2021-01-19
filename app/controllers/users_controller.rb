@@ -1,9 +1,10 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :reset_password, :enable_user, :disable_user]
   before_action :authenticate_user!
-   
-   
-	
+  load_and_authorize_resource
+
+
+
   def index
     respond_to do |format|
       format.html
@@ -25,7 +26,7 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to users_index_path, notice: t('app_common.models.users.actions.created')}
+        format.html { redirect_to users_index_path, notice: t('app_common.models.users.actions.updated')}
         format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit }
@@ -50,7 +51,7 @@ class UsersController < ApplicationController
       format.html { redirect_to disabled_users_index_path, notice: t('app_common.models.users.actions.enabled')}
       format.json { head :no_content }
     end
-    
+
   end
   def disable_user
     @user.can_login = 'no'
@@ -64,9 +65,9 @@ class UsersController < ApplicationController
     def set_user
       @user = User.find(params[:id])
     end
-  
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:full_name,:email,:type_of_id,:number_of_id,:position,:date_of_birth,:working_since,:telephone) 
+      params.require(:user).permit(:full_name,:email,:type_of_id,:number_of_id,:position,:date_of_birth,:working_since,:telephone)
     end
 end

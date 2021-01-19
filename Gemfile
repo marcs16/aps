@@ -6,9 +6,11 @@ ruby '2.6.3'
 
 #gems project
 
+#cancan for to manage the  access
+gem 'cancancan', '~> 3.1'
 #haml 
 gem 'haml', '~> 5.1', '>= 5.1.2'
-#devise
+#devise for auth
 gem 'devise', '~> 4.7', '>= 4.7.1'
 #export excel
 gem 'caxlsx_rails', '~> 0.6.2'
@@ -19,7 +21,7 @@ gem "font-awesome-rails"
 #calendar
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
-#tables
+#tables functionality
 gem 'jquery-datatables', '~> 1.10', '>= 1.10.20'
 gem 'ajax-datatables-rails', '~> 1.2'
 #transaltion

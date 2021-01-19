@@ -71,20 +71,26 @@
                       <%= f.date_field :working_since,min:"01-01-2013",value: :working_since, autofocus: true, class:"form-control" %>
                       </div>
                     </div>
-                   
+                  <div class="offset-sm-10 col-sm-2">
+                    <button  id= "btn-psd" class="btn btn-primary">
+                      <i class="fa fa-plus"></i>
+                    </button>
+                  </div>
+                  <br>
+                  <div class="pass-fields" style="display: none;">
                     <div class="form-group row">
-                      <%= f.label :password_confirmation,t('activerecord.attributes.user.password'), class:"col-sm-3 col-form-label"%>
+                      <%= f.label :password,t('activerecord.attributes.user.password'), class:"col-sm-3 col-form-label"%>
                       <div class="col-sm-8">
-                        <%= f.password_field :password, autocomplete: "new-password",placeholder: t('activerecord.attributes.user.password'), class:"form-control",required: true%>
+                        <%= f.password_field :password, autocomplete: "new-password",placeholder: t('activerecord.attributes.user.password'), class:"form-control",disabled: true%>
                       </div>
 
                       <%= f.label :password_confirmation,t('activerecord.attributes.user.password_confirmation'), class:"col-sm-3 col-form-label" %>
                         <div class="col-sm-8">
                           <br>
-                          <%= f.password_field :password_confirmation, autocomplete: "new-password",placeholder: t('activerecord.attributes.user.password_confirmation'), class:"form-control",required: true %>
+                          <%= f.password_field :password_confirmation, autocomplete: "new-password",placeholder: t('activerecord.attributes.user.password_confirmation'), class:"form-control",disabled: true %>
                         </div>
-                      </div> 
-                    </div> 
+                      </div>
+                    </div>
                     <div class="form-group row">
                       <div class="offset-sm-2 col-sm-8">
                         <%= f.submit t('helpers.submit.create', model: model_name_singular(User)), class:"btn btn-primary" %>
