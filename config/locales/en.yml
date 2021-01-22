@@ -34,7 +34,7 @@ en:
     models:
       contract:
         one: Contract
-        other: Contrats
+        other: Contracts
       device:
         one: Device
         other: Devices
@@ -47,6 +47,9 @@ en:
       maintaince:
         one: Maintaince
         other: Maintainces
+      salary:
+        one: Salary
+        other: Salaries
       user:
         one: User
         other: Users
@@ -65,9 +68,9 @@ en:
           status: Status
         device:
           name: Name of Device
-          type_of_device: type of Device
+          type_of_device: Type of Device
           number: Number
-          operative_system: operative System
+          operative_system: Operative System
           processor: processor
           memory: Memory
           mac: Mac
@@ -89,6 +92,19 @@ en:
           device: Device
           owner: User
           done_by: Done by
+        salary:
+          type_of_salary: Type of Salary
+          social_benefits: Social Benefits
+          basic_hour: Basic per Hour
+          basic_day: Basic per Day
+          basic_month: Basic per Month
+          average_payment: Average Payment
+          last_basic: Last Basic
+          last_increase_date: Last Increase date
+          way_to_pay: Way to Pay
+          bank: bank
+          bank_number: Cuenta de Banco
+          type_of_bank_account: Type of Bank Account
         user:
           confirmation_sent_at: Confirmation sent at
           confirmation_token: Confirmation token
@@ -399,7 +415,7 @@ en:
       register: "Push the button down below and get an account"
       sign_in: "push the button down below and sign in"
       sign_up: "Creating a new employe"
-      get_acc: "Please contact the person in charge of create the accounts, to get yor own"
+      get_acc: "Please contact the person in charge of create the accounts, to get your own"
       login: "LogIn"
       come_back_login: "Come back to login."
     models:
@@ -440,12 +456,16 @@ en:
       select_ram: "Ram quantity"
     edits:
       editing: "Editing %{model}:"
-      shows:
+      editing_for: "Editing %{model} for:"
+    shows:
       showing: "Showing %{model}:"
+      showing_for: "Showing %{model} for:"
     navbar:
+      contracts: "Contracts"
       profile:
         prof: "Profile"
         edit_profile: "Edit Profile"
+      salaries: "Salarios"
       users: "Users"
       devices: "Devices"
       meetings: "Meetings"

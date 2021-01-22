@@ -1,0 +1,167 @@
+<%=render 'layouts/partials/navbar'%>
+<div class="center-style-app">
+  <div class="content-wrapper">
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12">
+            <h2><%=t('activerecord.models.salary.other')%></h2>
+            <p id="notice"><%= notice %></p>
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3><%=t('app_common.shows.showing_for', model: model_name_singular(Salary))  %> <%= @user_full_name%></h3>
+                <div class="card-tools">
+                    <i class="fa fa-sync-alt"></i></button>
+                  <button type="button" class="btn btn-tool btn-sm" data-card-widget="collapse" data-toggle="tooltip"
+                          title="Collapse">
+                    <i class="fa fa-minus"></i></button>
+                </div>
+              </div>
+              <div class="card-body">
+                <form class="form-horizontal">
+                  <div class="form-group row">
+                    <div class= "col-sm-4 col-form-label">
+                      <strong><%= t('activerecord.attributes.salary.type_of_salary')%></strong>
+                    </div>
+                    <div class=" col-sm-7">
+                      <div class="form-control">
+                        <%= @salary.type_of_salary%>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class= "col-sm-4 col-form-label">
+                      <strong><%= t('activerecord.attributes.social_benefits')%></strong>
+                    </div>
+                    <div class=" col-sm-7">
+                      <div class="form-control">
+                        <%= @salary.social_benefits%>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class= "col-sm-4 col-form-label">
+                      <strong><%= t('activerecord.attributes.salary.basic_day')%></strong>
+                    </div>
+                    <div class=" col-sm-7">
+                      <div class="form-control">
+                        <%= @salary.type_of_salary%>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class= "col-sm-4 col-form-label">
+                      <strong><%= t('activerecord.attributes.salary.basic_hour')%></strong>
+                    </div>
+                    <div class=" col-sm-7">
+                      <div class="form-control">
+                        <%= @salary.basic_hour%>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class= "col-sm-4 col-form-label">
+                      <strong><%= t('activerecord.attributes.salary.basic_month')%></strong>
+                    </div>
+                    <div class=" col-sm-7">
+                      <div class="form-control">
+                        <%= @salary.basic_month%>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class= "col-sm-4 col-form-label">
+                      <strong><%= t('activerecord.attributes.salary.average_payment')%></strong>
+                    </div>
+                    <div class=" col-sm-7">
+                      <div class="form-control">
+                        <%= @salary.average_payment%>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class= "col-sm-4 col-form-label">
+                      <strong><%= t('activerecord.attributes.salary.last_basic')%></strong>
+                    </div>
+                    <div class=" col-sm-7">
+                      <div class="form-control">
+                        <%= @salary.last_basic%>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class= "col-sm-4 col-form-label">
+                      <strong><%= t('activerecord.attributes.salary.last_increase_date')%></strong>
+                    </div>
+                    <div class=" col-sm-7">
+                      <div class="form-control">
+                        <%= @salary.last_increase_date%>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class= "col-sm-4 col-form-label">
+                      <strong><%= t('activerecord.attributes.salary.way_to_pay')%></strong>
+                    </div>
+                    <div class=" col-sm-7">
+                      <div class="form-control">
+                        <%= @salary.way_to_pay%>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class= "col-sm-4 col-form-label">
+                      <strong><%= t('activerecord.attributes.salary.bank')%></strong>
+                    </div>
+                    <div class=" col-sm-7">
+                      <div class="form-control">
+                        <%= @salary.bank%>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class= "col-sm-4 col-form-label">
+                      <strong><%= t('activerecord.attributes.salary.bank_number')%></strong>
+                    </div>
+                    <div class=" col-sm-7">
+                      <div class="form-control">
+                        <%= @salary.bank_number%>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class= "col-sm-4 col-form-label">
+                      <strong><%= t('activerecord.attributes.salary.type_of_bank_account')%></strong>
+                    </div>
+                    <div class=" col-sm-7">
+                      <div class="form-control">
+                        <%= @salary.type_of_bank_account%>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class="offset-sm-2 col-sm-2">
+                      <%= link_to t('helpers.button.back'), :back , class:"btn btn-primary fa fa-arrow-left"%>
+                    </div>
+                    <div class=" col-sm-1">
+                      <%= link_to t('helpers.button.edit'), edit_salary_path(@salary), class:"btn btn-primary fa fa-edit" %>
+                    </div>
+                    <div class="offset-sm-2 col-sm-2">
+                      <%=link_to t('activerecord.models.salary.other'), salaries_path(@salary),class:"btn btn-primary fa fa-cog"%>
+                    </div>
+                  </div>
+                </form>
+              </div><!-- /.card-body -->
+            </div>
+            <!-- /.nav-tabs-custom -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+    <%=render 'layouts/partials/footer'%>
+  </div>
+</div>

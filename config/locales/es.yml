@@ -16,6 +16,9 @@ es:
       maintaince:
         one: Mantenimiento
         other: Mantenimientos
+      salary:
+        one: Salario
+        other: Salarios
       user:
         one: Usuario
         other: Usuarios
@@ -58,6 +61,19 @@ es:
           device: Dispositivo
           owner: Usuario del Dispositivo
           done_by: Realizado por
+        salary:
+          type_of_salary: Tipo de Salario
+          social_benefits: Aportes Sociales
+          basic_hour: Básico por Hora
+          basic_day: Básico por Día
+          basic_month: Básico por Mes
+          average_payment: Pago Promedio
+          last_basic: Ultimo Básico
+          last_increase_date: Fecha de Ultimo Incremento
+          way_to_pay: Forma de Pago
+          bank: Banco
+          bank_number: Cuenta de banco
+          type_of_bank_account: Tipo de Cuenta Bancaria
         user:
           confirmation_sent_at: Confirmación enviada a
           confirmation_token: Código de confirmación
@@ -411,12 +427,16 @@ es:
       select_ram: "Cantidad de ram"
     edits:
       editing: "Editando %{model}:"
+      editing_for: "Editando %{model} para:"
     shows:
       showing: "Mostrando %{model}:"
+      showing_for: "Mostrando %{model} para:"
     navbar:
+      contracts: "Contratos"
       profile:
         prof: "Perfil"
         edit_profile: "Editar Perfil"
+      salaries: "Salarios"
       users: "Usuarios"
       devices: "Dispositivos"
       meetings: "Reuniones"

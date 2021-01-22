@@ -1,0 +1,27 @@
+<h1>Salaries</h1>
+
+<table class="responsive nowrap table table-hover" id="dttb-salaries" data-sort="true" data-source="<%= url_for(format: :json)%>">
+  <thead>
+    <tr>
+      <th data-data="type_of_salary">Type of salary</th>
+      <th data-data="social_benefits">Social benefits</th>
+      <th data-data="basic_month">Basic month</th>
+      <th data-data="basic_day">Basic day</th>
+      <th data-data="basic_hour">Basic hour</th>
+      <th data-data="average_payment">Average payment</th>
+      <th data-data="last_basic">Last basic</th>
+      <th data-data="last_increase_date">Last increase date</th>
+      <th data-data="way_to_pay">Way to pay</th>
+      <th data-data="bank">Bank</th>
+      <th data-data="bank_number">Bank number</th>
+      <th data-data="type_of_bank_account">Type of bank account</th>
+      <th data-data="user">User</th>
+      <th data-data="url" data-orderable="false" data-class-name="all" data-searchable="false" class="skip-export" width="100px"></th>
+    </tr>
+  </thead>
+
+</table>
+
+<br>
+
+<%= link_to 'New Salary', new_salary_path %>

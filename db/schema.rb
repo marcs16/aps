@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_20_170611) do
+ActiveRecord::Schema.define(version: 2021_01_20_170835) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -76,6 +76,25 @@ ActiveRecord::Schema.define(version: 2020_08_20_170611) do
     t.index ["user_id"], name: "index_maintainces_on_user_id"
   end
 
+  create_table "salaries", force: :cascade do |t|
+    t.string "type_of_salary"
+    t.integer "social_benefits"
+    t.integer "basic_month"
+    t.integer "basic_day"
+    t.integer "basic_hour"
+    t.integer "average_payment"
+    t.integer "last_basic"
+    t.date "last_increase_date"
+    t.string "way_to_pay"
+    t.string "bank"
+    t.string "bank_number"
+    t.string "type_of_bank_account"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_salaries_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -112,4 +131,5 @@ ActiveRecord::Schema.define(version: 2020_08_20_170611) do
   add_foreign_key "events", "users"
   add_foreign_key "maintainces", "devices"
   add_foreign_key "maintainces", "users"
+  add_foreign_key "salaries", "users"
 end

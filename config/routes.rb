@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :salaries
   resources :contracts
   get 'welcome/index'
   get 'welcome/indexlog'

@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_many :devices, :dependent => :delete_all
   has_many :maintainces, :dependent => :delete_all
+  has_many :salaries, :dependent => :destroy
 
 
   def is_gerente_general?

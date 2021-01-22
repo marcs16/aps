@@ -1,0 +1,95 @@
+<div class="card-body">
+  <%= form_with(model: @salary, local: true) do |f| %>
+    <% if @salary.errors.any? %>
+      <div id="error_explanation">
+        <ul>
+          <% @salary.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <form class="form-horizontal">
+      <div class="form-group row">
+        <%= f.label :type_of_salary ,t('activerecord.attributes.salary.type_of_salary'), class:"col-sm-3 col-form-label" %>
+        <div class="col-sm-8">
+            <%= f.select :type_of_salary, options_for_type_of_device,{:include_blank => t('app_common.selector.select_type') }, class:"form-control"%>
+        </div>
+      </div>
+      <div class="form-group row">
+        <%= f.label :social_benefits ,t('activerecord.attributes.salary.social_benefits'), class:"col-sm-3 col-form-label" %>
+        <div class="col-sm-8">
+          <%= f.number_field :social_benefits, class:"form-control"%>
+        </div>
+      </div>
+      <div class="form-group row">
+        <%= f.label :basic_hour ,t('activerecord.attributes.salary.basic_hour'), class:"col-sm-3 col-form-label" %>
+        <div class="col-sm-8">
+          <%= f.number_field :basic_hour, class:"form-control"%>
+        </div>
+      </div>
+      <div class="form-group row">
+        <%= f.label :basic_day ,t('activerecord.attributes.salary.basic_day'), class:"col-sm-3 col-form-label" %>
+        <div class="col-sm-8">
+          <%= f.number_field :basic_day, class:"form-control"%>
+        </div>
+      </div>
+      <div class="form-group row">
+        <%= f.label :basic_month ,t('activerecord.attributes.salary.basic_month'), class:"col-sm-3 col-form-label" %>
+        <div class="col-sm-8">
+          <%= f.number_field :basic_month, class:"form-control"%>
+        </div>
+      </div>
+      <div class="form-group row">
+        <%= f.label :average_payment ,t('activerecord.attributes.salary.average_payment'), class:"col-sm-3 col-form-label" %>
+        <div class="col-sm-8">
+          <%= f.number_field :average_payment, class:"form-control"%>
+        </div>
+      </div>
+      <div class="form-group row">
+        <%= f.label :last_basic ,t('activerecord.attributes.salary.last_basic'), class:"col-sm-3 col-form-label" %>
+        <div class="col-sm-8">
+          <%= f.number_field :last_basic, class:"form-control"%>
+        </div>
+      </div>
+      <div class="form-group row">
+        <%=f.label :last_increase_date, t('activerecord.attributes.salary.last_increase_date'), class:"col-sm-3 col-form-label"%>
+        <div class="col-sm-8">
+          <%= f.date_select :last_increase_date, {required: true, autofocus: true,:start_year => 2020}, class:'form-control'%>
+        </div>
+      </div>
+      <div class="form-group row">
+        <%= f.label :way_to_pay ,t('activerecord.attributes.salary.way_to_pay'), class:"col-sm-3 col-form-label" %>
+        <div class="col-sm-8">
+          <%= f.select :way_to_pay, options_for_type_of_device,{:include_blank => t('app_common.selector.select_type') }, class:"form-control"%>
+        </div>
+      </div>
+      <div class="form-group row">
+        <%= f.label :bank ,t('activerecord.attributes.salary.bank'), class:"col-sm-3 col-form-label" %>
+        <div class="col-sm-8">
+          <%= f.select :bank, options_for_type_of_device,{:include_blank => t('app_common.selector.select_type') }, class:"form-control"%>
+        </div>
+      </div>
+      <div class="form-group row">
+        <%= f.label :bank_number ,t('activerecord.attributes.salary.bank_number'), class:"col-sm-3 col-form-label" %>
+        <div class="col-sm-8">
+          <%= f.text_field :bank_number, autofocus: true, autocomplete: "text" , class:"form-control"%>
+        </div>
+      </div>
+      <div class="form-group row">
+        <%= f.label :type_of_bank_account ,t('activerecord.attributes.salary.type_of_bank_account'), class:"col-sm-3 col-form-label" %>
+        <div class="col-sm-8">
+          <%= f.select :type_of_bank_account, options_for_type_of_device,{:include_blank => t('app_common.selector.select_type') }, class:"form-control"%>
+        </div>
+      </div>
+
+    <div class="field">
+      <%= f.label :user_id %>
+      <%= f.text_field :user_id %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  <% end %>
+<div class="card-body">
