@@ -13,29 +13,29 @@
       <div class="form-group row">
         <%= f.label :type_of_salary ,t('activerecord.attributes.salary.type_of_salary'), class:"col-sm-3 col-form-label" %>
         <div class="col-sm-8">
-            <%= f.select :type_of_salary, options_for_type_of_device,{:include_blank => t('app_common.selector.select_type') }, class:"form-control"%>
+            <%= f.select :type_of_salary, options_for_type_of_salary,{:include_blank => t('app_common.selector.select_type') }, class:"form-control"%>
         </div>
       </div>
       <div class="form-group row">
-        <%= f.label :social_benefits ,t('activerecord.attributes.salary.social_benefits'), class:"col-sm-3 col-form-label" %>
+        <%= f.label :social_benefits ,t('activerecord.attributes.salary.social_benefits'), class:"col-sm-3 col-form-label", input_html:{step: 0.0} %>
         <div class="col-sm-8">
           <%= f.number_field :social_benefits, class:"form-control"%>
         </div>
       </div>
       <div class="form-group row">
-        <%= f.label :basic_hour ,t('activerecord.attributes.salary.basic_hour'), class:"col-sm-3 col-form-label" %>
+        <%= f.label :basic_hour ,t('activerecord.attributes.salary.basic_hour'), class:"col-sm-3 col-form-label", step: :any %>
         <div class="col-sm-8">
           <%= f.number_field :basic_hour, class:"form-control"%>
         </div>
       </div>
       <div class="form-group row">
-        <%= f.label :basic_day ,t('activerecord.attributes.salary.basic_day'), class:"col-sm-3 col-form-label" %>
+        <%= f.label :basic_day ,t('activerecord.attributes.salary.basic_day'), class:"col-sm-3 col-form-label", step: :any %>
         <div class="col-sm-8">
           <%= f.number_field :basic_day, class:"form-control"%>
         </div>
       </div>
       <div class="form-group row">
-        <%= f.label :basic_month ,t('activerecord.attributes.salary.basic_month'), class:"col-sm-3 col-form-label" %>
+        <%= f.label :basic_month ,t('activerecord.attributes.salary.basic_month'), class:"col-sm-3 col-form-label", step: :any %>
         <div class="col-sm-8">
           <%= f.number_field :basic_month, class:"form-control"%>
         </div>
@@ -79,17 +79,26 @@
       <div class="form-group row">
         <%= f.label :type_of_bank_account ,t('activerecord.attributes.salary.type_of_bank_account'), class:"col-sm-3 col-form-label" %>
         <div class="col-sm-8">
-          <%= f.select :type_of_bank_account, options_for_type_of_device,{:include_blank => t('app_common.selector.select_type') }, class:"form-control"%>
+          <%= f.select :type_of_bank_account, options_for_type_of_bank_account,{:include_blank => t('app_common.selector.select_type') }, class:"form-control"%>
         </div>
       </div>
+      <div class="form-group row">
+          <%=f.label :user_id, t('activerecord.attributes.user.full_name'), class:"col-sm-3 col-form-label"%>
+        <div class="col-sm-8">
+          <%=f.select :user_id, options_for_select( @users.collect{|x| [x.full_name]}),{:include_blank =>t('app_common.selector.select_type')}, { class:"col-md-4 select2bs4"}%>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="offset-sm-2 col-sm-8">
+          <%= f.submit class:"btn btn-primary" %>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="offset-sm-2 col-sm-8">
+          <%= link_to t('helpers.button.back'), :back , class:"btn btn-primary fa fa-arrow-left"%>
 
-    <div class="field">
-      <%= f.label :user_id %>
-      <%= f.text_field :user_id %>
-    </div>
-
-    <div class="actions">
-      <%= f.submit %>
-    </div>
+        </div>
+      </div>
+    </form>
   <% end %>
 <div class="card-body">

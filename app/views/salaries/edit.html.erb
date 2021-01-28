@@ -6,10 +6,10 @@
       <div class="container-fluid">
         <div class="row">
           <div class="col-md-12">
-            <h2><%=t('activerecord.models.device.other')%></h2>
+            <h2><%=t('activerecord.models.salary.other')%></h2>
             <div class="card card-primary">
               <div class="card-header">
-                <h3><%=t('app_common.edits.editing_for', model: model_name_singular(Device))%> <%=@user_full_name%></h3>
+                <h3><%=t('app_common.edits.editing_for', model: model_name_singular(Salary))%> <%=@user_full_name%></h3>
                 <div class="card-tools">
                   <button type="button" class="btn btn-tool btn-sm" data-card-widget="collapse" data-toggle="tooltip"
                           title="Collapse">
@@ -104,13 +104,10 @@
                       </div>
                     </div>
 
-                  <div class="field">
-                    <%= f.label :user_id %>
-                    <%= f.text_field :user_id %>
-                  </div>
-
-                  <div class="actions">
-                    <%= f.submit %>
+                  <div class="form-group row">
+                    <div class="offset-sm-2 col-sm-8">
+                      <%= f.submit class:"btn btn-primary" %>
+                    </div>
                   </div>
                 <% end %>
               <div class="card-body">
@@ -129,6 +126,3 @@
     <%=render 'layouts/partials/footer'%>
   </div>
 </div>
-
-<%= link_to 'Show', @salary %> |
-<%= link_to 'Back', salaries_path %>

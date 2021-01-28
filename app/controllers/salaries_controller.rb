@@ -16,10 +16,12 @@ class SalariesController < ApplicationController
   # GET /salaries/new
   def new
     @salary = Salary.new
+    @users = User.all
   end
 
   # GET /salaries/1/edit
   def edit
+
   end
 
   # POST /salaries
@@ -60,6 +62,13 @@ class SalariesController < ApplicationController
       format.html { redirect_to salaries_url, notice: 'Salary was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def try_salary
+    user = Salary.where.not(social_benefits: nil, user_id: params[:user_id] ).select(:social_benefits,:user_id).first
+
+
+    render json: user , status: :ok
   end
 
   private
