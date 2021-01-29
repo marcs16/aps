@@ -93,6 +93,7 @@ en:
           owner: User
           done_by: Done by
         salary:
+          employe: Employe
           type_of_salary: Type of Salary
           social_benefits: Social Benefits
           basic_hour: Basic per Hour
@@ -449,11 +450,14 @@ en:
       document: "Document"
       position: "Position"
       phone: "Phone"
+      select_bank: "Select a bank"
       select_type: "Select a type"
+      select_type_of_salary: "Select a type of salary"
       select_os: "Select an operative system"
       select_processor: "Select a processor"
       select_status: "Select a status"
       select_ram: "Ram quantity"
+      select_way_to_pay: "Select a way to pay"
     edits:
       editing: "Editing %{model}:"
       editing_for: "Editing %{model} for:"

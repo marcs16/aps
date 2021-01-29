@@ -5,7 +5,10 @@ class SalariesController < ApplicationController
   # GET /salaries
   # GET /salaries.json
   def index
-    @salaries = Salary.all
+    respond_to do |format|
+      format.html
+      format.json { render json: SalaryDatatable.new(params,{edit: edit_salary_path('_'),show: salary_path('_'),current_user: current_user}) }
+    end
   end
 
   # GET /salaries/1
@@ -15,8 +18,9 @@ class SalariesController < ApplicationController
 
   # GET /salaries/new
   def new
-    @salary = Salary.new
     @users = User.all
+    @salary = Salary.new
+
   end
 
   # GET /salaries/1/edit
@@ -65,7 +69,7 @@ class SalariesController < ApplicationController
   end
 
   def try_salary
-    user = Salary.where.not(social_benefits: nil, user_id: params[:user_id] ).select(:social_benefits,:user_id).first
+    user = Salary.where.not(social_benefits: nil, user_id: 2 ).first
 
 
     render json: user , status: :ok

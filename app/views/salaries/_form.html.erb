@@ -13,7 +13,7 @@
       <div class="form-group row">
         <%= f.label :type_of_salary ,t('activerecord.attributes.salary.type_of_salary'), class:"col-sm-3 col-form-label" %>
         <div class="col-sm-8">
-            <%= f.select :type_of_salary, options_for_type_of_salary,{:include_blank => t('app_common.selector.select_type') }, class:"form-control"%>
+            <%= f.select :type_of_salary, options_for_type_of_salary,{:include_blank => t('app_common.selector.select_type_of_salary') }, class:"form-control"%>
         </div>
       </div>
       <div class="form-group row">
@@ -61,13 +61,13 @@
       <div class="form-group row">
         <%= f.label :way_to_pay ,t('activerecord.attributes.salary.way_to_pay'), class:"col-sm-3 col-form-label" %>
         <div class="col-sm-8">
-          <%= f.select :way_to_pay, options_for_type_of_device,{:include_blank => t('app_common.selector.select_type') }, class:"form-control"%>
+          <%= f.select :way_to_pay, options_for_way_to_pay,{:include_blank => t('app_common.selector.select_way_to_pay') }, class:"form-control"%>
         </div>
       </div>
       <div class="form-group row">
         <%= f.label :bank ,t('activerecord.attributes.salary.bank'), class:"col-sm-3 col-form-label" %>
         <div class="col-sm-8">
-          <%= f.select :bank, options_for_type_of_device,{:include_blank => t('app_common.selector.select_type') }, class:"form-control"%>
+          <%= f.select :bank, options_for_bank,{:include_blank => t('app_common.selector.select_bank') }, class:"form-control"%>
         </div>
       </div>
       <div class="form-group row">
@@ -85,7 +85,7 @@
       <div class="form-group row">
           <%=f.label :user_id, t('activerecord.attributes.user.full_name'), class:"col-sm-3 col-form-label"%>
         <div class="col-sm-8">
-          <%=f.select :user_id, options_for_select( @users.collect{|x| [x.full_name]}),{:include_blank =>t('app_common.selector.select_type')}, { class:"col-md-4 select2bs4"}%>
+          <%=f.select :user_id, options_for_select( @users.collect{|x| [x.full_name, x.id]}),{:include_blank =>t('app_common.selector.select_type')}, { class:"col-md-4 select2bs4"}%>
         </div>
       </div>
       <div class="form-group row">

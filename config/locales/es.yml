@@ -62,6 +62,7 @@ es:
           owner: Usuario del Dispositivo
           done_by: Realizado por
         salary:
+          employe: Empleado
           type_of_salary: Tipo de Salario
           social_benefits: Aportes Sociales
           basic_hour: Básico por Hora
@@ -420,11 +421,14 @@ es:
       document: "Documento"
       position: "Cargo"
       phone: "Teléfono"
+      select_bank: "Seleccione un banco"
       select_type: "Seleccione un tipo"
+      select_type_of_salary: "Seleccione un tipo de salario"
       select_os: "Seleccione un sistema operativo"
       select_processor: "Seleccione un procesador"
       select_status: "Seleccione un estado"
       select_ram: "Cantidad de ram"
+      select_way_to_pay: "Seleccione una forma de pago"
     edits:
       editing: "Editando %{model}:"
       editing_for: "Editando %{model} para:"

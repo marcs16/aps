@@ -1,10 +1,17 @@
 module SalariesHelper
   def options_for_type_of_salary
       ['INTEGRAL','PARCIAL']
+  end
 
+  def options_for_way_to_pay
+      ['CHEQUE','EFECTIVO','TRANSFERENCIA']
+  end
+  
+  def options_for_bank
+      ['BANCOLOMBIA', 'DAVIVIENDA']
   end
   def options_for_type_of_bank_account
-      ['corrienteINTEGRAL','PARCIAL']
+      ['AHORROS','CORRIENTE']
 
   end
 

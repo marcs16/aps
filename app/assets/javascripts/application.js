@@ -14,7 +14,7 @@
 //= require jquery
 //= require activestorage
 //= require bootstrap-sprockets
-//= require moment 
+//= require moment
 //= require fullcalendar
 //= require fullcalendar/locale-all
 //= require fcalendar
@@ -23,6 +23,8 @@
 //= require navbar/main.js
 //= require login/login.js
 //= require device/devicesdt
+//= require salary/salariesdt
+//= require salary/salaries.js
 //= require user/usersdt
 //= require user/user.js
 //= require device/device.js
@@ -35,4 +37,3 @@
 //= require datatables
 
 //= require_tree .
-

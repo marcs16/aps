@@ -68,7 +68,11 @@ $(document).on('turbolinks:load', function() {
     event.preventDefault();
     window.location.reload();
   });
- 
+  $('#btn-rel-salary').click(function(event) {
+    event.preventDefault();
+    window.location.reload();
+  });
+
 });
 
 // turbolinks cache fix
