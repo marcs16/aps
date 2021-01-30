@@ -1,0 +1,92 @@
+<%= form_with(model: vacation, local: true) do |form| %>
+  <% if vacation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(vacation.errors.count, "error") %> prohibited this vacation from being saved:</h2>
+
+      <ul>
+      <% vacation.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :laborated_period %>
+    <%= form.date_select :laborated_period %>
+  </div>
+
+  <div class="field">
+    <%= form.label :end_of_laborated_period %>
+    <%= form.date_select :end_of_laborated_period %>
+  </div>
+
+  <div class="field">
+    <%= form.label :period_until_deductions %>
+    <%= form.date_select :period_until_deductions %>
+  </div>
+
+  <div class="field">
+    <%= form.label :business_days %>
+    <%= form.number_field :business_days %>
+  </div>
+
+  <div class="field">
+    <%= form.label :holidays %>
+    <%= form.number_field :holidays %>
+  </div>
+
+  <div class="field">
+    <%= form.label :entry_day %>
+    <%= form.date_select :entry_day %>
+  </div>
+
+  <div class="field">
+    <%= form.label :exit_day %>
+    <%= form.date_select :exit_day %>
+  </div>
+
+  <div class="field">
+    <%= form.label :last_vacations %>
+    <%= form.date_select :last_vacations %>
+  </div>
+
+  <div class="field">
+    <%= form.label :acumulated_periods %>
+    <%= form.number_field :acumulated_periods %>
+  </div>
+
+  <div class="field">
+    <%= form.label :suspension_days %>
+    <%= form.number_field :suspension_days %>
+  </div>
+
+  <div class="field">
+    <%= form.label :date_until_suspension %>
+    <%= form.date_select :date_until_suspension %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cost_center %>
+    <%= form.text_field :cost_center %>
+  </div>
+
+  <div class="field">
+    <%= form.label :status %>
+    <%= form.text_field :status %>
+  </div>
+
+  <div class="field">
+    <%= form.label :observations %>
+    <%= form.text_area :observations %>
+  </div>
+
+  <div class="field">
+    <%= form.label :files %>
+    <%= form.text_field :files %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,29 @@
+<h1>Vacations</h1>
+
+<table class="responsive nowrap table table-hover" id="dttb-vacations" data-sort="true" data-source="<%= url_for(format: :json)%>">
+  <thead>
+    <tr>
+      <th data-data="laborated_period">Laborated period</th>
+      <th data-data="end_of_laborated_period">End of laborated period</th>
+      <th data-data="period_until_deductions">Period until deductions</th>
+      <th data-data="business_days">Business days</th>
+      <th data-data="holidays">Holidays</th>
+      <th data-data="entry_day">Entry day</th>
+      <th data-data="exit_day">Exit day</th>
+      <th data-data="last_vacations">Last vacations</th>
+      <th data-data="acumulated_periods">Acumulated periods</th>
+      <th data-data="suspension_days">Suspension days</th>
+      <th data-data="date_until_suspension">Date until suspension</th>
+      <th data-data="cost_center">Cost center</th>
+      <th data-data="status">Status</th>
+      <th data-data="observations">Observations</th>
+      <th data-data="files">Files</th>
+      <th data-data="url" data-orderable="false" data-class-name="all" data-searchable="false" class="skip-export" width="100px"></th>
+    </tr>
+  </thead>
+
+</table>
+
+<br>
+
+<%= link_to 'New Vacation', new_vacation_path %>
