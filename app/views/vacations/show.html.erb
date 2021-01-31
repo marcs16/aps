@@ -1,0 +1,84 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Laborated period:</strong>
+  <%= @vacation.laborated_period %>
+</p>
+
+<p>
+  <strong>End of laborated period:</strong>
+  <%= @vacation.end_of_laborated_period %>
+</p>
+
+<p>
+  <strong>Period until deductions:</strong>
+  <%= @vacation.period_until_deductions %>
+</p>
+
+<p>
+  <strong>Business days:</strong>
+  <%= @vacation.business_days %>
+</p>
+
+<p>
+  <strong>Holidays:</strong>
+  <%= @vacation.holidays %>
+</p>
+
+<p>
+  <strong>Entry day:</strong>
+  <%= @vacation.entry_day %>
+</p>
+
+<p>
+  <strong>Exit day:</strong>
+  <%= @vacation.exit_day %>
+</p>
+
+<p>
+  <strong>Last vacations:</strong>
+  <%= @vacation.last_vacations %>
+</p>
+
+<p>
+  <strong>Acumulated periods:</strong>
+  <%= @vacation.acumulated_periods %>
+</p>
+
+<p>
+  <strong>Suspension days:</strong>
+  <%= @vacation.suspension_days %>
+</p>
+
+<p>
+  <strong>Date until suspension:</strong>
+  <%= @vacation.date_until_suspension %>
+</p>
+
+<p>
+  <strong>Cost center:</strong>
+  <%= @vacation.cost_center %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @vacation.status %>
+</p>
+
+<p>
+  <strong>Observations:</strong>
+  <%= @vacation.observations %>
+</p>
+
+<p>
+  <strong>Files:</strong>
+  <%= @vacation.files %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @vacation.user %>
+</p>
+
+<%= link_to 'Edit', edit_vacation_path(@vacation) %> |
+<%= link_to 'Back', vacations_path %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_20_170835) do
+ActiveRecord::Schema.define(version: 2021_01_31_000336) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -127,9 +127,32 @@ ActiveRecord::Schema.define(version: 2021_01_20_170835) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "vacations", force: :cascade do |t|
+    t.date "laborated_period"
+    t.date "end_of_laborated_period"
+    t.date "period_until_deductions"
+    t.integer "business_days"
+    t.integer "holidays"
+    t.date "entry_day"
+    t.date "exit_day"
+    t.date "last_vacations"
+    t.integer "acumulated_periods"
+    t.integer "suspension_days"
+    t.date "date_until_suspension"
+    t.string "cost_center"
+    t.string "status"
+    t.text "observations"
+    t.string "files"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_vacations_on_user_id"
+  end
+
   add_foreign_key "devices", "users"
   add_foreign_key "events", "users"
   add_foreign_key "maintainces", "devices"
   add_foreign_key "maintainces", "users"
   add_foreign_key "salaries", "users"
+  add_foreign_key "vacations", "users"
 end
