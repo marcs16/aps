@@ -25,7 +25,6 @@ class SalariesController < ApplicationController
 
   # GET /salaries/1/edit
   def edit
-
   end
 
   # POST /salaries
@@ -35,7 +34,7 @@ class SalariesController < ApplicationController
 
     respond_to do |format|
       if @salary.save
-        format.html { redirect_to @salary, notice: 'Salary was successfully created.' }
+        format.html { redirect_to @salary, notice: t('app_common.models.salaries.actions.created') }
         format.json { render :show, status: :created, location: @salary }
       else
         format.html { render :new }
@@ -49,7 +48,7 @@ class SalariesController < ApplicationController
   def update
     respond_to do |format|
       if @salary.update(salary_params)
-        format.html { redirect_to @salary, notice: 'Salary was successfully updated.' }
+        format.html { redirect_to @salary, notice: t('app_common.models.salaries.actions.updated')  }
         format.json { render :show, status: :ok, location: @salary }
       else
         format.html { render :edit }
@@ -86,6 +85,7 @@ class SalariesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def salary_params
-      params.require(:salary).permit(:type_of_salary, :social_benefits, :basic_month, :basic_day, :basic_hour, :average_payment, :last_basic, :last_increase_date, :way_to_pay, :bank, :bank_number, :type_of_bank_account, :user_id)
+      params.require(:salary).permit(:type_of_salary,:social_benefits, :basic_month, :basic_day, :basic_hour, :average_payment, :last_basic, :last_increase_date, :bank, :bank_number,:way_to_pay, :user_id,:type_of_bank_account )
     end
+
 end

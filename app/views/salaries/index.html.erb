@@ -9,7 +9,7 @@
         <h1><%=t('activerecord.models.user.other')%></h1>
         <div style="margin-bottom: 20px;margin-top: 20px; ">
             <% if can? :create, Salary%>
-              <%= link_to t('helpers.button.add', model: model_name_singular(User)), new_salary_path, class:'btn btn-primary '%>
+              <%= link_to t('helpers.button.add', model: model_name_singular(Salary)), new_salary_path, class:'btn btn-primary '%>
             <%end%>
           <button id="btn-rel-salary" class=" btn btn-primary"><%=t('app_common.tables.reload_t')%></button>
           <%# <%= link_to t('app_common.models.users.go_disabled'), disabled_users_index_path, class:'btn btn-primary '%>
@@ -25,11 +25,8 @@
               <th><%=Salary.human_attribute_name(:average_payment)%> </th>
               <th><%=Salary.human_attribute_name(:last_basic)%></th>
               <th><%=Salary.human_attribute_name(:last_increase_date)%></th>
-              <th><%=Salary.human_attribute_name(:way_to_pay)%></th>
               <th><%=Salary.human_attribute_name(:bank)%></th>
-              <th><%=Salary.human_attribute_name(:bank_number)%> </th>
               <th><%=t('app_common.tables.options')%></th>
-              <th colspan="3"></th>
             </tr>
           </thead>
           <tbody>

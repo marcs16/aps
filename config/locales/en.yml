@@ -53,6 +53,9 @@ en:
       user:
         one: User
         other: Users
+      vacation:
+        one: Vacation
+        other: Vacations
     attributes:
         contract:
           code: Code
@@ -138,6 +141,22 @@ en:
           date_of_birth: Date of Birth
           working_since:  Working Since
           can_login: Still Working?
+        vacation:
+          laborated_period: Laborated period
+          end_of_laborated_period: End of laborated period
+          period_until_deductions: Period until deductions
+          business_days: Business days
+          holidays: Holidays
+          entry_day: Entry day
+          exit_day: Exit day
+          last_vacations: Last vacations
+          acumulated_periods: Acumulated periods
+          suspension_days: suspension days
+          date_until_suspension: date until suspension
+          cost_center: Cost center
+          status: Status
+          observations: observations
+          files: Files
   devise:
     confirmations:
       confirmed: Your email address has been successfully confirmed.
@@ -436,6 +455,14 @@ en:
         actions:
           created:  "Maintaince has been created successfully"
           updated:  "Maintaince has been updated successfully"
+      salaries:
+        actions:
+          created:  "Salary has been created successfully"
+          updated:  "Salary has been updated successfully"
+      vacations:
+        actions:
+          created:  "Vacation has been created successfully"
+          updated:  "Vacation has been updated successfully"
       users:
         disabled_users: "Disabled Users"
         go_users: "Go to Users"

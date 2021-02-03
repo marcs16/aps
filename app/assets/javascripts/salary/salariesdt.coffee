@@ -29,8 +29,6 @@ $ ->
       {data: 'average_payment'}
       {data: 'last_basic'}
       {data: 'last_increase_date'}
-      {data: 'way_to_pay'}
       {data: 'bank'}
-      {data: 'bank_number'}
       {data: 'links'}
     ]

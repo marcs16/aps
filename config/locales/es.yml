@@ -22,6 +22,9 @@ es:
       user:
         one: Usuario
         other: Usuarios
+      vacation:
+        one: Vacación
+        other: Vacaciones
     attributes:
         contract:
           code: Código
@@ -107,6 +110,22 @@ es:
           date_of_birth: Fecha de Nacimiento
           working_since: Trabaja Desde
           can_login: ¿Esta activo?
+        vacation:
+          laborated_period: Periodo laborado
+          end_of_laborated_period: Fin de pariodo laborado
+          period_until_deductions: Periodo hasta deducciones
+          business_days: Dias habiles
+          holidays: Días festivos
+          entry_day: Día de entrada
+          exit_day: Día de salida
+          last_vacations: Ultimas vacaciones
+          acumulated_periods: Periodos acumulados
+          suspension_days: Días de suspensión
+          date_until_suspension: Fecha antes de suspensión
+          cost_center: Centro de costos
+          status: Estado
+          observations: observaciones
+          files: Archivos
   devise:
     confirmations:
       confirmed: Tu cuenta ha sido confirmada satisfactoriamente.
@@ -407,6 +426,10 @@ es:
         actions:
           created:  "Mantenimiento creado con éxito"
           updated:  "Mantenimiento actualizado con éxito"
+      salaries:
+        actions:
+          created:  "Salario creado con éxito"
+          updated:  "Salario actualizado con éxito"
       users:
         disabled_users: "Usuarios Desabilitados"
         go_users: "Ir a usuarios"
@@ -417,6 +440,10 @@ es:
           disabled: "Usuario deshabilitado con éxito"
           enabled:  "Usuario habilitado con éxito"
           changed_password: "Contraseña restablecida con exito"
+      vacations:
+        actions:
+          created:  "Vacaciones creadas con éxito"
+          updated:  "Vacaciones actualizadas con éxito"
     selector:
       document: "Documento"
       position: "Cargo"

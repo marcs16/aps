@@ -34,7 +34,7 @@
                     <div class="form-group row">
                       <%= f.label :type_of_salary ,t('activerecord.attributes.salary.type_of_salary'), class:"col-sm-3 col-form-label" %>
                       <div class="col-sm-8">
-                          <%= f.select :type_of_salary, options_for_type_of_device,{:include_blank => t('app_common.selector.select_type') }, class:"form-control"%>
+                          <%= f.select :type_of_salary, options_for_type_of_salary,{},selected: @salary.type_of_salary, class:"form-control"%>
                       </div>
                     </div>
                     <div class="form-group row">
@@ -82,13 +82,13 @@
                     <div class="form-group row">
                       <%= f.label :way_to_pay ,t('activerecord.attributes.salary.way_to_pay'), class:"col-sm-3 col-form-label" %>
                       <div class="col-sm-8">
-                        <%= f.select :way_to_pay, options_for_type_of_device,{:include_blank => t('app_common.selector.select_type') }, class:"form-control"%>
+                        <%= f.select :way_to_pay, options_for_way_to_pay,{},selected: @salary.way_to_pay, class:"form-control"%>
                       </div>
                     </div>
                     <div class="form-group row">
                       <%= f.label :bank ,t('activerecord.attributes.salary.bank'), class:"col-sm-3 col-form-label" %>
                       <div class="col-sm-8">
-                        <%= f.select :bank, options_for_type_of_device,{:include_blank => t('app_common.selector.select_type') }, class:"form-control"%>
+                        <%= f.select :bank, options_for_bank,{},selected: @salary.bank, class:"form-control"%>
                       </div>
                     </div>
                     <div class="form-group row">
@@ -100,7 +100,7 @@
                     <div class="form-group row">
                       <%= f.label :type_of_bank_account ,t('activerecord.attributes.salary.type_of_bank_account'), class:"col-sm-3 col-form-label" %>
                       <div class="col-sm-8">
-                        <%= f.select :type_of_bank_account, options_for_type_of_device,{:include_blank => t('app_common.selector.select_type') }, class:"form-control"%>
+                        <%= f.select :type_of_bank_account, options_for_type_of_bank_account,{}, selected: @salary.type_of_bank_account, class:"form-control"%>
                       </div>
                     </div>
 

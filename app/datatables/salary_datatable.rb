@@ -15,7 +15,6 @@ class SalaryDatatable < AjaxDatatablesRails::ActiveRecord
       last_increase_date:    { source: 'Salary.last_increase_date', searchable: false, orderable: true },
       way_to_pay:        { source: 'Salary.way_to_pay', cond: :like, searchable: false, orderable: true },
       bank:         { source: 'Salary.bank', searchable: false, orderable: true },
-      type_of_bank_account:    { source: 'Salary.type_of_bank_account', searchable: false, orderable: true },
     }
   end
 
@@ -30,9 +29,7 @@ class SalaryDatatable < AjaxDatatablesRails::ActiveRecord
         average_payment: record.average_payment,
         last_basic: record.last_basic,
         last_increase_date: record.last_increase_date,
-        way_to_pay: record.way_to_pay,
         bank: record.bank,
-        bank_number: record.bank_number,
         links: actions(record).html_safe
       }
     end
@@ -47,7 +44,7 @@ class SalaryDatatable < AjaxDatatablesRails::ActiveRecord
 
 
       def actions(record)
-        sarta = "<a href ='#{options[:edit].gsub('_',record.id.to_s)}'><i class='fa fa-edit'></i></a>"
+        sarta = "&nbsp;&nbsp<a href ='#{options[:edit].gsub('_',record.id.to_s)}'><i class='fa fa-edit'></i></a>"
         sarta +=  " | <a href ='#{options[:show].gsub('_',record.id.to_s)}'><i class='fa fa-eye'></i></a>"
       end
 

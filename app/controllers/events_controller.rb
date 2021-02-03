@@ -16,7 +16,7 @@ class EventsController < ApplicationController
     #  end
     #end
 
-    
+
   end
 
   # GET /events/1
@@ -34,7 +34,7 @@ class EventsController < ApplicationController
 
   # GET /events/1/edit
   def edit
-    @users = User.select("full_name") 
+    @users = User.select("full_name")
     @current_event = JSON.parse(@event.members)
 
   end
@@ -60,7 +60,7 @@ class EventsController < ApplicationController
   def update
     respond_to do |format|
       if @event.update(event_params)
-        format.html { redirect_to @event, notice: t('app_common.models.events.actions.created') }
+        format.html { redirect_to @event, notice: t('app_common.models.events.actions.updated') }
         format.json { render :show, status: :ok, location: @event }
       else
         format.html { render :edit }
@@ -89,8 +89,9 @@ class EventsController < ApplicationController
     def event_params
       params.require(:event).permit(:title, :description, :start_date, :end_date,  :user_id,:members =>[])
     end
+
     def usr_names
-      @users = User.select("full_name") 
+      @users = User.select("full_name")
     end
-    
+
 end
