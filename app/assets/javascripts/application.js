@@ -35,5 +35,6 @@
 //= require call_ajax
 //= require turbolinks
 //= require datatables
+//= require dropzone
 
 //= require_tree .

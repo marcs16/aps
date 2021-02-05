@@ -11,6 +11,12 @@
     <% end %>
     <form class="form-horizontal">
       <div class="form-group row">
+          <%=f.label :user_id, t('activerecord.attributes.user.full_name'), class:"col-sm-3 col-form-label"%>
+        <div class="col-sm-8">
+          <%=f.select :user_id, options_for_select( @users.collect{|x| [x.full_name, x.id]}),{:include_blank =>t('app_common.selector.select_user')}, { class:"col-md-6 select2bs4"}%>
+        </div>
+      </div>
+      <div class="form-group row">
         <%= f.label :type_of_salary ,t('activerecord.attributes.salary.type_of_salary'), class:"col-sm-3 col-form-label" %>
         <div class="col-sm-8">
             <%= f.select :type_of_salary, options_for_type_of_salary,{:include_blank => t('app_common.selector.select_type_of_salary') }, class:"form-control"%>
@@ -80,12 +86,6 @@
         <%= f.label :type_of_bank_account ,t('activerecord.attributes.salary.type_of_bank_account'), class:"col-sm-3 col-form-label" %>
         <div class="col-sm-8">
           <%= f.select :type_of_bank_account, options_for_type_of_bank_account,{:include_blank => t('app_common.selector.select_type') }, class:"form-control"%>
-        </div>
-      </div>
-      <div class="form-group row">
-          <%=f.label :user_id, t('activerecord.attributes.user.full_name'), class:"col-sm-3 col-form-label"%>
-        <div class="col-sm-8">
-          <%=f.select :user_id, options_for_select( @users.collect{|x| [x.full_name, x.id]}),{:include_blank =>t('app_common.selector.select_type')}, { class:"col-md-4 select2bs4"}%>
         </div>
       </div>
       <div class="form-group row">

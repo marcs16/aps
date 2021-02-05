@@ -25,22 +25,22 @@ class MaintainceDatatable < AjaxDatatablesRails::ActiveRecord
     records.map do |record|
       {
         done_by: user_name(record.user_id),
-        name: record.name, 
-        description: record.description, 
-        date: record.date, 
-        device: device_name(record.device_id), 
+        name: record.name,
+        description: record.description,
+        date: record.date,
+        device: device_name(record.device_id),
         links: actions(record).html_safe
       }
     end
   end
 
-  
+
   def get_raw_records
     Maintaince.where(device_id: options[:device].id)
-         
+
   end
 
-  private 
+  private
   def user_name(usr)
     name = User.where(id: usr).select(:full_name)
     return name[0][:full_name]
@@ -48,7 +48,7 @@ class MaintainceDatatable < AjaxDatatablesRails::ActiveRecord
 
   def device_name(dev)
     dev_name = Device.where(id: dev).select(:name)
-   
+
     return dev_name[0][:name]
   end
 
@@ -57,5 +57,6 @@ class MaintainceDatatable < AjaxDatatablesRails::ActiveRecord
     device = Device.where(id: record.device_id)
     sarta = "<a href ='#{edit_device_maintaince_path(record.device_id,record)}'><i class='fa fa-edit'></i></a>"
     sarta +=  " | <a href ='#{device_maintaince_path(record.device_id,record)}'><i class='fa fa-eye'></i></a>"
+    sarta += " |<a heref = '/maintainces/#{record.id}' data-method='delete' data-confirm='#{t('app_common.tables.confirm')}'<i class='fa fa-lock'></i></a>"
   end
 end

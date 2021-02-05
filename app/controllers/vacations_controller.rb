@@ -1,6 +1,6 @@
 class VacationsController < ApplicationController
   before_action :set_vacation, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_user_name,only: [:show, :edit]
   # GET /vacations
   # GET /vacations.json
   def index
@@ -14,6 +14,7 @@ class VacationsController < ApplicationController
 
   # GET /vacations/new
   def new
+    @users = User.all
     @vacation = Vacation.new
   end
 
@@ -63,6 +64,9 @@ class VacationsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
+    def set_user_name
+      @user_full_name = @vacation.user.full_name
+    end
     def set_vacation
       @vacation = Vacation.find(params[:id])
     end

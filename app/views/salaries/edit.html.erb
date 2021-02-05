@@ -103,26 +103,28 @@
                         <%= f.select :type_of_bank_account, options_for_type_of_bank_account,{}, selected: @salary.type_of_bank_account, class:"form-control"%>
                       </div>
                     </div>
-
-                  <div class="form-group row">
-                    <div class="offset-sm-2 col-sm-8">
-                      <%= f.submit class:"btn btn-primary" %>
+                    <div class="form-group row">
+                      <div class="offset-sm-2 col-sm-8">
+                        <%= f.submit t('helpers.submit.update', model: model_name_singular(Salary)), class:"btn btn-primary" %>
+                      </div>
                     </div>
-                  </div>
-                <% end %>
-              <div class="card-body">
-
+                    <div class="form-group row">
+                      <div class="offset-sm-2 col-sm-8">
+                        <%= link_to t('helpers.button.back'), :back , class:"btn btn-primary fa fa-arrow-left"%>
+                      </div>
+                    </div>
+                  </form>
+                  <% end %>
+                </div><!-- /.card-body -->
+              </div>
+              <!-- /.nav-tabs-custom -->
             </div>
-            <!-- /.nav-tabs-custom -->
+            <!-- /.col -->
           </div>
-          <!-- /.col -->
-        </div>
-        <!-- /.row -->
-      </div><!-- /.container-fluid -->
-    </section>
-    <!-- /.content -->
-    <%= link_to 'Show', @salary %> |
-    <%= link_to 'Back', salaries_path %>
-    <%=render 'layouts/partials/footer'%>
+          <!-- /.row -->
+        </div><!-- /.container-fluid -->
+      </section>
+      <!-- /.content -->
+      <%=render 'layouts/partials/footer'%>
   </div>
 </div>

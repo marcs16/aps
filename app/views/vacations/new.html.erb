@@ -1,5 +1,147 @@
-<h1>New Vacation</h1>
+<%=render 'layouts/partials/navbar'%>
+<div class="center-style-app">
+  <div class=" col-md-9 content-wrapper">
+  <!-- Main content -->
+  <section class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <h2><%=t('activerecord.models.vacation.other')%></h2>
+          <div class="card card-primary">
+            <div class="card-header">
+              <h3><%=t('helpers.submit.create', model: model_name_plural(Vacation))%></h3>
+              <div class="card-tools">
+                <button type="button" class="btn btn-tool btn-sm" data-card-widget="collapse" data-toggle="tooltip"
+                        title="Collapse">
+                  <i class="fa fa-minus"></i></button>
+              </div>
+            </div>
+            <div class="card-body">
+              <%= form_with(model: @vacation, local: true) do |f| %>
+                <% if @vacation.errors.any? %>
+                  <div id="error_explanation">
+                    <ul>
+                    <% @vacation.errors.full_messages.each do |message| %>
+                      <li><%= message %></li>
+                    <% end %>
+                    </ul>
+                  </div>
+                <% end %>
+                <form class="form-horizontal">
+                  <div class="form-group row">
+                      <%=f.label :user_id, t('activerecord.attributes.vacation.employe'), class:"col-sm-3 col-form-label"%>
+                    <div class="col-sm-8">
+                      <%=f.select :user_id, options_for_select( @users.collect{|x| [x.full_name, x.id]}),{:include_blank =>t('app_common.selector.select_user')}, { class:"col-md-6 select2bs4"}%>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <%= f.label :laborated_period, class:"col-sm-3 col-form-label" %>
+                    <div class="col-sm-8">
+                      <%= f.date_select :laborated_period, class:"form-control " %>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <%= f.label :end_of_laborated_period, class:"col-sm-3 col-form-label" %>
+                    <div class="col-sm-8">
+                      <%= f.date_select :end_of_laborated_period, class:"form-control" %>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <%= f.label :period_until_deductions, class:"col-sm-3 col-form-label" %>
+                    <div class="col-sm-8">
+                      <%= f.date_select :period_until_deductions, class:"form-control" %>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <%= f.label :entry_day, class:"col-sm-3 col-form-label"%>
+                    <div class="col-sm-8">
+                      <%= f.date_select :entry_day, class:"form-control" %>
+                    </div>
+                  </div>
+                  <div class="form-group row"">
+                    <%= f.label :exit_day, class:"col-sm-3 col-form-label" %>
+                    <div class="col-sm-8">
+                      <%= f.date_select :exit_day, class:"form-control" %>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <%= f.label :business_days, class:"col-sm-3 col-form-label" %>
+                    <div class="col-sm-8">
+                      <%= f.number_field :business_days, class:"form-control col-sm-6" %>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <%= f.label :holidays, class:"col-sm-3 col-form-label" %>
+                    <div class="col-sm-8">
+                      <%= f.number_field :holidays, class:"form-control col-sm-6" %>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <%= f.label :last_vacations, class:"col-sm-3 col-form-label" %>
+                    <div class="col-sm-8">
+                      <%= f.date_select :last_vacations, class:"form-control" %>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <%= f.label :acumulated_periods,class:"col-sm-3 col-form-label" %>
+                    <div class="col-sm-8">
+                      <%= f.number_field :acumulated_periods,class:"form-control col-sm-6" %>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <%= f.label :suspension_days, class:"col-sm-3 col-form-label" %>
+                    <div class="col-sm-8">
+                      <%= f.number_field :suspension_days, class:"form-control col-sm-6" %>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <%= f.label :date_until_suspension, class:"col-sm-3 col-form-label" %>
+                    <div class="col-sm-8">
+                      <%= f.date_select :date_until_suspension, class:"form-control col-sm-6" %>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <%= f.label :cost_center, class:"col-sm-3 col-form-label" %>
+                    <div class="col-sm-8">
+                      <%= f.text_field :cost_center, class:"form-control col-sm-6" %>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <%= f.label :status, class:"col-sm-3 col-form-label" %>
+                    <div class="col-sm-8">
+                      <%= f.text_field :status, class:"form-control col-sm-6" %>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <%= f.label :observations, class:"col-sm-3 col-form-label" %>
+                    <div class="col-sm-8">
+                      <%= f.text_area :observations, class:"fform-control col-sm-6"%>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <%= f.label :files, class:"col-sm-3 col-form-label" %>
+                    <div class="col-sm-8">
+                      <%= f.file_field :files, multiple:true, class:"form-control col-sm-6" %>
+                    </div>
+                  </div>
 
-<%= render 'form', vacation: @vacation %>
-
-<%= link_to 'Back', vacations_path %>
+                  <div class="form-group row">
+                    <div class="offset-sm-2 col-sm-8">
+                      <%= f.submit t('helpers.submit.create', model: model_name_plural(Vacation)) ,class:"btn btn-primary" %>
+                    </div>
+                  </div>
+                </form>
+              <% end %>
+            </div>
+          </div>
+          <!-- /.nav-tabs-custom -->
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+    </div><!-- /.container-fluid -->
+  </section>
+  <!-- /.content -->
+  <%=render 'layouts/partials/footer'%>
+  </div>
+</div>

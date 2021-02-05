@@ -111,6 +111,7 @@ es:
           working_since: Trabaja Desde
           can_login: ¿Esta activo?
         vacation:
+          employe: Empleado
           laborated_period: Periodo laborado
           end_of_laborated_period: Fin de pariodo laborado
           period_until_deductions: Periodo hasta deducciones
@@ -449,12 +450,14 @@ es:
       position: "Cargo"
       phone: "Teléfono"
       select_bank: "Seleccione un banco"
+      select_employe: "Seleccione un empleado"
       select_type: "Seleccione un tipo"
       select_type_of_salary: "Seleccione un tipo de salario"
       select_os: "Seleccione un sistema operativo"
       select_processor: "Seleccione un procesador"
       select_status: "Seleccione un estado"
       select_ram: "Cantidad de ram"
+      select_user: "Seleccione una persona"
       select_way_to_pay: "Seleccione una forma de pago"
     edits:
       editing: "Editando %{model}:"
@@ -469,6 +472,7 @@ es:
         edit_profile: "Editar Perfil"
       salaries: "Salarios"
       users: "Usuarios"
+      vacations: "Vacaciones"
       devices: "Dispositivos"
       meetings: "Reuniones"
       close_session: "Cerrar Sesión"

@@ -1,7 +1,7 @@
 class UserDatatable < AjaxDatatablesRails::ActiveRecord
   extend Forwardable
 
-  def_delegators :@view,  :users_reset_password_path, :user_disable_path, :user_enable_path , :t
+  def_delegators :@view,  :users_reset_password_path, :user_disable_path, :user_enable_path   ,  :t
 
   def initialize(params, opts = {})
     @view = opts[:view_context]
@@ -20,7 +20,7 @@ class UserDatatable < AjaxDatatablesRails::ActiveRecord
       email:  {source: 'User.email',searchable:false, orderable: true},
       telephone:        { source: 'User.telephone', cond: :like, searchable: false, orderable: true },
       date_of_birth:         { source: 'User.date_of_birth', searchable: false, orderable: true },
-      working_since:    { source: 'User.working_since', searchable: false, orderable: true }, 
+      working_since:    { source: 'User.working_since', searchable: false, orderable: true },
     }
   end
 
@@ -42,19 +42,19 @@ class UserDatatable < AjaxDatatablesRails::ActiveRecord
 
   def get_raw_records
     User.where.not(id: options[:current_user].id).where(can_login: 'si')
-         
+
   end
 
-  private 
+  private
   def actions(record)
-   
-    if options[:current_user].is_gerente_general? 
+
+    if options[:current_user].is_gerente_general?
       sarta =  "<a href ='#{options[:edit].gsub('_',record.id.to_s)}'> <i class='fa fa-edit'></i></a>"
       sarta +=  " | <a href ='#{users_reset_password_path(record)}'> <i class='fa fa-lock'></i></a>"
       sarta += " | <a data-confirm='#{t('app_common.tables.confirm') }' href ='#{ user_disable_path(record)}'><i class='fa fa-toggle-off'></i></a>"
     elsif options[:current_user].is_lector?
-      sarta =  "&nbsp;&nbsp&nbsp;&nbsp&nbsp;&nbsp<a href ='#{options[:edit].gsub('_',record.id.to_s)}'> <i class='fa fa-edit'></i></a>" 
+      sarta =  "&nbsp;&nbsp&nbsp;&nbsp&nbsp;&nbsp<a href ='#{options[:edit].gsub('_',record.id.to_s)}'> <i class='fa fa-edit'></i></a>"
     end
-    
+
   end
 end

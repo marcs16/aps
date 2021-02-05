@@ -8,7 +8,9 @@ ruby '2.6.3'
 
 #cancan for to manage the  access
 gem 'cancancan', '~> 3.1'
-#haml 
+#dropzone for the files
+gem 'dropzonejs-rails', '~> 0.8.5'
+#haml
 gem 'haml', '~> 5.1', '>= 5.1.2'
 #devise for auth
 gem 'devise', '~> 4.7', '>= 4.7.1'
@@ -76,7 +78,7 @@ group :development do
 end
 
 group :production  do
-  #haml 
+  #haml
   gem 'haml', '~> 5.1', '>= 5.1.2'
   #devise
   gem 'devise', '~> 4.7', '>= 4.7.1'
@@ -92,7 +94,7 @@ group :production  do
   gem 'momentjs-rails'
 end
 
-  
+
 
 group :test do
   # Adds support for Capybara system testing and selenium driver
