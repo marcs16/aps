@@ -9,13 +9,12 @@
       </div>
 
       <div class="user_options-registered">
-        
         <h2 class="user_registered-title"><%=t('app_common.session.acc')%></h2>
         <p class="user_registered-text"><%=t('app_common.session.sign_in')%></p>
         <button class="user_registered-login" id="login-button"><%=t('app_common.session.login')%></button>
       </div>
     </div>
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>  
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="user_options-forms " id="user_options-forms">
       <%=render 'layouts/partials/language_switcher'%>
       <div class="user_forms-login">

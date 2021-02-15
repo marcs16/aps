@@ -7,6 +7,7 @@ class UsersController < ApplicationController
 
   def index
     respond_to do |format|
+      flash.now[:info] = "safando."
       format.html
       format.json { render json: UserDatatable.new(params,{view_context: view_context, edit: edit_user_path('_'),current_user: current_user}) }
     end
@@ -26,7 +27,7 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to users_index_path, notice: t('app_common.models.users.actions.updated')}
+        format.html { redirect_to users_index_path, info: t('app_common.models.users.actions.updated')}
         format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit }
@@ -39,7 +40,7 @@ class UsersController < ApplicationController
     @user.password = '123456'
     @user.save
     respond_to do |format|
-      format.html { redirect_to users_index_path, notice: t('app_common.models.users.actions.changed_password')}
+      format.html { redirect_to users_index_path, info: t('app_common.models.users.actions.changed_password')}
       format.json { head :no_content }
     end
   end
@@ -48,7 +49,7 @@ class UsersController < ApplicationController
     @user.can_login = 'si'
     @user.save
     respond_to do |format|
-      format.html { redirect_to disabled_users_index_path, notice: t('app_common.models.users.actions.enabled')}
+      format.html { redirect_to disabled_users_index_path, success: t('app_common.models.users.actions.enabled')}
       format.json { head :no_content }
     end
 
@@ -57,7 +58,7 @@ class UsersController < ApplicationController
     @user.can_login = 'no'
     @user.save
     respond_to do |format|
-      format.html { redirect_to users_index_path, notice: t('app_common.models.users.actions.disabled')}
+      format.html { redirect_to users_index_path, success: t('app_common.models.users.actions.disabled')}
       format.json { head :no_content }
     end
   end

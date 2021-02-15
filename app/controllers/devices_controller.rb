@@ -4,7 +4,7 @@ class DevicesController < ApplicationController
   # GET /devices
   # GET /devices.json
   def index
-  
+
   respond_to do |format|
     format.html
     format.json { render json: DeviceDatatable.new(params,{edit: edit_device_path('_'),show: device_path('_'),current_user: current_user}) }
@@ -28,12 +28,9 @@ end
   # POST /devices.json
   def create
     @device = current_user.devices.new(device_params)
-    
-
-
     respond_to do |format|
       if @device.save
-        format.html { redirect_to @device, notice: t('app_common.models.devices.actions.created') }
+        format.html { redirect_to @device, success: t('app_common.models.devices.actions.created') }
         format.json { render :show, status: :created, location: @device }
       else
         format.html { render :new }
@@ -47,7 +44,7 @@ end
   def update
     respond_to do |format|
       if @device.update(device_params)
-        format.html { redirect_to @device, notice: t('app_common.models.contracts.actions.updated') }
+        format.html { redirect_to @device, info: t('app_common.models.devies.actions.updated') }
         format.json { render :show, status: :ok, location: @device }
       else
         format.html { render :edit }
@@ -61,17 +58,17 @@ end
   def destroy
     @device.destroy
     respond_to do |format|
-      format.html { redirect_to devices_url, notice: 'Device was successfully destroyed.' }
+      format.html { redirect_to devices_url, danger: 'Device was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
-  def report_devices   
+  def report_devices
     @devices = User.joins(:devices).select('users.full_name, devices.name,
     devices.type_of_device, devices.number, devices.operative_system,
     devices.processor, devices.memory, devices.mac')
     #La variable @personal contiene a la lista del personal de una empresa x.
-    render xlsx: 'Reporte de dispositivos existentes '+ Time.now.to_s, 
+    render xlsx: 'Reporte de dispositivos existentes '+ Time.now.to_s,
         template: 'reports/export_devices.xlsx.axlsx'
 
   end

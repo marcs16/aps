@@ -42,7 +42,7 @@ class ContractsController < ApplicationController
     respond_to do |format|
       if @contract.save
 
-        format.html { redirect_to @contract, notice: t('app_common.models.contracts.actions.created') }
+        format.html { redirect_to @contract, success: t('app_common.models.contracts.actions.created') }
         format.json { render :show, status: :created, location: @contract }
       else
         format.html { render :new }
@@ -58,7 +58,7 @@ class ContractsController < ApplicationController
       rate = calculate_percentaje(@contract.executed_value, @contract.value)
       @contract.execution_rate = rate
       if @contract.update(contract_params)
-        format.html { redirect_to @contract, notice:  t('app_common.models.contracts.actions.updated') }
+        format.html { redirect_to @contract, info:  t('app_common.models.contracts.actions.updated') }
         format.json { render :show, status: :ok, location: @contract }
       else
         format.html { render :edit }
@@ -72,7 +72,7 @@ class ContractsController < ApplicationController
   def destroy
     @contract.destroy
     respond_to do |format|
-      format.html { redirect_to contracts_url, notice: 'Contract was successfully destroyed.' }
+      format.html { redirect_to contracts_path, danger: 'Contract was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

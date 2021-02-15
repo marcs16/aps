@@ -33,7 +33,7 @@ class MaintaincesController < ApplicationController
     @maintaince.device = @device
     respond_to do |format|
       if @maintaince.save
-        format.html { redirect_to @maintaince.device, notice: t('app_common.models.maintainces.actions.created') }
+        format.html { redirect_to @maintaince.device, success: t('app_common.models.maintainces.actions.created') }
         format.json { render :show, status: :created, location: @maintaince }
       else
         format.html { render :new }
@@ -47,7 +47,7 @@ class MaintaincesController < ApplicationController
   def update
     respond_to do |format|
       if @maintaince.update(maintaince_params)
-        format.html { redirect_to device_maintaince_path(@maintaince.device.id,@maintaince), notice: t('app_common.models.maintainces.actions.created') }
+        format.html { redirect_to device_maintaince_path(@maintaince.device.id,@maintaince), info: t('app_common.models.maintainces.actions.created') }
         format.json { render :show, status: :ok, location: @maintaince }
       else
         format.html { render :edit }
@@ -61,14 +61,14 @@ class MaintaincesController < ApplicationController
   def destroy
     @maintaince.destroy
     respond_to do |format|
-      format.html { redirect_to device_maintainces_url(@device), notice: 'Maintaince was successfully destroyed.' }
+      format.html { redirect_to device_maintainces_url(@device), danger: 'Maintaince was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
   def export_maintainces()
     @maintainces = User.joins(:devices, :maintainces).select('users.full_name as done_by,devices.name as device ,
       maintainces.name, maintainces.description, maintainces.date').where(devices:{user_id: @device.user_id})
-     render xlsx: 'Reporte mantenimientos '+ Time.now.to_s, 
+     render xlsx: 'Reporte mantenimientos '+ Time.now.to_s,
         template: 'reports/export_maintainces.xlsx.axlsx'
   end
   private

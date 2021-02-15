@@ -21,7 +21,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     end
     respond_to do |format|
       if @user.save
-        format.html { redirect_to users_index_path, notice: t('app_common.models.users.actions.created') }
+        format.html { redirect_to users_index_path, success: t('app_common.models.users.actions.created') }
         format.json { render :show, status: :created, location: @device }
       else
         format.html { render :new }

@@ -46,7 +46,7 @@ class EventsController < ApplicationController
     @event.user_id = current_user.id
     respond_to do |format|
       if @event.save
-        format.html { redirect_to @event, notice: t('app_common.models.events.actions.created') }
+        format.html { redirect_to @event, success: t('app_common.models.events.actions.created') }
         format.json { render :show, status: :created, location: @event }
       else
         format.html { render :new }
@@ -60,7 +60,7 @@ class EventsController < ApplicationController
   def update
     respond_to do |format|
       if @event.update(event_params)
-        format.html { redirect_to @event, notice: t('app_common.models.events.actions.updated') }
+        format.html { redirect_to @event, info: t('app_common.models.events.actions.updated') }
         format.json { render :show, status: :ok, location: @event }
       else
         format.html { render :edit }
@@ -74,7 +74,7 @@ class EventsController < ApplicationController
   def destroy
     @event.destroy
     respond_to do |format|
-      format.html { redirect_to events_url, notice: 'Event was successfully destroyed.' }
+      format.html { redirect_to events_url, danger: 'Event was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

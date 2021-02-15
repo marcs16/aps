@@ -10,9 +10,10 @@
             <p id="notice"><%= notice %></p>
             <div class="card card-primary">
               <div class="card-header">
-                <h3><%=t('app_common.shows.showing_for', model: model_name_plural(Vacation))  %> <%= @user_full_name%></h3>
+                <h3><%=t('app_common.shows.showing_for', model: model_name_plural(Vacation)) %> <%= @user_full_name%></h3>
                 <div class="card-tools">
-                    <i class="fa fa-sync-alt"></i></button>
+
+                    <button><i class="fa fa-sync-alt"></i></button>
                   <button type="button" class="btn btn-tool btn-sm" data-card-widget="collapse" data-toggle="tooltip"
                           title="Collapse">
                     <i class="fa fa-minus"></i></button>

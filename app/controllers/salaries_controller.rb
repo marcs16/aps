@@ -34,7 +34,7 @@ class SalariesController < ApplicationController
 
     respond_to do |format|
       if @salary.save
-        format.html { redirect_to @salary, notice: t('app_common.models.salaries.actions.created') }
+        format.html { redirect_to @salary, success: t('app_common.models.salaries.actions.created') }
         format.json { render :show, status: :created, location: @salary }
       else
         format.html { render :new }
@@ -48,7 +48,7 @@ class SalariesController < ApplicationController
   def update
     respond_to do |format|
       if @salary.update(salary_params)
-        format.html { redirect_to @salary, notice: t('app_common.models.salaries.actions.updated')  }
+        format.html { redirect_to @salary, info: t('app_common.models.salaries.actions.updated')  }
         format.json { render :show, status: :ok, location: @salary }
       else
         format.html { render :edit }
@@ -62,7 +62,7 @@ class SalariesController < ApplicationController
   def destroy
     @salary.destroy
     respond_to do |format|
-      format.html { redirect_to salaries_url, notice: 'Salary was successfully destroyed.' }
+      format.html { redirect_to salaries_url, danger: 'Salary was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

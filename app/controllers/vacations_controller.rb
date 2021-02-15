@@ -4,7 +4,10 @@ class VacationsController < ApplicationController
   # GET /vacations
   # GET /vacations.json
   def index
-    @vacations = Vacation.all
+    respond_to do |format|
+      format.html
+      format.json { render json: VacationDatatable.new(params,{edit: edit_vacation_path('_'),show: vacation_path('_'),current_user: current_user}) }
+    end
   end
 
   # GET /vacations/1
@@ -20,6 +23,9 @@ class VacationsController < ApplicationController
 
   # GET /vacations/1/edit
   def edit
+    @users = User.all
+    @employe = @vacation.user_id
+
   end
 
   # POST /vacations
@@ -29,7 +35,7 @@ class VacationsController < ApplicationController
 
     respond_to do |format|
       if @vacation.save
-        format.html { redirect_to @vacation, notice: 'Vacation was successfully created.' }
+        format.html { redirect_to @vacation, success: t('app_common.models.vacations.actions.created') }
         format.json { render :show, status: :created, location: @vacation }
       else
         format.html { render :new }
@@ -42,8 +48,8 @@ class VacationsController < ApplicationController
   # PATCH/PUT /vacations/1.json
   def update
     respond_to do |format|
+      format.html { redirect_to @vacation, info: t('app_common.models.events.actions.updated') }
       if @vacation.update(vacation_params)
-        format.html { redirect_to @vacation, notice: 'Vacation was successfully updated.' }
         format.json { render :show, status: :ok, location: @vacation }
       else
         format.html { render :edit }
@@ -57,7 +63,7 @@ class VacationsController < ApplicationController
   def destroy
     @vacation.destroy
     respond_to do |format|
-      format.html { redirect_to vacations_url, notice: 'Vacation was successfully destroyed.' }
+      format.html { redirect_to vacations_url, danger: 'Vacation was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -66,6 +72,9 @@ class VacationsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_user_name
       @user_full_name = @vacation.user.full_name
+    end
+    def usr_names
+      @users = User.select("full_name")
     end
     def set_vacation
       @vacation = Vacation.find(params[:id])

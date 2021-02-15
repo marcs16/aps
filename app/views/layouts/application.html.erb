@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    
+
     <title>Aps</title>
      <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
@@ -13,6 +13,7 @@
   </head>
   <body >
     <div class="wrapper">
+      <%= render :partial => 'layouts/partials/flash_messages', :flash => flash %>
       <%= yield %>
        <div id='remote_container'></div>
     </div>

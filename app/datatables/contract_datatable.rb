@@ -54,8 +54,7 @@ class ContractDatatable < AjaxDatatablesRails::ActiveRecord
   private
 
   def actions(record)
-    sarta = "<a href ='#{options[:edit].gsub('_',record.id.to_s)}'><i class='fa fa-edit'></i></a>"
+    sarta = "&nbsp;&nbsp&nbsp<a href ='#{options[:edit].gsub('_',record.id.to_s)}'><i class='fa fa-edit'></i></a>"
     sarta +=  " | <a href ='#{options[:show].gsub('_',record.id.to_s)}'><i class='fa fa-eye'></i></a>"
-    sarta += " |<a heref = '/contracts/#{record.id}' data-method='delete' data-confirm='#{t('app_common.tables.confirm')}'<i class='fa fa-lock'></i></a>"
   end
 end
