@@ -13,7 +13,7 @@ $(document).ready(function() {
 	  	$(this).addClass("fa fa-eye");
 	  }
 	});
-    
+
 	$(".new-psd").click(function(event) {
 			event.preventDefault();
 			$(this).removeClass("fa fa-eye");
@@ -41,6 +41,12 @@ $(document).ready(function() {
 	  	$(this).addClass("fa fa-eye");
 	  }
 	});
+	$('#btn-psdlog').click(function(event) {
+		event.preventDefault();
+		$('.pass-fields').slideToggle("slow");
+		// Alternative animation for example
+		// slideToggle("fast");
+	});
 
   $('#btn-psd').click(function(event) {
   	event.preventDefault();
@@ -49,5 +55,5 @@ $(document).ready(function() {
     // slideToggle("fast");
   });
   /*For reload datatable*/
- 
+
 });

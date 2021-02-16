@@ -27,7 +27,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :users,:only => [:new, :edit,:update]
+  resources :users,:only => [:edit,:update]
   get 'users/index', to: 'users#index'
   get 'users/disabled_users_index', to: 'users#disabled_users_index', as: 'disabled_users_index'
   get 'users/:id/edit', to: 'users#edit'

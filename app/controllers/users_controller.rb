@@ -7,7 +7,6 @@ class UsersController < ApplicationController
 
   def index
     respond_to do |format|
-      flash.now[:info] = "safando."
       format.html
       format.json { render json: UserDatatable.new(params,{view_context: view_context, edit: edit_user_path('_'),current_user: current_user}) }
     end
@@ -37,7 +36,7 @@ class UsersController < ApplicationController
   end
 
   def reset_password
-    @user.password = '123456'
+    @user.password = '1234567'
     @user.save
     respond_to do |format|
       format.html { redirect_to users_index_path, info: t('app_common.models.users.actions.changed_password')}

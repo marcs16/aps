@@ -10,7 +10,7 @@
       end
   	else
       respond_to do |format|
-        format.html {redirect_to edit_user_registration_path, success: "Has iniciado sesión exitosamente."}
+        format.html {redirect_to edit_user_registration_path, success: t('devise.sessions.new.signed_in')}
       end
 
   	end
