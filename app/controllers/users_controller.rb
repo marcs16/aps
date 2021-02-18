@@ -12,13 +12,13 @@ class UsersController < ApplicationController
     end
   end
 
-
   def disabled_users_index
     respond_to do |format|
       format.html
       format.json { render json: DisableUserDatatable.new(params,{view_context: view_context,edit: edit_user_path('_'),current_user: current_user}) }
     end
   end
+
   def edit
     @user = User.find(params[:id])
   end
@@ -36,7 +36,7 @@ class UsersController < ApplicationController
   end
 
   def reset_password
-    @user.password = '1234567'
+    @user.password = '123456'
     @user.save
     respond_to do |format|
       format.html { redirect_to users_index_path, info: t('app_common.models.users.actions.changed_password')}
