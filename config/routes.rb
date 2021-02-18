@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   resources :vacations
   resources :salaries do
     get '/try_salary', to: 'salaries#try_salary', as: 'try_salary', on: :collection

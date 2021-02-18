@@ -1,7 +1,7 @@
 class UserDatatable < AjaxDatatablesRails::ActiveRecord
   extend Forwardable
 
-  def_delegators :@view,  :users_reset_password_path, :user_disable_path, :user_enable_path   ,  :t
+  def_delegators :@view,  :users_reset_password_path, :user_disable_path, :user_enable_path,  :t
 
   def initialize(params, opts = {})
     @view = opts[:view_context]

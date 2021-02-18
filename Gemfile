@@ -10,6 +10,8 @@ ruby '2.6.3'
 gem 'cancancan', '~> 3.1'
 #dropzone for the files
 gem 'dropzonejs-rails', '~> 0.8.5'
+#for sending sms
+gem 'twilio-ruby', '~> 5.47'
 #haml
 gem 'haml', '~> 5.1', '>= 5.1.2'
 #devise for auth

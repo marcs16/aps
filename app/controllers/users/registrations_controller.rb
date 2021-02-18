@@ -28,8 +28,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
-
   end
+
+
 
 
   protected
