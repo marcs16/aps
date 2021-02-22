@@ -6,9 +6,7 @@ class UsersController < ApplicationController
 
 
   def index
-    message = 'Hola ' + @current_user.full_name + ', estas en el inicio'
-    telephone = @current_user.telephone
-    SendSMS.new(message,telephone).call
+    
     respond_to do |format|
       format.html
       format.json { render json: UserDatatable.new(params,{view_context: view_context, edit: edit_user_path('_'),current_user: current_user}) }

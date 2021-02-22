@@ -4,14 +4,12 @@
   <section class="content-header">
     <div class="container-fluid">
       <div class="col-md-12">
-        <p id="notice"><%= notice %></p>
-
         <h1><%=t('activerecord.models.user.other')%></h1>
         <div style="margin-bottom: 20px;margin-top: 20px; ">
             <% if can? :create, User%>
               <%= link_to t('helpers.button.add', model: model_name_singular(User)), new_user_registration_path, class:'btn btn-primary '%>
             <%end%>
-          <button id="btn-rel-salary" class=" btn btn-primary"><%=t('app_common.tables.reload_t')%></button>
+          <button id="btn-rel-user" class=" btn btn-primary"><%=t('app_common.tables.reload_t')%></button>
           <%= link_to t('app_common.models.users.go_disabled'), disabled_users_index_path, class:'btn btn-primary '%>
         </div>
 

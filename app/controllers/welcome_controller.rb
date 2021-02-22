@@ -1,10 +1,6 @@
  class WelcomeController < ApplicationController
   def index
-    if @current_user = nil
       redirect_to new_user_session_path
-    else
-      redirect_to users_index_path
-    end
   end
 
   def indexlog
@@ -14,7 +10,10 @@
       end
   	else
       respond_to do |format|
-        format.html {redirect_to edit_user_registration_path, success: t('devise.sessions.new.signed_in')}
+        message = 'Hola ' + @current_user.full_name + ', has iniciado sesión'
+        telephone = '+57'+@current_user.telephone
+        SendSMS.new(message,telephone).call
+        format.html {redirect_to edit_user_registration_path}
       end
 
   	end
