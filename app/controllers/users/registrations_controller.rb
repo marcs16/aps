@@ -14,6 +14,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def create
     #authorize! :create, User
     @user = User.new(sign_up_params)
+    telephone = "+57" + @user.telephone
+    @user.telephone = telephone
     if @user.password = ""
       @user.password  = @user.full_name[0..2] + @user.number_of_id[0..3]
     elsif @user.password_confirmation =""

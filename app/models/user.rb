@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :maintainces, :dependent => :delete_all
   has_many :salaries, :dependent => :destroy
 
+  scope :telephoned, ->(name) { where("full_name = ?", name) }
 
   def is_gerente_general?
     if self.position == 'Gerente General'

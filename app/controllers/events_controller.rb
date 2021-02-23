@@ -7,7 +7,6 @@ class EventsController < ApplicationController
   def index
     @event = Hash.new
     @events= Event.where("members  ILIKE ANY ( array[?] )", "%#{current_user.full_name}%")
-
     @evs = Event.all.select(:id,:members)
     #@evs.each do |membs|
     #  @event[membs.id] = JSON.parse(membs[:members])
@@ -15,8 +14,6 @@ class EventsController < ApplicationController
     #    @events = Event.where(id: membs.id)
     #  end
     #end
-
-
   end
 
   # GET /events/1
@@ -35,7 +32,6 @@ class EventsController < ApplicationController
   # GET /events/1/edit
   def edit
     @users = User.select("full_name")
-    @current_event = JSON.parse(@event.members)
 
   end
 
@@ -46,6 +42,8 @@ class EventsController < ApplicationController
     @event.user_id = current_user.id
     respond_to do |format|
       if @event.save
+        @current_event = JSON.parse(@event.members)
+        notify_event(@current_event, @event.title, @event.start_date,@event.end_date)
         format.html { redirect_to @event, success: t('app_common.models.events.actions.created') }
         format.json { render :show, status: :created, location: @event }
       else
@@ -60,6 +58,8 @@ class EventsController < ApplicationController
   def update
     respond_to do |format|
       if @event.update(event_params)
+        @current_event = JSON.parse(@event.members)
+        notify_event(@current_event, @event.title, @event.start_date,@event.end_date)
         format.html { redirect_to @event, info: t('app_common.models.events.actions.updated') }
         format.json { render :show, status: :ok, location: @event }
       else
@@ -83,11 +83,24 @@ class EventsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_event
       @event = Event.find(params[:id])
-    end
 
+    end
     # Only allow a list of trusted parameters through.
     def event_params
       params.require(:event).permit(:title, :description, :start_date, :end_date,  :user_id,:members =>[])
+    end
+
+    def notify_event(people, event, start_date, end_date)
+      people_to_notify= people.reject(&:empty?)
+      @telephones =[]
+      people_to_notify.each do |name|
+        @person =  User.select(:telephone).telephoned(name)
+        @telephones.push(@person)
+          @telephones.each do |v,k|
+            @message = "#{name}, se te ha invitado a la reunión #{event}, empieza a las #{start_date} y termina a las #{end_date}"
+            SendSMS.new(@message,v.telephone).call
+          end
+      end
     end
 
     def usr_names

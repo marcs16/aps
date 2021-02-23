@@ -38,7 +38,7 @@
 					    <div class="form-group row">
 					      <%= f.label :description,t('activerecord.attributes.event.description'), class: "col-sm-3 col-form-label" %>
 					      <div class="col-sm-8">
-					        <%= f.text_area :description,autofocus: true, class:"form-control"%> 
+					        <%= f.text_area :description,autofocus: true, class:"form-control"%>
 					      </div>
 					    </div>
 					    <div class="form-group row">
@@ -57,6 +57,7 @@
 					        <%=f.label :members,t('activerecord.attributes.event.members'), class:"col-sm-3 col-form-label"%>
 					      <div class="col-sm-8">
 					        <%=f.select :members, options_for_select(@users.collect{|x| [x.full_name]}, selected: @current_event),{}, multiple: 'multiple', class:"col-sm-12 select2bs4"%>
+									
 					      </div>
 					    </div>
 					    <div class="form-group row">
@@ -84,7 +85,7 @@
 	<%=render 'layouts/partials/footer'%>
 	</div>
 </div>
-   
+
 
 
 <%= link_to t('helpers.submit.show'), @event %> |
