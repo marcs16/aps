@@ -210,6 +210,11 @@ es:
         updated: Tu cuenta se ha actualizado.
         updated_but_not_signed_in: Su cuenta se ha actualizado correctamente, pero como se cambió su contraseña, debe iniciar sesión nuevamente
     sessions:
+      user:
+        sign_in: Iniciar sesión
+        signed_in: Sesión iniciada.
+        signed_out: Sesión finalizada.
+
       already_signed_out: Sesión finalizada.
       signed_in: Sesión iniciada.
       new:
@@ -407,7 +412,7 @@ es:
       no_acc: "¿No tienes una cuenta?"
       register: "Pulsa el botón de abajo y  obten una cuenta."
       sign_in: "Pulsa el botón de abajo e inicia sesión."
-      sign_up: "Creando nuevo empleado"
+      sign_up: "Crear nuevo empleado"
       get_acc: "Por favor contacta a la persona encargada de crear las cuentas, para obtener la tuya."
       login:  "Iniciar Sesión"
       come_back_login: "Volver al inicio de sesión."

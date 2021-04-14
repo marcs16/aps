@@ -10,15 +10,25 @@ class Users::SessionsController < Devise::SessionsController
   # end
 
   # POST /resource/sign_in
-  # def create
-  #   super
-  # end
+  def create
+    super do |resource|
+      if resource.can_login != 'si'
+        sign_out
+        respond_to do |format|
+          format.html {redirect_to new_user_session_path, info: t('devise.failure.disabled') }
+        end
+        return
+      end
+    end
+  end
 
 
   # DELETE /resource/sign_out
-  # def destroy
-  #   super
-  # end
+   def destroy
+     super do
+      flash[:info] = t('devise.sessions.user.signed_out')
+     end
+   end
 
   # protected
 

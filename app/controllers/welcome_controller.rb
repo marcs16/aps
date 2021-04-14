@@ -4,12 +4,8 @@
   end
 
   def indexlog
-  	if current_user.can_login != 'si'
       respond_to do |format|
-        format.html{redirect_to welcome_logout_disable_path}
-      end
-  	else
-      respond_to do |format|
+        @current_user = current_user
         message = 'Hola ' + @current_user.full_name + ', has iniciado sesión'
         telephone = @current_user.telephone
         SendSMS.new(message,telephone).call
@@ -17,12 +13,5 @@
       end
 
   	end
-  end
-  def logout_disable
-    respond_to do |format|
-      format.html { render :logout_disable, info: "imposible loguearse"}
-      format.json { head :no_content  }
-    end
-  end
 
 end

@@ -1,6 +1,7 @@
 class VacationsController < ApplicationController
   before_action :set_vacation, only: [:show, :edit, :update, :destroy]
   before_action :set_user_name,only: [:show, :edit]
+  before_action :authenticate_user!
   # GET /vacations
   # GET /vacations.json
   def index
@@ -48,7 +49,7 @@ class VacationsController < ApplicationController
   # PATCH/PUT /vacations/1.json
   def update
     respond_to do |format|
-      format.html { redirect_to @vacation, info: t('app_common.models.events.actions.updated') }
+      format.html { redirect_to @vacation, info: t('app_common.models.vacations.actions.updated') }
       if @vacation.update(vacation_params)
         format.json { render :show, status: :ok, location: @vacation }
       else

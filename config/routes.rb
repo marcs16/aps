@@ -6,7 +6,6 @@ Rails.application.routes.draw do
   resources :contracts
   get 'welcome/index'
   get 'welcome/indexlog'
-  get 'welcome/logout_disable'
   resources :application do
     get 'application/current_language', to: 'application#current_language', as: 'c_language', on: :collection
   end

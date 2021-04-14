@@ -1,6 +1,6 @@
 class LanguagesController < ApplicationController
   before_action :set_language, only: [:show, :edit, :update, :destroy]
-   before_action :authenticate_user!, except: [:change_language]
+  before_action :authenticate_user!, except: [:change_language]
 
   # GET /languages
   # GET /languages.json
@@ -65,19 +65,19 @@ class LanguagesController < ApplicationController
   def change_language
     selected_language = ''
     language = Language.find_by(abbreviation: params[:abbreviation])
-    
+
     if language.present?
       session[:selected_language] = language.abbreviation
       selected_language = session[:selected_language]
-      
+
     end
     respond_to do |format|
       format.json { render json: { language: selected_language } }
     end
-    
+
   end
-  
- 
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_language

@@ -109,7 +109,7 @@
                   <div class="form-group row">
                     <%= f.label :status, class:"col-sm-3 col-form-label" %>
                     <div class="col-sm-8">
-                      <%= f.text_field :status, class:"form-control col-sm-6" %>
+                      <%= f.select :status, options_for_status,{}, selected: @vacation.status, class:"form-control col-sm-6" %>
                     </div>
                   </div>
                   <div class="form-group row">

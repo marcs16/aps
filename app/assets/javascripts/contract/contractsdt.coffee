@@ -30,10 +30,6 @@ $ ->
       {data: 'value'}
       {data: 'executed_value'}
       {data: 'execution_rate'}
-      {data: 'observations'}
       {data: 'status'}
       {data: 'links'}
     ]
-    
-  
-      
