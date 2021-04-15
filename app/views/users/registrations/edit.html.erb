@@ -54,7 +54,7 @@
                     </div>
                   </div>
                    <div class="form-group row">
-                    <%=f.label :telephone, "Celular", class:"col-sm-3 col-form-label"%>
+                    <%=f.label :telephone, t('activerecord.attributes.user.telephone'), class:"col-sm-3 col-form-label"%>
                     <div class="col-sm-8">
                     <%= f.text_field :telephone, autofocus: true, class:"form-control" %>
                     </div>
@@ -87,9 +87,9 @@
                     </button>
                   </div>
                   <br>
-                  <div class="pass-fields" style="display: none;"> 
+                  <div class="pass-fields" style="display: none;">
                     <div class="form-group row">
-                      <%= f.label :password, t('activerecord.attributes.user.password'), class:"col-sm-3 col-form-label"  %> 
+                      <%= f.label :password, t('activerecord.attributes.user.password'), class:"col-sm-3 col-form-label"  %>
                       <div class="col-sm-7">
                         <%= f.password_field :password, autocomplete: t('activerecord.attributes.user.password'), class:"form-control" %><i>(<%=t('devise.registrations.edit.leave_blank_if_you_don_t_want_to_change_it')%></i>
                         <% if @minimum_password_length %>
@@ -114,7 +114,7 @@
                     <div class="offset-sm-2 col-sm-8">
                       <%= f.submit t('devise.registrations.edit.update') , class:"btn btn-primary" %>
                     </div>
-                    
+
                   </div>
                   <div class="form-group row">
                     <div class="offset-sm-2 col-sm-8">
@@ -136,4 +136,3 @@
     <%=render 'layouts/partials/footer'%>
   </div>
 </div>
-

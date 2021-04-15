@@ -24,8 +24,9 @@
             <div class="forms_field">
               <%= f.email_field :email,placeholder: "Email",required: true, autofocus: true, class:"forms_field-input",autocomplete: "email"%>
             </div>
-            <div class="forms_field">
+            <div class=" forms_field">
               <%= f.password_field :password, autocomplete: "current-password",placeholder: t('activerecord.attributes.user.password'), class:"forms_field-input",required: true%>
+              <span toggle="#password-field" class=" fa-x  fa fa-eye  login-psd"></span>
             </div>
             <% if devise_mapping.rememberable? %>
           <% end %>
