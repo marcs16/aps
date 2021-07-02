@@ -3,7 +3,6 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   prepend_before_action :require_no_authentication, only: []
   prepend_before_action :authenticate_scope!, only: [:new, :create, :edit, :update, :destroy, :cancel]
-
   # GET /resource/sign_up
   def new
     #authorize! :new, User
@@ -32,7 +31,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
     end
   end
 
-
+  def edit
+    super
+  end
 
 
   protected

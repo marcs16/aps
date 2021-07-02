@@ -2,6 +2,7 @@ class MaintaincesController < ApplicationController
   before_action :set_maintaince, only: [:show, :edit, :update, :destroy]
   before_action :set_device
   before_action :authenticate_user!
+  load_and_authorize_resource
   # GET /maintainces
   # GET /maintainces.json
   def index

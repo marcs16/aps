@@ -8,14 +8,16 @@
 
         <h1><%=t('activerecord.models.maintaince.other')%></h1>
         <div style="margin-bottom: 20px;margin-top: 20px; ">
-              <%= link_to t('helpers.button.add', model: model_name_singular(Maintaince)), new_device_maintaince_path, class:'btn btn-primary '%>
+          <%if can? :create, Maintaince%>
+            <%= link_to t('helpers.button.add', model: model_name_singular(Maintaince)), new_device_maintaince_path, class:'btn btn-primary '%>
+          <%end%>
               <button id="btn-rel-maintaince" class=" btn btn-primary"><%=t('app_common.tables.reload_t')%></button>
               <%= link_to 'Exportar Excel',export_device_maintainces_path(), class:'btn btn-primary '%>
         </div>
         <table id="maintainces-datatable" data-source="<%= device_maintainces_path(format: :json) %>">
           <thead >
             <tr>
-             
+
               <th><%=Maintaince.human_attribute_name(:done_by)%> </th>
               <th><%=Maintaince.human_attribute_name(:name)%></th>
               <th><%=Maintaince.human_attribute_name(:description)%> </th>
@@ -30,7 +32,7 @@
           </tbody>
         </table>
 
-      </div> 
+      </div>
     </div>
   </section>
   <%=render 'layouts/partials/footer'%>

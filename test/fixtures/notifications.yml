@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  message: MyString
+  notification_origin: MyString
+  origin_id: MyString
+  user: one
+
+two:
+  message: MyString
+  notification_origin: MyString
+  origin_id: MyString
+  user: two

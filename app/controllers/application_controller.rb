@@ -1,7 +1,16 @@
 class ApplicationController < ActionController::Base
+	protect_from_forgery with: :exception
 	before_action :get_browser_language
 	before_action :configure_permitted_parameters, if: :devise_controller?
 	add_flash_types :success, :danger, :info
+
+	rescue_from CanCan::AccessDenied do |exception|
+	denied = t('app_common.notification.no_access')
+	respond_to do |format|
+		format.html { redirect_to root_path, :danger => denied }
+		format.json { render json: denied.to_json, status: 403 }
+	end
+end
 
 	def get_browser_language
 		begin

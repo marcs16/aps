@@ -482,6 +482,8 @@ es:
       devices: "Dispositivos"
       meetings: "Reuniones"
       close_session: "Cerrar Sesión"
+    notification:
+      no_access: "No tienes el nivel de acceso adecuado."
     tables:
       options: "Opcciones"
       reload_t: "Recargar Tabla"

@@ -2,6 +2,7 @@ class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
   before_action :usr_names, only: [:new,:create,:show, :update]
   before_action :authenticate_user!
+  load_and_authorize_resource
   # GET /events
   # GET /events.json
   def index
@@ -43,7 +44,8 @@ class EventsController < ApplicationController
     respond_to do |format|
       if @event.save
         @current_event = JSON.parse(@event.members)
-        notify_event(@current_event, @event.title, @event.start_date,@event.end_date)
+        # notify_event(@current_event, @event.title, @event.start_date,@event.end_date)
+        notify_per_person(@current_event, @event.title, @event.id)
         format.html { redirect_to @event, success: t('app_common.models.events.actions.created') }
         format.json { render :show, status: :created, location: @event }
       else
@@ -59,7 +61,8 @@ class EventsController < ApplicationController
     respond_to do |format|
       if @event.update(event_params)
         @current_event = JSON.parse(@event.members)
-        notify_event(@current_event, @event.title, @event.start_date,@event.end_date)
+        # notify_event(@current_event, @event.title, @event.start_date,@event.end_date)
+        notify_per_person(@current_event, @event.title, @event.id)
         format.html { redirect_to @event, info: t('app_common.models.events.actions.updated') }
         format.json { render :show, status: :ok, location: @event }
       else
@@ -83,7 +86,6 @@ class EventsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_event
       @event = Event.find(params[:id])
-
     end
     # Only allow a list of trusted parameters through.
     def event_params
@@ -101,6 +103,25 @@ class EventsController < ApplicationController
             SendSMS.new(@message,v.telephone).call
           end
       end
+    end
+    def notify_per_person(people, message, event)
+      people_to_notify= people.reject(&:empty?)
+      @people = []
+      @people_ids = []
+      @person = ''
+      @notification = Notification.new
+      people_to_notify.each do |name|
+        person = User.select(:id).where(full_name: name)
+        @people.push(person)
+      end
+      @people.each do |v, k|
+        @people_ids.push(v.id)
+      end
+        @notification.message = message
+        @notification.notification_origin = "event"
+        @notification.origin_id = event
+        @notification.user_id = @people_ids
+        @notification.save
     end
 
     def usr_names

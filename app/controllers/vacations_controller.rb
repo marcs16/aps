@@ -2,6 +2,7 @@ class VacationsController < ApplicationController
   before_action :set_vacation, only: [:show, :edit, :update, :destroy]
   before_action :set_user_name,only: [:show, :edit]
   before_action :authenticate_user!
+  load_and_authorize_resource
   # GET /vacations
   # GET /vacations.json
   def index

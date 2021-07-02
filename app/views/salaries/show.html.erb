@@ -12,7 +12,7 @@
               <div class="card-header">
                 <h3><%=t('app_common.shows.showing_for', model: model_name_singular(Salary))  %> <%= @user_full_name%></h3>
                 <div class="card-tools">
-                    <i class="fa fa-sync-alt"></i></button>
+                    <i class="fa fa-sync-alt"></i>
                   <button type="button" class="btn btn-tool btn-sm" data-card-widget="collapse" data-toggle="tooltip"
                           title="Collapse">
                     <i class="fa fa-minus"></i></button>
@@ -146,7 +146,9 @@
                       <%= link_to t('helpers.button.back'), :back , class:"btn btn-primary fa fa-arrow-left"%>
                     </div>
                     <div class=" col-sm-1">
-                      <%= link_to t('helpers.button.edit'), edit_salary_path(@salary), class:"btn btn-primary fa fa-edit" %>
+                      <%if can? :edit, Salary%>
+                        <%= link_to t('helpers.button.edit'), edit_salary_path(@salary), class:"btn btn-primary fa fa-edit" %>
+                      <%end%>
                     </div>
                     <div class="offset-sm-2 col-sm-2">
                       <%=link_to t('activerecord.models.salary.other'), salaries_path(),class:"btn btn-primary fa fa-cog"%>

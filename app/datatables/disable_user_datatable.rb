@@ -20,7 +20,7 @@ class DisableUserDatatable < AjaxDatatablesRails::ActiveRecord
       email:  {source: 'User.email',searchable:false, orderable: true},
       telephone:        { source: 'User.telephone', cond: :like, searchable: false, orderable: true },
       date_of_birth:         { source: 'User.date_of_birth', searchable: false, orderable: true },
-      working_since:    { source: 'User.working_since', searchable: false, orderable: true }, 
+      working_since:    { source: 'User.working_since', searchable: false, orderable: true },
     }
   end
 
@@ -42,11 +42,16 @@ class DisableUserDatatable < AjaxDatatablesRails::ActiveRecord
 
   def get_raw_records
     User.where.not(id: options[:current_user].id).where(can_login: 'no')
-         
+
   end
 
-  private 
+  private
   def actions(record)
-    sarta = " <a href ='#{ user_enable_path(record)}'><i class='fa fa-toggle-on'></i></a>"
+    if options[:current_user].is_gerente?
+      sarta = " <a href ='#{ user_enable_path(record)}'><i class='fa fa-toggle-on'></i></a>"
+    elsif options[:current_user].is_cooradmin_fin?
+      sarta = " <a>No options</a>"
+    end
+
   end
 end

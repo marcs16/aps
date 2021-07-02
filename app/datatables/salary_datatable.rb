@@ -36,22 +36,50 @@ class SalaryDatatable < AjaxDatatablesRails::ActiveRecord
   end
 
   def get_raw_records
-    Salary.all
-
+    get_raw_by_position(options[:current_user])
   end
 
   private
 
+    def user_name(usr)
+      name = User.where(id: usr).select(:full_name)
+      @name = name
+      return @name[0][:full_name]
+    end
 
-      def actions(record)
+    def actions(record)
+      get_actions_by_position(options[:current_user], record)
+    end
+
+    def get_actions_by_position(user, record)
+      if  user.is_aux_th?
         sarta = "&nbsp;&nbsp<a href ='#{options[:edit].gsub('_',record.id.to_s)}'><i class='fa fa-edit'></i></a>"
         sarta +=  " | <a href ='#{options[:show].gsub('_',record.id.to_s)}'><i class='fa fa-eye'></i></a>"
+
+      elsif user.is_gerente? || user.is_subgerente? || user.is_cooradmin_fin? ||
+        user.is_coorcomer_soc? || user.is_coortec_ambac? || user.is_coortec_ambas? ||
+        user.is_prof_contratacion? || user.is_prof_proyectos? ||
+        user.is_prof_sig? || user.is_prof_tic? || user.is_aux_sst? ||
+        user.is_aux_gesdoc? ||user.is_aux_comercial? || user.is_aux_servgen? ||
+        user.is_aux_recaudo? ||user.is_aux_almacen? || user.is_conductor? ||
+        user.is_operario_pta? || user.is_operario_rl?
+        sarta =  "&nbsp;&nbsp&nbsp;&nbsp&nbsp;&nbsp&nbsp;&nbsp<a href ='#{options[:show].gsub('_',record.id.to_s)}'><i class='fa fa-eye'></i></a>"
       end
 
-      def user_name(usr)
-        name = User.where(id: usr).select(:full_name)
-        @name = name
-        return @name[0][:full_name]
+    end
+
+    def get_raw_by_position(user)
+      if user.is_gerente? || user.is_subgerente? || user.is_cooradmin_fin? ||
+        user.is_coorcomer_soc? || user.is_coortec_ambac? || user.is_coortec_ambas? ||
+        user.is_prof_contratacion? || user.is_prof_tic? || user.is_aux_th?
+        return Salary.all
+
+      elsif user.is_prof_proyectos? || user.is_prof_sig? || user.is_aux_sst? ||
+        user.is_aux_gesdoc? || user.is_aux_comercial? || user.is_aux_servgen? ||
+        user.is_aux_recaudo? || user.is_aux_almacen? || user.is_conductor? ||
+        user.is_operario_pta? || user.is_operario_rl?
+        return Salary.where(user_id: user.id)
       end
+    end
 
   end

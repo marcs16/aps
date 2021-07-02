@@ -5,33 +5,27 @@ module UsersHelper
 	end
 	def options_for_position
     	[
-    		'Asistente Administrativo Y Financiero',
-			'Asistente Comercial Y Social',
-			'Asistente Técnico Y Ambiental',
-			'Asistente Técnico Y Ambiental Aseo',
-			'Auxiliar Administrativo',
-			'Auxiliar Comercial Y Social La Danta',
-			'Auxiliar Comercial Y Social Urbano',
-			'Auxiliar De Servicios Generales',
-			'Ayudante De Sostenimiento La Danta',
-			'Ayudante De Sostenimiento Urbano',
-			'Conductor Vehículo Aseo',
-			'Gerente General',
-			'Lector',
-			'Operador De Ptap',
-			'Operador De Ptap La Danta',
-			'Operador De Ptar Urbano',
-			'Operario  De  Disposición  Final',
-			'Operario De Barrido Manejo Y Aseo',
-			'Operario De Recolección',
-			'Practicante',
-			'Subgerente Técnico',
-			'Supernumerario Administrativo',
-			'Supernumerario Operativo La Danta',
-			'Supernumerario Operativo Urbano',
-			'Supervisor Conductor'
+				'GERENTE',
+				'SUBGERENTE',
+				'COORDINADOR ADMINISTRATIVO Y FINANCIERO',
+				'COORDINADOR COMERCIAL Y SOCIAL ',
+				'COORDINADOR TECNICO Y AMBIENTAL ACUEDUCTO Y ALCANTARILLADO',
+				'COORDINADOR TECNICO Y AMBIENTAL ASEO',
+				'PROFESIONAL CONTRATACION',
+				'PROFESIONAL DE PROYECTOS',
+				'PROFESIONAL DEL SISTEMA INTEGRADO DE GESTION',
+				'PROFESIONAL TECNOLOGÍA TIC',
+				'AUXILIAR DE SEGURIDAD Y SALUD EN EL TRABAJO',
+				'AUXILIAR DE GESTIÓN DOCUMENTAL',
+				'AUXILIAR DE TALENTO HUMANO',
+				'AUXILIAR COMERCIAL Y SOCIAL',
+				'AUXILIAR DE SERVICIOS GENERALES',
+				'AUXILIAR DE RECAUDO',
+				'AUXILIAR DE ALMACEN',
+				'CONDUCTOR',
+				'OPERARIO DE PLANTA DE TRATAMIENTO DE AGUA',
+				'OPERARIO DE REDES Y LECTURA',
+				'OPERARIO DE BARRIDO Y RECOLECCIÓN'
     	]
 	end
 end
-
-

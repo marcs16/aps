@@ -493,7 +493,6 @@ en:
       select_ram: "Ram quantity"
       select_user: "Select a person"
       select_way_to_pay: "Select a way to pay"
-
     edits:
       editing: "Editing %{model}:"
       editing_for: "Editing %{model} for:"
@@ -511,6 +510,8 @@ en:
       devices: "Devices"
       meetings: "Meetings"
       close_session: "Log Out"
+    notification:
+      no_access: "You don't have the right access level."
     tables:
       options: "Options"
       reload_t: "Reload Table"

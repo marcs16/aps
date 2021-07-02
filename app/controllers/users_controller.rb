@@ -6,10 +6,10 @@ class UsersController < ApplicationController
 
 
   def index
-    
+
     respond_to do |format|
       format.html
-      format.json { render json: UserDatatable.new(params,{view_context: view_context, edit: edit_user_path('_'),current_user: current_user}) }
+      format.json { render json: UserDatatable.new(params,{view_context: view_context,show: user_path('_'), edit: edit_user_path('_'),current_user: current_user}) }
     end
   end
 
