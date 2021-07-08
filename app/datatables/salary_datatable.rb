@@ -72,13 +72,13 @@ class SalaryDatatable < AjaxDatatablesRails::ActiveRecord
       if user.is_gerente? || user.is_subgerente? || user.is_cooradmin_fin? ||
         user.is_coorcomer_soc? || user.is_coortec_ambac? || user.is_coortec_ambas? ||
         user.is_prof_contratacion? || user.is_prof_tic? || user.is_aux_th?
-        return Salary.all
+        Salary.all
 
       elsif user.is_prof_proyectos? || user.is_prof_sig? || user.is_aux_sst? ||
         user.is_aux_gesdoc? || user.is_aux_comercial? || user.is_aux_servgen? ||
         user.is_aux_recaudo? || user.is_aux_almacen? || user.is_conductor? ||
         user.is_operario_pta? || user.is_operario_rl?|| user.is_operario_br?
-        return Salary.where(user_id: user.id)
+        Salary.where(user_id: user.id)
       end
     end
 

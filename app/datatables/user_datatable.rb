@@ -41,20 +41,47 @@ class UserDatatable < AjaxDatatablesRails::ActiveRecord
   end
 
   def get_raw_records
-    User.where.not(id: options[:current_user].id).where(can_login: 'si')
+    get_raw_by_position(options[:current_user])
 
   end
 
   private
   def actions(record)
+    get_actions_by_position(options[:current_user], record)
 
-    if options[:current_user].is_cooradmin_fin?
+  end
+
+  def get_actions_by_position(user, record)
+    if user.is_cooradmin_fin? || user.is_aux_th?
       sarta =  "<a href ='#{options[:edit].gsub('_',record.id.to_s)}'> <i class='fa fa-edit'></i></a>"
       sarta +=  " | <a href ='#{users_reset_password_path(record)}'> <i class='fa fa-lock'></i></a>"
       sarta += " | <a data-confirm='#{t('app_common.tables.confirm') }' href ='#{ user_disable_path(record)}'><i class='fa fa-toggle-off'></i></a>"
-    elsif options[:current_user].is_coorcomer_soc?
-      sarta =  "&nbsp;&nbsp&nbsp;&nbsp&nbsp;&nbsp<a href ='#{options[:edit].gsub('_',record.id.to_s)}'> <i class='fa fa-edit'></i></a>"
-    end
 
+    elsif user.is_gerente? || user.is_subgerente? || user.is_coorcomer_soc? ||
+      user.is_coortec_ambac? || user.is_coortec_ambas? ||
+      user.is_prof_contratacion? || user.is_prof_tic? ||
+      user.is_prof_proyectos? || user.is_prof_sig? || user.is_aux_sst? ||
+      user.is_aux_gesdoc? || user.is_aux_comercial? || user.is_aux_servgen? ||
+      user.is_aux_recaudo? || user.is_aux_almacen?
+        sarta =  "&nbsp;&nbsp&nbsp;<a>#{t('app_common.tables.no_options')}</a>"
+    end
   end
+
+  def get_raw_by_position(user)
+    if  user.is_aux_th? || user.is_cooradmin_fin?
+     User.where(can_login: 'si')
+
+    elsif user.is_gerente? || user.is_subgerente? || user.is_coorcomer_soc? ||
+      user.is_coortec_ambac? || user.is_coortec_ambas? ||
+      user.is_prof_contratacion? || user.is_prof_tic?
+      User.where(can_login: 'si')
+
+    elsif user.is_prof_proyectos? || user.is_prof_sig? || user.is_aux_sst? ||
+      user.is_aux_gesdoc? || user.is_aux_comercial? || user.is_aux_servgen? ||
+      user.is_aux_recaudo? || user.is_aux_almacen? || user.is_conductor? ||
+      user.is_operario_pta? || user.is_operario_rl?|| user.is_operario_br?
+      User.where(user_id: user.id)
+    end
+  end
+
 end

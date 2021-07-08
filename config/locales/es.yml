@@ -489,3 +489,4 @@ es:
       options: "Opcciones"
       reload_t: "Recargar Tabla"
       confirm: "¿Quiere realizar esta acción?"
+      no_options: "No hay opcciones"

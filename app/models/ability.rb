@@ -11,7 +11,6 @@ class Ability
         user ||= User.new
         if user.is_gerente?
           can :resh, User
-          can :disable_user, User
           can :disabled_users_index, User
           can :resh, Salary
           can :resh, Vacation
@@ -27,7 +26,6 @@ class Ability
 
         elsif user.is_subgerente?
           can :resh, User
-          can :disable_user, User
           can :disabled_users_index, User
           can :resh, Salary
           can :resh, Vacation
@@ -41,6 +39,7 @@ class Ability
           can :cru, User
           can :disabled_users_index, User
           can :disable_user, User
+          can :enable_user, User
           can :resh, Salary
           can :resh, Vacation
           can :resh, Contract
@@ -50,7 +49,6 @@ class Ability
           end
         elsif user.is_coorcomer_soc?
           can :resh, User
-          can :disable_user, User
           can :disabled_users_index, User
           can :resh, Salary
           can :resh, Vacation
@@ -62,7 +60,6 @@ class Ability
 
         elsif user.is_coortec_ambac?
           can :resh, User
-          can :disable_user, User
           can :disabled_users_index, User
           can :resh, Salary
           can :resh, Vacation
@@ -74,7 +71,6 @@ class Ability
 
         elsif user.is_coortec_ambas?
           can :resh, User
-          can :disable_user, User
           can :disabled_users_index, User
           can :resh, Salary
           can :resh, Vacation
@@ -162,6 +158,7 @@ class Ability
           can :cru, User
           can :disable_user, User
           can :disabled_users_index, User
+          can :enable_user, User
           can [:cru,:show], Salary
           can [:cru,:show], Vacation
           can :resh, Contract

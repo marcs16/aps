@@ -41,17 +41,30 @@ class DisabledUserDatatable < AjaxDatatablesRails::ActiveRecord
   end
 
   def get_raw_records
-    User.where.not(id: options[:current_user].id).where(can_login: 'no')
+    User.where(can_login: 'no')
 
   end
 
   private
   def actions(record)
-    if options[:current_user].is_gerente?
-      sarta = " <a href ='#{ user_enable_path(record)}'><i class='fa fa-toggle-on'></i></a>"
-    elsif options[:current_user].is_cooradmin_fin?
-      sarta = " <a>No options</a>"
-    end
-
+    get_actions_by_position(options[:current_user], record)
   end
+
+  def get_actions_by_position(user, record)
+    if user.is_cooradmin_fin? || user.is_aux_th?
+        sarta = " <a href ='#{ user_enable_path(record)}'><i class='fa fa-toggle-on'></i></a>"
+
+    elsif user.is_gerente? || user.is_subgerente? || user.is_coorcomer_soc? ||
+      user.is_coortec_ambac? || user.is_coortec_ambas? ||
+      user.is_prof_contratacion? || user.is_prof_tic? ||
+      user.is_prof_proyectos? || user.is_prof_sig? || user.is_aux_sst? ||
+      user.is_aux_gesdoc? || user.is_aux_comercial? || user.is_aux_servgen? ||
+      user.is_aux_recaudo? || user.is_aux_almacen?
+        sarta =  "&nbsp;&nbsp&nbsp;<a>#{t('app_common.tables.no_options')}</a>"
+    end
+  end
+
+
+
+
 end

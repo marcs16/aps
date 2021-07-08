@@ -517,3 +517,4 @@ en:
       options: "Options"
       reload_t: "Reload Table"
       confirm: "Do you want to do this??"
+      no_options: "No options"
