@@ -1,0 +1,10 @@
+<%if current_user.is_gerente? || current_user.is_subgerente? ||
+current_user.is_cooradmin_fin? || current_user.is_coorcomer_soc? ||
+current_user.is_coortec_ambac? || current_user.is_coortec_ambas?%>
+  <li class="nav-item">
+    <div  class="nav-link">
+      <i class="fa fa-circle nav-icon"></i>
+      <p><%=link_to t('app_common.navbar.profile.edit_profile'), edit_user_registration_path, style:"font-size: 1.5rem;"%></p>
+    </div>
+  </li>
+<%end%>

@@ -50,7 +50,7 @@
 				    <div class="form-group row">
 				      <%=f.label :supervisor, t('activerecord.attributes.contract.supervisor'), class:"col-sm-3 col-form-label"%>
 				      <div class="col-sm-8">
-				        <%= f.text_field :supervisor, autofocus: true, class:"form-control" %>
+				        <%=f.select :supervisor, options_for_select(@users.collect{|x| [x.full_name]}, selected: @current_supervisor),{},class:"col-sm-12 select2bs4"%>
 				      </div>
 				    </div>
 				    <div class="form-group row">
@@ -63,6 +63,12 @@
 				      <%=f.label :dead_line, t('activerecord.attributes.contract.dead_line'), class:"col-sm-3 col-form-label"%>
 				      <div class="col-sm-8">
 				        <%= f.text_field :dead_line, autofocus: true, class:"form-control" %>
+				      </div>
+				    </div>
+            <div class="form-group row">
+				      <%=f.label :lit_value, t('activerecord.attributes.contract.lit_value'), class:"col-sm-3 col-form-label"%>
+				      <div class="col-sm-8">
+				        <%= f.text_field :lit_value, autofocus: true, class:"form-control" %>
 				      </div>
 				    </div>
 				    <div class="form-group row">
@@ -92,7 +98,7 @@
 				    <div class="form-group row">
 				      <%=f.label :status, t('activerecord.attributes.contract.status'), class:"col-sm-3 col-form-label"%>
 				      <div class="col-sm-8">
-                      	<%= f.select :status, options_for_status,{},selected: @contract.status, class:"form-control"%> 
+                      	<%= f.select :status, options_for_status,{},selected: @contract.status, class:"form-control"%>
                       </div>
 				    </div>
 

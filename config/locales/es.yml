@@ -33,6 +33,7 @@ es:
           supervisor: Supervisor
           initiation_act: Acta de Inicio
           dead_line: Fecha limite
+          lit_value: Valor en letras
           value: Valor
           executed_value: Valor ejecutado
           execution_rate: Porcentaje de ejecución

@@ -9,19 +9,13 @@ class EventsController < ApplicationController
     @event = Hash.new
     @events= Event.where("members  ILIKE ANY ( array[?] )", "%#{current_user.full_name}%")
     @evs = Event.all.select(:id,:members)
-    #@evs.each do |membs|
-    #  @event[membs.id] = JSON.parse(membs[:members])
-    #  if @event[membs.id].include? current_user.full_name
-    #    @events = Event.where(id: membs.id)
-    #  end
-    #end
+
   end
 
   # GET /events/1
   # GET /events/1.json
   def show
     @current_event = JSON.parse(@event.members)
-    #@eve = @current_event.reject(&:empty?).join(", ")
 
   end
 
@@ -33,6 +27,7 @@ class EventsController < ApplicationController
   # GET /events/1/edit
   def edit
     @users = User.select("full_name")
+    @current_event = JSON.parse(@event.members)
 
   end
 
@@ -61,7 +56,6 @@ class EventsController < ApplicationController
     respond_to do |format|
       if @event.update(event_params)
         @current_event = JSON.parse(@event.members)
-        # notify_event(@current_event, @event.title, @event.start_date,@event.end_date)
         notify_per_person(@current_event, @event.title, @event.id)
         format.html { redirect_to @event, info: t('app_common.models.events.actions.updated') }
         format.json { render :show, status: :ok, location: @event }
@@ -99,7 +93,7 @@ class EventsController < ApplicationController
         @person =  User.select(:telephone).telephoned(name)
         @telephones.push(@person)
           @telephones.each do |v,k|
-            @message = "#{name}, se te ha invitado a la reunión #{event}, empieza a las #{start_date} y termina a las #{end_date}"
+            @message = "#{name}, se te ha invitado a la reunión: #{event}, empieza a las: #{start_date} y termina a las: #{end_date}"
             SendSMS.new(@message,v.telephone).call
           end
       end

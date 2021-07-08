@@ -64,6 +64,7 @@ en:
           supervisor: Supervisor
           initiation_act: Initiation Act
           dead_line: Dead Line
+          lit_value: Letters value
           value: value
           executed_value: Executed Value
           execution_rate: Execution Rate

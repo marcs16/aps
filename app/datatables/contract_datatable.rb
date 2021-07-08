@@ -47,14 +47,38 @@ class ContractDatatable < AjaxDatatablesRails::ActiveRecord
 
 
   def get_raw_records
-    Contract.all
+    get_raw_by_position(options[:current_user])
   end
 
 
   private
 
   def actions(record)
-    sarta = "&nbsp;&nbsp&nbsp<a href ='#{options[:edit].gsub('_',record.id.to_s)}'><i class='fa fa-edit'></i></a>"
-    sarta +=  " | <a href ='#{options[:show].gsub('_',record.id.to_s)}'><i class='fa fa-eye'></i></a>"
+    get_actions_by_position(options[:current_user], record)
+  end
+
+  def get_actions_by_position(user, record)
+    if  user.is_prof_contratacion?
+      sarta = "&nbsp;&nbsp<a href ='#{options[:edit].gsub('_',record.id.to_s)}'><i class='fa fa-edit'></i></a>"
+      sarta +=  " | <a href ='#{options[:show].gsub('_',record.id.to_s)}'><i class='fa fa-eye'></i></a>"
+
+    elsif user.is_gerente? || user.is_subgerente? || user.is_cooradmin_fin? ||
+      user.is_coorcomer_soc? || user.is_coortec_ambac? || user.is_coortec_ambas? ||
+      user.is_prof_contratacion? || user.is_prof_proyectos? ||
+      user.is_prof_sig? || user.is_prof_tic? || user.is_aux_sst? ||
+      user.is_aux_gesdoc? || user.is_aux_th?
+      sarta =  "&nbsp;&nbsp&nbsp;&nbsp&nbsp;&nbsp&nbsp;&nbsp<a href ='#{options[:show].gsub('_',record.id.to_s)}'><i class='fa fa-eye'></i></a>"
+    end
+
+  end
+
+  def get_raw_by_position(user)
+    if  user.is_prof_contratacion? || user.is_gerente? || user.is_subgerente? || user.is_cooradmin_fin? ||
+      user.is_coorcomer_soc? || user.is_coortec_ambac? || user.is_coortec_ambas? ||
+      user.is_prof_contratacion? || user.is_prof_proyectos? ||
+      user.is_prof_sig? || user.is_prof_tic? || user.is_aux_sst? ||
+      user.is_aux_gesdoc? || user.is_aux_th?
+      return Contract.all
+    end
   end
 end

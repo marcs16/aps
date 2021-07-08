@@ -1,5 +1,6 @@
 class ContractsController < ApplicationController
   before_action :set_contract, only: [:show, :edit, :update, :destroy]
+  before_action :user_names, except: [:destroy]
   before_action :authenticate_user!
   load_and_authorize_resource
 
@@ -9,7 +10,7 @@ class ContractsController < ApplicationController
     @contracts = Contract.all
     respond_to do |format|
     format.html
-    format.json { render json: ContractDatatable.new(params,{view_context: view_context,edit: edit_contract_path('_'),show: contract_path('_')}) }
+    format.json { render json: ContractDatatable.new(params,{view_context: view_context,edit: edit_contract_path('_'),show: contract_path('_'), current_user: current_user}) }
   end
   end
 
@@ -18,6 +19,7 @@ class ContractsController < ApplicationController
   def show
     rate = calculate_percentaje(@contract.executed_value, @contract.value)
     @contract.execution_rate = rate
+    @current_supervisor = @contract.supervisor
 
   end
 
@@ -29,7 +31,7 @@ class ContractsController < ApplicationController
   # GET /contracts/1/edit
   def edit
     rate = calculate_percentaje(@contract.executed_value, @contract.value)
-    @contract.execution_rate = rate
+    @current_supervisor = @contract.supervisor
   end
 
   # POST /contracts
@@ -90,8 +92,12 @@ class ContractsController < ApplicationController
       @contract = Contract.find(params[:id])
     end
 
+    def user_names
+      @users = User.select("full_name")
+    end
+
     # Only allow a list of trusted parameters through.
     def contract_params
-      params.require(:contract).permit(:code, :contractor, :object, :supervisor, :initiation_act, :dead_line, :value, :executed_value, :execution_rate, :observations, :status)
+      params.require(:contract).permit(:code, :contractor, :object, :initiation_act, :dead_line, :lit_value, :value, :executed_value, :execution_rate, :observations, :status, :supervisor => [])
     end
 end

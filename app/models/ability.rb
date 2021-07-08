@@ -7,7 +7,7 @@ class Ability
     alias_action :create, :read, :show, :update, to: :cru
     alias_action :read, :show, to: :resh
     alias_action :read, :update, to: :reup
-    alias_action :read,  :show, :update, to: :reshup
+    alias_action :read, :show, :update, to: :reshup
         user ||= User.new
         if user.is_gerente?
           can :resh, User
@@ -38,7 +38,7 @@ class Ability
           end
 
         elsif user.is_cooradmin_fin?
-          can :reup, User
+          can :cru, User
           can :disabled_users_index, User
           can :disable_user, User
           can :resh, Salary
@@ -86,11 +86,9 @@ class Ability
 
         elsif user.is_prof_contratacion?
           can :resh, User
-          can :disable_user, User
-          can :disabled_users_index, User
           can :resh, Salary
           can :resh, Vacation
-          can :resh, Contract
+          can :cru, Contract
           can :resh, Event
           can :update, Event do |event|
             event.user_id == user.id
@@ -98,8 +96,6 @@ class Ability
 
         elsif user.is_prof_proyectos?
           can :resh, User
-          can :disable_user, User
-          can :disabled_users_index, User
           can :resh, Salary
           can :resh, Vacation
           can :resh, Contract
@@ -110,8 +106,6 @@ class Ability
 
         elsif user.is_prof_sig?
           can :resh, User
-          can :disable_user, User
-          can :disabled_users_index, User
           can :resh, Salary
           can :resh, Vacation
           can :resh, Contract
@@ -138,12 +132,12 @@ class Ability
 
         elsif user.is_aux_sst?
           can :resh, User
-          can :disable_user, User
-          can :disabled_users_index, User
           can :resh, Salary do |salary|
             salary.user_id = user.id
           end
-          can :resh, Vacation
+          can :resh, Vacation do |vacation|
+            vacation.user_id = user.id
+          end
           can :resh, Contract
           can :resh, Event
           can :update, Event do |event|
@@ -152,12 +146,12 @@ class Ability
 
         elsif user.is_aux_gesdoc?
           can :resh, User
-          can :disable_user, User
-          can :disabled_users_index, User
           can :resh, Salary do |salary|
             salary.user_id = user.id
           end
-          can :resh, Vacation
+          can :resh, Vacation do |vacation|
+            vacation.user_id = user.id
+          end
           can :resh, Contract
           can :resh, Event
           can :update, Event do |event|
@@ -165,11 +159,11 @@ class Ability
           end
 
         elsif user.is_aux_th?
-          can :resh, User
+          can :cru, User
           can :disable_user, User
           can :disabled_users_index, User
-          can :cru, Salary
-          can :cru, Vacation
+          can [:cru,:show], Salary
+          can [:cru,:show], Vacation
           can :resh, Contract
           can :resh, Event
           can :update, Event do |event|
@@ -177,40 +171,52 @@ class Ability
           end
 
         elsif user.is_aux_comercial?
+          can :resh, User
           can :resh, Salary do |salary|
             salary.user_id = user.id
           end
-          can :resh, Vacation
+          can :resh, Vacation do |vacation|
+            vacation.user_id = user.id
+          end
           can :resh, Event
           can :update, Event do |event|
             event.user_id == user.id
           end
 
         elsif user.is_aux_servgen?
+          can :resh, User
           can :resh, Salary do |salary|
             salary.user_id = user.id
           end
-          can :resh, Vacation
+          can :resh, Vacation do |vacation|
+            vacation.user_id = user.id
+          end
           can :resh, Event
           can :update, Event do |event|
             event.user_id == user.id
           end
 
         elsif user.is_aux_recaudo?
+          can :resh, User
           can :resh, Salary do |salary|
             salary.user_id = user.id
           end
-          can :resh, Vacation
+          can :resh, Vacation do |vacation|
+            vacation.user_id = user.id
+          end
           can :resh, Event
           can :update, Event do |event|
             event.user_id == user.id
           end
 
         elsif user.is_aux_almacen?
+          can :resh, User
           can :resh,  Salary do |salary|
             salary.user_id = user.id
           end
-          can :resh, Vacation
+          can :resh, Vacation do |vacation|
+            vacation.user_id = user.id
+          end
           can :resh, Device
           can :report_devices, Device
           can :resh, Maintaince
@@ -224,7 +230,9 @@ class Ability
           can :resh,  Salary do |salary|
             salary.user_id = user.id
           end
-          can :resh, Vacation
+          can :resh, Vacation do |vacation|
+            vacation.user_id = user.id
+          end
           can :resh, Event
           can :update, Event do |event|
             event.user_id == user.id
@@ -234,7 +242,9 @@ class Ability
           can :resh,  Salary do |salary|
             salary.user_id = user.id
           end
-          can :resh, Vacation
+          can :resh, Vacation do |vacation|
+            vacation.user_id = user.id
+          end
           can :resh, Event
           can :update, Event do |event|
             event.user_id == user.id
@@ -244,7 +254,9 @@ class Ability
           can :resh,  Salary do |salary|
             salary.user_id = user.id
           end
-          can :resh, Vacation
+          can :resh, Vacation do |vacation|
+            vacation.user_id = user.id
+          end
           can :resh, Event
           can :update, Event do |event|
             event.user_id == user.id

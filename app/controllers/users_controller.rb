@@ -16,7 +16,7 @@ class UsersController < ApplicationController
   def disabled_users_index
     respond_to do |format|
       format.html
-      format.json { render json: DisableUserDatatable.new(params,{view_context: view_context,edit: edit_user_path('_'),current_user: current_user}) }
+      format.json { render json: DisabledUserDatatable.new(params,{view_context: view_context,edit: edit_user_path('_'),current_user: current_user}) }
     end
   end
 

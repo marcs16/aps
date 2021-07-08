@@ -1,8 +1,20 @@
 module UsersHelper
+	# documents of identifications
 	def options_for_type_of_document
     	['Cedula de ciudadania','Cedula de extranjeria',
     	'Pasaporte']
 	end
+# options for secletor on own profile page
+	def options_for_position_admin
+		['GERENTE',
+		'SUBGERENTE',
+		'COORDINADOR ADMINISTRATIVO Y FINANCIERO',
+		'COORDINADOR COMERCIAL Y SOCIAL ',
+		'COORDINADOR TECNICO Y AMBIENTAL ACUEDUCTO Y ALCANTARILLADO',
+		'COORDINADOR TECNICO Y AMBIENTAL ASEO']
+	end
+
+	# options for selector on edit general employes form
 	def options_for_position
     	[
 				'GERENTE',
@@ -27,5 +39,18 @@ module UsersHelper
 				'OPERARIO DE REDES Y LECTURA',
 				'OPERARIO DE BARRIDO Y RECOLECCIÓN'
     	]
+	end
+
+	# disabled options for selector on employes form if you have not  full permissions
+	def options_for_position_disabled
+		[
+			'GERENTE',
+			'SUBGERENTE',
+			'COORDINADOR ADMINISTRATIVO Y FINANCIERO',
+			'COORDINADOR COMERCIAL Y SOCIAL ',
+			'COORDINADOR TECNICO Y AMBIENTAL ACUEDUCTO Y ALCANTARILLADO',
+			'COORDINADOR TECNICO Y AMBIENTAL ASEO',
+		]
+
 	end
 end

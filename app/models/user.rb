@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :maintainces, :dependent => :delete_all
   has_many :salaries, :dependent => :destroy
 
+# filter for select people to notify after a meeting has been programmed
   scope :telephoned, ->(name) { where("full_name = ?", name) }
 
   def is_gerente?
@@ -135,8 +136,4 @@ class User < ApplicationRecord
       return true
     end
   end
-
-
-
-
 end

@@ -146,7 +146,7 @@
                       <%= link_to t('helpers.button.back'), :back , class:"btn btn-primary fa fa-arrow-left"%>
                     </div>
                     <div class=" col-sm-1">
-                      <%if can? :edit, Salary%>
+                      <%if can? :update, Salary%>
                         <%= link_to t('helpers.button.edit'), edit_salary_path(@salary), class:"btn btn-primary fa fa-edit" %>
                       <%end%>
                     </div>

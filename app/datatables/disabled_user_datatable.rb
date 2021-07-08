@@ -1,4 +1,4 @@
-class DisableUserDatatable < AjaxDatatablesRails::ActiveRecord
+class DisabledUserDatatable < AjaxDatatablesRails::ActiveRecord
   extend Forwardable
 
   def_delegators :@view,  :users_reset_password_path,  :user_enable_path , :t

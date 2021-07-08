@@ -73,12 +73,7 @@
                 </div>
               </div>
               <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <div  class="nav-link">
-                    <i class="fa fa-circle nav-icon"></i>
-                    <p><%=link_to t('app_common.navbar.profile.edit_profile'), edit_user_registration_path, style:"font-size: 1.5rem;"%></p>
-                  </div>
-                </li>
+                <%=render 'layouts/partials/profile'%>
                 <li class="nav-item">
                   <div class="nav-link">
                     <i class="fa fa-circle nav-icon"></i>
@@ -93,60 +88,66 @@
         <!-- Sidebar Menu -->
         <nav class="mt-2">
           <ul class="nav nav-pills nav-sidebar flex-column">
-            <li class="nav-item">
-              <div  class="nav-link user-panel mt-3 pb-3 mb-3 d-flex">
-                <p>
-                  <i class=" fa fa-user"></i>
-                  <%=link_to t('app_common.navbar.users'), users_index_path, style:"font-size: 1.5rem;color:white;"%></p>
-                  <span class="right badge badge-danger"></span>
-                </p>
-              </div>
-            </li>
-            <li class="nav-item">
-              <div  class="nav-link user-panel mt-3 pb-3 mb-3 d-flex">
-                <p>
-                  <i class=" fa fa-money  "></i>
-                  <%=link_to t('app_common.navbar.salaries'), salaries_path, style:"font-size: 1.5rem;color:white;"%></p>
-                  <span class="right badge badge-danger"></span>
-                </p>
-              </div>
-            </li>
-            <li class="nav-item">
-              <div  class="nav-link user-panel mt-3 pb-3 mb-3 d-flex">
-                <p>
-                  <i class=" fa fa-plane"></i>
-                  <%=link_to t('app_common.navbar.vacations'), vacations_path, style:"font-size: 1.5rem;color:white;"%></p>
-                  <span class="right badge badge-danger"></span>
-                </p>
-              </div>
-            </li>
-            <li class="nav-item">
-              <div  class="nav-link user-panel mt-3 pb-3 mb-3 d-flex">
-                <p>
-                  <i class=" fa fa-folder"></i>
-                  <%=link_to t('app_common.navbar.contracts'), contracts_path, style:"font-size: 1.5rem;color:white;"%></p>
-                  <span class="right badge badge-danger"></span>
-                </p>
-              </div>
-            </li>
-            <li class="nav-item">
-              <div  class="nav-link user-panel mt-3 pb-3 mb-3 d-flex">
-                <p>
-                  <i class=" fa fa-tv  "></i>
-                  <%=link_to t('app_common.navbar.devices'), devices_path, style:"font-size: 1.5rem;color:white;"%></p>
-                  <span class="right badge badge-danger"></span>
-                </p>
-              </div>
-            </li>
-            <li class="nav-item">
-              <div  class="nav-link user-panel mt-3 pb-3 mb-3 d-flex">
-                <p>
-                  <i class="fa fa-calendar "></i>
-                  <%=link_to t('app_common.navbar.meetings'), events_path, style:"font-size: 1.5rem;color:white;"%></p>
-                  <span class="right badge badge-danger"></span>
-                </p>
-              </div>
-            </li>
+            <%if can? :read, User %>
+              <li class="nav-item">
+                <div  class="nav-link user-panel mt-3 pb-3 mb-3 d-flex">
+                  <p>
+                      <i class=" fa fa-user"></i>
+                      <%=link_to t('app_common.navbar.users'), users_index_path, style:"font-size: 1.5rem;color:white;"%></p>
+                    <span class="right badge badge-danger"></span>
+                  </div>
+              </li>
+            <%end%>
+            <%if can? :read, Salary %>
+              <li class="nav-item">
+                <div  class="nav-link user-panel mt-3 pb-3 mb-3 d-flex">
+                  <p>
+                      <i class=" fa fa-money  "></i>
+                      <%=link_to t('app_common.navbar.salaries'), salaries_path, style:"font-size: 1.5rem;color:white;"%></p>
+                    <span class="right badge badge-danger"></span>
+                  </div>
+              </li>
+            <%end%>
+            <%if can? :read, Vacation %>
+              <li class="nav-item">
+                <div  class="nav-link user-panel mt-3 pb-3 mb-3 d-flex">
+                  <p>
+                      <i class=" fa fa-plane"></i>
+                      <%=link_to t('app_common.navbar.vacations'), vacations_path, style:"font-size: 1.5rem;color:white;"%></p>
+                    <span class="right badge badge-danger"></span>
+                  </div>
+              </li>
+            <%end%>
+            <%if can? :read, Contract %>
+              <li class="nav-item">
+                <div  class="nav-link user-panel mt-3 pb-3 mb-3 d-flex">
+                  <p>
+                      <i class=" fa fa-folder"></i>
+                      <%=link_to t('app_common.navbar.contracts'), contracts_path, style:"font-size: 1.5rem;color:white;"%></p>
+                    <span class="right badge badge-danger"></span>
+                  </div>
+              </li>
+            <%end%>
+            <%if can? :read, Device %>
+              <li class="nav-item">
+                <div  class="nav-link user-panel mt-3 pb-3 mb-3 d-flex">
+                  <p>
+                      <i class=" fa fa-tv"></i>
+                      <%=link_to t('app_common.navbar.devices'), devices_path, style:"font-size: 1.5rem;color:white;"%></p>
+                    <span class="right badge badge-danger"></span>
+                  </div>
+              </li>
+            <%end%>
+            <%if can? :read,Event %>
+              <li class="nav-item">
+                <div  class="nav-link user-panel mt-3 pb-3 mb-3 d-flex">
+                  <p>
+                      <i class="fa fa-calendar "></i>
+                      <%=link_to t('app_common.navbar.meetings'), events_path, style:"font-size: 1.5rem;color:white;"%></p>
+                    <span class="right badge badge-danger"></span>
+                  </div>
+              </li>
+            <%end%>
           </ul>
         </nav>
         <!-- /.sidebar-menu -->
