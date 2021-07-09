@@ -42,18 +42,13 @@ $(document).ready(function() {
 	  }
 	});
 	$('#btn-psdlog').click(function(event) {
-		event.preventDefault();
 		$('.pass-fields').slideToggle("slow");
-		// Alternative animation for example
-		// slideToggle("fast");
+		event.preventDefault();
 	});
 
   $('#btn-psd').click(function(event) {
+		$('.pass-fields').slideToggle("slow");
   	event.preventDefault();
-    $('.pass-fields').slideToggle("slow");
-    // Alternative animation for example
-    // slideToggle("fast");
   });
-  /*For reload datatable*/
 
 });

@@ -18,6 +18,7 @@ class Ability
           can :report_devices, Device
           can :resh, Maintaince
           can :export_maintainces, Maintaince
+          can :create, Event
           can :resh, Event
           can :update, Event do |event|
             event.user_id == user.id
@@ -29,6 +30,7 @@ class Ability
           can :resh, Salary
           can :resh, Vacation
           can :resh, Contract
+          can :create, Event
           can :resh, Event
           can :update, Event do |event|
             event.user_id == user.id
@@ -42,6 +44,7 @@ class Ability
           can :resh, Salary
           can :resh, Vacation
           can :resh, Contract
+          can :create, Event
           can :resh, Event
           can :update, Event do |event|
             event.user_id == user.id
@@ -52,6 +55,7 @@ class Ability
           can :resh, Salary
           can :resh, Vacation
           can :resh, Contract
+          can :create, Event
           can :resh, Event
           can :update, Event do |event|
             event.user_id == user.id
@@ -63,6 +67,7 @@ class Ability
           can :resh, Salary
           can :resh, Vacation
           can :resh, Contract
+          can :create, Event
           can :resh, Event
           can :update, Event do |event|
             event.user_id == user.id
@@ -74,6 +79,7 @@ class Ability
           can :resh, Salary
           can :resh, Vacation
           can :resh, Contract
+          can :create, Event
           can :resh, Event
           can :update, Event do |event|
             event.user_id == user.id
@@ -84,6 +90,7 @@ class Ability
           can :resh, Salary
           can :resh, Vacation
           can :cru, Contract
+          can :create, Event
           can :resh, Event
           can :update, Event do |event|
             event.user_id == user.id
@@ -94,6 +101,7 @@ class Ability
           can :resh, Salary
           can :resh, Vacation
           can :resh, Contract
+          can :create, Event
           can :resh, Event
           can :update, Event do |event|
             event.user_id == user.id
@@ -104,6 +112,7 @@ class Ability
           can :resh, Salary
           can :resh, Vacation
           can :resh, Contract
+          can :create, Event
           can :resh, Event
           can :update, Event do |event|
             event.user_id == user.id
@@ -120,6 +129,7 @@ class Ability
           can :report_devices, Device
           can :cru, Maintaince
           can :export_maintainces, Maintaince
+          can :create, Event
           can :resh, Event
           can :update, Event do |event|
             event.user_id == user.id
@@ -134,6 +144,7 @@ class Ability
             vacation.user_id = user.id
           end
           can :resh, Contract
+          can :create, Event
           can :resh, Event
           can :update, Event do |event|
             event.user_id == user.id
@@ -148,6 +159,7 @@ class Ability
             vacation.user_id = user.id
           end
           can :resh, Contract
+          can :create, Event
           can :resh, Event
           can :update, Event do |event|
             event.user_id == user.id
@@ -161,6 +173,7 @@ class Ability
           can [:cru,:show], Salary
           can [:cru,:show], Vacation
           can :resh, Contract
+          can :create, Event
           can :resh, Event
           can :update, Event do |event|
             event.user_id == user.id
@@ -174,6 +187,7 @@ class Ability
           can :resh, Vacation do |vacation|
             vacation.user_id = user.id
           end
+          can :create, Event
           can :resh, Event
           can :update, Event do |event|
             event.user_id == user.id
@@ -187,6 +201,7 @@ class Ability
           can :resh, Vacation do |vacation|
             vacation.user_id = user.id
           end
+          can :create, Event
           can :resh, Event
           can :update, Event do |event|
             event.user_id == user.id
@@ -200,6 +215,7 @@ class Ability
           can :resh, Vacation do |vacation|
             vacation.user_id = user.id
           end
+          can :create, Event
           can :resh, Event
           can :update, Event do |event|
             event.user_id == user.id
@@ -217,6 +233,7 @@ class Ability
           can :report_devices, Device
           can :resh, Maintaince
           can :export_maintainces, Maintaince
+          can :create, Event
           can :resh, Event
           can :update, Event do |event|
             event.user_id == user.id
@@ -229,6 +246,7 @@ class Ability
           can :resh, Vacation do |vacation|
             vacation.user_id = user.id
           end
+          can :create, Event
           can :resh, Event
           can :update, Event do |event|
             event.user_id == user.id
@@ -241,6 +259,7 @@ class Ability
           can :resh, Vacation do |vacation|
             vacation.user_id = user.id
           end
+          can :create, Event
           can :resh, Event
           can :update, Event do |event|
             event.user_id == user.id
@@ -253,6 +272,7 @@ class Ability
           can :resh, Vacation do |vacation|
             vacation.user_id = user.id
           end
+          can :create, Event
           can :resh, Event
           can :update, Event do |event|
             event.user_id == user.id
@@ -263,6 +283,7 @@ class Ability
             salary.user_id = user.id
           end
           can :resh, Vacation
+          can :create, Event
           can :resh, Event
           can :update, Event do |event|
             event.user_id == user.id
