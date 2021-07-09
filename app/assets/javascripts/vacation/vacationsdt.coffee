@@ -10,7 +10,7 @@ window.vacationsdt = do ->
       es: 'https://cdn.datatables.net/plug-ins/1.10.20/i18n/Spanish.json'
       en: 'https://cdn.datatables.net/plug-ins/1.10.20/i18n/English.json'
 
-    if language != 'en'
+    if language == 'en'
       url = 'https://cdn.datatables.net/plug-ins/1.10.20/i18n/English.json'
     else
       url = 'https://cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json'
