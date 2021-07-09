@@ -11,7 +11,6 @@
           <% if can? :create, Contract%>
             <%= link_to t('helpers.button.add', model: model_name_singular(Contract)), new_contract_path, class:'btn btn-primary '%>
           <%end%>
-          <button id="btn-rel-contract" class=" btn btn-primary"><%=t('app_common.tables.reload_t')%></button>
         </div>
         <table  id="contracts-datatable" data-source="<%= contracts_path(format: :json) %>">
           <thead>
@@ -38,3 +37,8 @@
   </section>
   <%=render 'layouts/partials/footer'%>
 </div>
+<script>
+  document.addEventListener('turbolinks:load', function() {
+    contractsdt.ajax_datatable('#contracts-datatable');
+  });
+</script>

@@ -15,7 +15,6 @@ class Ability
           can :resh, Salary
           can :resh, Vacation
           can :resh, Contract
-          can :resh, Device
           can :report_devices, Device
           can :resh, Maintaince
           can :export_maintainces, Maintaince
@@ -117,9 +116,9 @@ class Ability
           can :resh, Salary
           can :resh, Vacation
           can :resh, Contract
-          can :resh, Device
+          can :cru, Device
           can :report_devices, Device
-          can :resh, Maintaince
+          can :cru, Maintaince
           can :export_maintainces, Maintaince
           can :resh, Event
           can :update, Event do |event|

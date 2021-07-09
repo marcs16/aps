@@ -5,13 +5,11 @@
     <div class="container-fluid">
       <div class="col-md-12">
         <p id="notice"><%= notice %></p>
-
         <h1><%=t('activerecord.models.device.other')%></h1>
         <div style="margin-bottom: 20px;margin-top: 20px; ">
-          <%if can? :create, Maintaince%>
+          <%if can? :create, Device%>
             <%= link_to t('helpers.button.add', model: model_name_singular(Device)), new_device_path, class:'btn btn-primary '%>
           <%end%>
-          <button id="btn-rel-device" class=" btn btn-primary"><%=t('app_common.tables.reload_t')%></button>
           <%= link_to 'Exportar Excel',export_devices_path(), class:'btn btn-primary '%>
         </div>
         <table id="devices-datatable" data-source="<%= devices_path(format: :json) %>">
@@ -37,3 +35,8 @@
   </section>
   <%=render 'layouts/partials/footer'%>
 </div>
+<script>
+  document.addEventListener('turbolinks:load', function() {
+    devicesdt.ajax_datatable('#devices-datatable');
+  });
+</script>

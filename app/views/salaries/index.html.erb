@@ -6,13 +6,11 @@
       <div class="col-md-12">
         <p id="notice"><%= notice %></p>
 
-        <h1><%=t('activerecord.models.user.other')%></h1>
+        <h1><%=t('activerecord.models.salary.other')%></h1>
         <div style="margin-bottom: 20px;margin-top: 20px; ">
-            <% if can? :create, Salary%>
-              <%= link_to t('helpers.button.add', model: model_name_singular(Salary)), new_salary_path, class:'btn btn-primary '%>
-            <%end%>
-          <button id="btn-rel-salary" class=" btn btn-primary"><%=t('app_common.tables.reload_t')%></button>
-          <%# <%= link_to t('app_common.models.users.go_disabled'), disabled_users_index_path, class:'btn btn-primary '%>
+          <% if can? :create, Salary%>
+            <%= link_to t('helpers.button.add', model: model_name_singular(Salary)), new_salary_path, class:'btn btn-primary '%>
+          <%end%>
         </div>
         <table  class ="col-md-9" id="salaries-datatable" data-source="<%= salaries_path(format: :json) %>">
           <thead >
@@ -30,12 +28,15 @@
             </tr>
           </thead>
           <tbody>
-
           </tbody>
         </table>
-
       </div>
     </div>
   </section>
   <%=render 'layouts/partials/footer'%>
 </div>
+<script>
+  document.addEventListener('turbolinks:load', function() {
+    salariesdt.ajax_datatable('#salaries-datatable');
+  });
+</script>

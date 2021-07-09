@@ -8,14 +8,11 @@
 
         <h1><%=t('activerecord.models.vacation.other')%></h1>
         <div style="margin-bottom: 20px;margin-top: 20px; ">
-            <% if can? :create, Salary%>
+            <% if can? :create, Vacation%>
               <%= link_to t('helpers.submit.create', model: model_name_plural(Vacation)), new_vacation_path, class:'btn btn-primary '%>
             <%end%>
-          <button id="btn-rel-salary" class=" btn btn-primary"><%=t('app_common.tables.reload_t')%></button>
-          <%# <%= link_to t('app_common.models.users.go_disabled'), disabled_users_index_path, class:'btn btn-primary '%>
         </div>
-
-        <table class="responsive nowrap table table-hover" id="vacations-datatable" data-sort="true" data-source="<%= url_for(format: :json)%>">
+        <table id="vacations-datatable" data-source="<%= vacations_path(format: :json) %>">
           <thead>
             <tr>
               <th><%=Vacation.human_attribute_name(:employe)%></th>
@@ -37,3 +34,8 @@
   </section>
   <%=render 'layouts/partials/footer'%>
 </div>
+<script>
+  document.addEventListener('turbolinks:load', function() {
+    vacationsdt.ajax_datatable('#vacations-datatable');
+  });
+</script>
