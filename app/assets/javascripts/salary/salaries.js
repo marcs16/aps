@@ -13,7 +13,7 @@ $(document).ready(function() {
 			}).done(function(data) {
         var datos = data[0];
         $(datos).each(function(key, value) {
-          for (let x in value) {
+          for (var x in value) {
             if(value[x] == null){
               $("#salary_"+x).val(0);
             }else{
