@@ -1,9 +1,8 @@
 class SalariesController < ApplicationController
   before_action :set_salary, only: [:show, :edit, :update, :destroy]
   before_action :set_user_name, only: [:show, :edit]
-  before_action :authenticate_user!
-  load_and_authorize_resource
-
+  before_action :set_users, only: :new
+  load_and_authorize_resource 
 
   # GET /salaries
   # GET /salaries.json
@@ -21,7 +20,7 @@ class SalariesController < ApplicationController
 
   # GET /salaries/new
   def new
-    @users = User.all
+
     @salary = Salary.new
 
   end
@@ -71,16 +70,18 @@ class SalariesController < ApplicationController
   end
 
   def try_salary
-    user = Salary.where.not(social_benefits: nil, user_id: 2 ).first
+    salary = Salary.where(user_id: params['user_id'] )
+    render json: salary, status: :ok
 
-
-    render json: user , status: :ok
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user_name
       @user_full_name = @salary.user.full_name
+    end
+    def set_users
+      @users = User.all.where(can_login: 'si')
     end
     def set_salary
       @salary = Salary.find(params[:id])

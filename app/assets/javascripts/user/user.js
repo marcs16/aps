@@ -41,14 +41,9 @@ $(document).ready(function() {
 	  	$(this).addClass("fa fa-eye");
 	  }
 	});
-	$('#btn-psdlog').click(function(event) {
-		$('.pass-fields').slideToggle("slow");
-		event.preventDefault();
-	});
-
   $('#btn-psd').click(function(event) {
+		event.preventDefault();
 		$('.pass-fields').slideToggle("slow");
-  	event.preventDefault();
   });
 
 });

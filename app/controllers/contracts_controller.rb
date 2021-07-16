@@ -1,6 +1,6 @@
 class ContractsController < ApplicationController
   before_action :set_contract, only: [:show, :edit, :update, :destroy]
-  before_action :user_names, except: [:destroy]
+  before_action :set_users
   before_action :authenticate_user!
   load_and_authorize_resource
 
@@ -19,8 +19,6 @@ class ContractsController < ApplicationController
   def show
     rate = calculate_percentaje(@contract.executed_value, @contract.value)
     @contract.execution_rate = rate
-    @current_supervisor = @contract.supervisor
-
   end
 
   # GET /contracts/new
@@ -31,7 +29,6 @@ class ContractsController < ApplicationController
   # GET /contracts/1/edit
   def edit
     rate = calculate_percentaje(@contract.executed_value, @contract.value)
-    @current_supervisor = @contract.supervisor
   end
 
   # POST /contracts
@@ -40,7 +37,6 @@ class ContractsController < ApplicationController
     @contract = Contract.new(contract_params)
     rate = calculate_percentaje(@contract.executed_value, @contract.value)
     @contract.execution_rate = rate
-
     respond_to do |format|
       if @contract.save
 
@@ -92,12 +88,13 @@ class ContractsController < ApplicationController
       @contract = Contract.find(params[:id])
     end
 
-    def user_names
-      @users = User.select("full_name")
+    def set_users
+        @users = User.where(can_login: "si").select("full_name")
     end
+
 
     # Only allow a list of trusted parameters through.
     def contract_params
-      params.require(:contract).permit(:code, :contractor, :object, :initiation_act, :dead_line, :lit_value, :value, :executed_value, :execution_rate, :observations, :status, :supervisor => [])
+      params.require(:contract).permit(:code, :contractor, :object, :initiation_act, :dead_line, :lit_value, :value, :executed_value, :execution_rate, :observations, :status, :supervisor)
     end
 end

@@ -78,9 +78,8 @@ class UserDatatable < AjaxDatatablesRails::ActiveRecord
 
     elsif user.is_prof_proyectos? || user.is_prof_sig? || user.is_aux_sst? ||
       user.is_aux_gesdoc? || user.is_aux_comercial? || user.is_aux_servgen? ||
-      user.is_aux_recaudo? || user.is_aux_almacen? || user.is_conductor? ||
-      user.is_operario_pta? || user.is_operario_rl?|| user.is_operario_br?
-      User.where(user_id: user.id)
+      user.is_aux_recaudo? || user.is_aux_almacen?
+      User.where(id: user.id)
     end
   end
 

@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
-  before_action :usr_names, only: [:new,:create,:show, :update]
+  before_action :usr_names
   before_action :authenticate_user!
   load_and_authorize_resource
   # GET /events
@@ -26,7 +26,6 @@ class EventsController < ApplicationController
 
   # GET /events/1/edit
   def edit
-    @users = User.select("full_name")
     @current_event = JSON.parse(@event.members)
 
   end
@@ -119,7 +118,7 @@ class EventsController < ApplicationController
     end
 
     def usr_names
-      @users = User.select("full_name")
+      @users = User.where(can_login: "si").select("full_name")
     end
 
 end

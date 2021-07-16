@@ -171,6 +171,7 @@ class Ability
           can :disabled_users_index, User
           can :enable_user, User
           can [:cru,:show], Salary
+          can :try_salary, Salary
           can [:cru,:show], Vacation
           can :resh, Contract
           can :create, Event

@@ -50,7 +50,7 @@
 				    <div class="form-group row">
 				      <%=f.label :supervisor, t('activerecord.attributes.contract.supervisor'), class:"col-sm-3 col-form-label"%>
 				      <div class="col-sm-8">
-				        <%=f.select :supervisor, options_for_select(@users.collect{|x| [x.full_name]}, selected: @current_supervisor),{},class:"col-sm-12 select2bs4"%>
+				        <%=f.select :supervisor, options_for_select(@users.collect{|x| [x.full_name]}, selected: @contract.supervisor),{},class:"col-sm-12 select2bs4"%>
 				      </div>
 				    </div>
 				    <div class="form-group row">

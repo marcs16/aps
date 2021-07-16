@@ -1,6 +1,7 @@
 class VacationsController < ApplicationController
-  before_action :set_vacation, only: [:show, :edit, :update, :destroy]
-  before_action :set_user_name,only: [:show, :edit]
+  before_action :set_vacation,  only: [:show, :edit, :update, :destroy]
+  before_action :set_user_name, only: [:show, :edit]
+  before_action :set_users,     only: [:new, :edit]
   before_action :authenticate_user!
   load_and_authorize_resource
   # GET /vacations
@@ -19,13 +20,11 @@ class VacationsController < ApplicationController
 
   # GET /vacations/new
   def new
-    @users = User.all
     @vacation = Vacation.new
   end
 
   # GET /vacations/1/edit
   def edit
-    @users = User.all
     @employe = @vacation.user_id
 
   end
@@ -75,8 +74,8 @@ class VacationsController < ApplicationController
     def set_user_name
       @user_full_name = @vacation.user.full_name
     end
-    def usr_names
-      @users = User.select("full_name")
+    def set_users
+      @users = User.where(can_login: 'si')
     end
     def set_vacation
       @vacation = Vacation.find(params[:id])
