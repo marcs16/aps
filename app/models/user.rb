@@ -8,6 +8,8 @@ class User < ApplicationRecord
   has_many :maintainces, :dependent => :delete_all
   has_many :salaries, :dependent => :destroy
 
+  validates_presence_of :full_name, :email
+
 # filter for select people to notify after a meeting has been programmed
   scope :telephoned, ->(name) { where("full_name = ?", name) }
 
