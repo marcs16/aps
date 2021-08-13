@@ -30,6 +30,13 @@ gem 'jquery-datatables', '~> 1.10', '>= 1.10.20'
 gem 'ajax-datatables-rails', '~> 1.2'
 #transaltion
 gem 'i18n', '~> 1.8', '>= 1.8.2'
+
+#To manage uploaded files
+gem 'carrierwave', '~> 2.1.0'
+gem 'mini_magick', '~>4.11.0'
+
+#Editor html w
+gem 'ckeditor', '~> 5.1.0'
 #jquery
 gem 'jquery-rails', '~> 4.3', '>= 4.3.5'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

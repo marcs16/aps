@@ -37,6 +37,7 @@
 //= require datatables
 //= require dropzone
 //= require toastr/toastr.js
+//= require ckeditor/config.js
 //= require_tree .
 
 $(document).ready(function() {
