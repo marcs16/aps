@@ -22,12 +22,15 @@
 //= require navbar/vendor/modernizr-2.8.3-respond-1.4.2.min.js
 //= require navbar/main.js
 //= require login/login.js
+//= require contract/contractsdt
 //= require device/devicesdt
+//= require device/device.js
+//= require maintaince/maintaincesdt
 //= require salary/salariesdt
 //= require salary/salaries.js
 //= require user/usersdt
 //= require user/user.js
-//= require device/device.js
+//= require vacation/vacationsdt
 //= require select2/selects.js
 //= require select2/select2.js
 //= require select2/select2.full.js

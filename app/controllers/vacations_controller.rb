@@ -21,6 +21,7 @@ class VacationsController < ApplicationController
   # GET /vacations/new
   def new
     @vacation = Vacation.new
+    
   end
 
   # GET /vacations/1/edit
@@ -83,6 +84,6 @@ class VacationsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def vacation_params
-      params.require(:vacation).permit(:laborated_period, :end_of_laborated_period, :period_until_deductions, :business_days, :holidays, :entry_day, :exit_day, :last_vacations, :acumulated_periods, :suspension_days, :date_until_suspension, :cost_center, :status, :observations, :files, :user_id)
+      params.require(:vacation).permit(:laborated_period, :end_of_laborated_period, :period_until_deductions, :business_days, :holidays, :entry_day, :exit_day, :last_vacations, :acumulated_periods, :suspension_days, :date_until_suspension, :cost_center, :status, :observations, :user_id)
     end
 end
