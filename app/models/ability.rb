@@ -170,6 +170,7 @@ class Ability
           can :disable_user, User
           can :disabled_users_index, User
           can :enable_user, User
+          can :reset_password, User
           can [:cru,:show], Salary
           can :try_salary, Salary
           can [:cru,:show], Vacation
