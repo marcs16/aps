@@ -62,28 +62,29 @@
 
         <!-- Sidebar user (optional) -->
         <nav class="mt-2">
-          <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-            <li class="nav-item has-treeview">
+
+          <ul id = "bar_name" class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+            <li  class="nav-item has-treeview">
               <div class="nav-link user-panel mt-3 pb-3 mb-3 d-flex">
                 <div class="info">
                   <a  class="d-block">
                     <%=current_user.full_name%>
-                    <i class="right fa fa-angle-left"></i>
+                    <i class="right fa fa-arrow"></i>
                   </a>
                 </div>
               </div>
-              <ul class="nav nav-treeview">
-                <%=render 'layouts/partials/profile'%>
-                <li class="nav-item">
-                  <div class="nav-link">
-                    <i class="fa fa-circle nav-icon"></i>
-                    <p><%= link_to t('app_common.navbar.close_session'), destroy_user_session_path , method: :delete ,style:"font-size: 1.5rem;"%></p>
-                  </div>
-                </li>
-
-              </ul>
             </li>
+            <ul id= "show_bar" class="nav nav-treeview">
+              <%=render 'layouts/partials/profile'%>
+              <li class="nav-item">
+                <div class="nav-link">
+                  <i class="fa fa-circle nav-icon"></i>
+                  <p><%= link_to t('app_common.navbar.close_session'), destroy_user_session_path , method: :delete ,style:"font-size: 1.5rem;"%></p>
+                </div>
+              </li>
+            </ul>
           </ul>
+        </nav>
 
         <!-- Sidebar Menu -->
         <nav class="mt-2">
@@ -158,3 +159,12 @@
   </div>
     <!-- /.content-wrapper -->
 </div>
+<script type="text/javascript">
+
+    document.addEventListener('turbolinks:load', function() {
+      $('#bar_name').click(function(event) {
+        $('#show_bar').slideDown( "slow", function() {
+          });
+        });
+      });
+</script>
