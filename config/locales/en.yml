@@ -133,6 +133,7 @@ en:
           unconfirmed_email: Unconfirmed email
           unlock_token: Unlock token
           updated_at: Updated at
+          disabled_since: Disabled since
           email: Email
           full_name: Full Name
           type_of_id: Type of Document

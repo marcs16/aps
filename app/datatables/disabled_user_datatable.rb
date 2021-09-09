@@ -15,12 +15,13 @@ class DisabledUserDatatable < AjaxDatatablesRails::ActiveRecord
     @view_columns ||= {
       full_name:     { source: 'User.full_name', cond: :like, searchable: true, orderable: true },
       type_of_id:        { source: 'User.type_of_id', cond: :like, searchable: true, orderable: true },
-      number_of_id:         { source: 'User.number_of_id', searchable: false, orderable: true },
-      position:    { source: 'User.position', searchable: false, orderable: true },
-      email:  {source: 'User.email',searchable:false, orderable: true},
-      telephone:        { source: 'User.telephone', cond: :like, searchable: false, orderable: true },
+      number_of_id:         { source: 'User.number_of_id', searchable: true, orderable: true },
+      position:    { source: 'User.position', searchable: true, orderable: true },
+      email:  {source: 'User.email',searchable: true, orderable: true},
+      telephone:        { source: 'User.telephone', cond: :like, searchable: true, orderable: true },
+      disbled_since: {source: 'User.disabled_since', cond: :like, searchable: true, orderable: true},
       date_of_birth:         { source: 'User.date_of_birth', searchable: false, orderable: true },
-      working_since:    { source: 'User.working_since', searchable: false, orderable: true },
+
     }
   end
 
@@ -34,7 +35,7 @@ class DisabledUserDatatable < AjaxDatatablesRails::ActiveRecord
         email: record.email,
         telephone: record.telephone,
         date_of_birth: record.date_of_birth,
-        working_since: record.working_since,
+        working_since: record.disabled_since,
         links: actions(record).html_safe
       }
     end

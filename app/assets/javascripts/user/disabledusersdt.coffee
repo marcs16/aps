@@ -36,7 +36,7 @@ window.disabledusersdt = do ->
         {data: 'email'}
         {data: 'telephone'}
         {data: 'date_of_birth'}
-        {data: 'working_since'}
+        {data: 'disabled_since'}
         {data: 'links'}
       ]
 

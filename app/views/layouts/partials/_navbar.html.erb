@@ -69,7 +69,7 @@
                 <div class="info">
                   <a  class="d-block">
                     <%=current_user.full_name%>
-                    <i class="right fa fa-arrow"></i>
+                    <i id="caretid" class="right fa fa-caret-left"></i>
                   </a>
                 </div>
               </div>
@@ -78,7 +78,7 @@
               <%=render 'layouts/partials/profile'%>
               <li class="nav-item">
                 <div class="nav-link">
-                  <i class="fa fa-circle nav-icon"></i>
+                  <i class="fa fa-sign-out"></i>
                   <p><%= link_to t('app_common.navbar.close_session'), destroy_user_session_path , method: :delete ,style:"font-size: 1.5rem;"%></p>
                 </div>
               </li>
@@ -163,6 +163,7 @@
 
     document.addEventListener('turbolinks:load', function() {
       $('#bar_name').click(function(event) {
+        $('#caretid').removeClass('fa-caret-left').addClass('fa-caret-down');
         $('#show_bar').slideDown( "slow", function() {
           });
         });

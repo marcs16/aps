@@ -102,6 +102,7 @@ es:
           unconfirmed_email: Email no confirmado
           unlock_token: Código de desbloqueo
           updated_at: Actualizado en
+          disabled_since: Deshabilitado desde
           email: Email
           full_name: Nombre Completo
           type_of_id: Tipo de Documento

@@ -56,6 +56,7 @@ class UsersController < ApplicationController
   end
   def disable_user
     @user.can_login = 'no'
+    @user.disabled_since = Date.today
     @user.save
     respond_to do |format|
       format.html { redirect_to users_index_path, success: t('app_common.models.users.actions.disabled')}
@@ -69,6 +70,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:full_name,:email,:type_of_id,:number_of_id,:position,:date_of_birth,:working_since,:telephone)
+      params.require(:user).permit(:full_name,:email,:type_of_id,:number_of_id,:position,:date_of_birth,:working_since,:telephone, :disabled_since)
     end
 end
