@@ -45,7 +45,7 @@ end
   def update
     respond_to do |format|
       if @device.update(device_params)
-        format.html { redirect_to @device, info: t('app_common.models.devies.actions.updated') }
+        format.html { redirect_to @device, info: t('app_common.models.devices.actions.updated') }
         format.json { render :show, status: :ok, location: @device }
       else
         format.html { render :edit }
