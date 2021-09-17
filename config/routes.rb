@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  post 'messages', to: "messages#create"
   mount Ckeditor::Engine => '/ckeditor'
   resources :notifications
   resources :vacations
