@@ -18,6 +18,15 @@ module Aps
     config.i18n.default_locale = :es
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}')]
 
+    config.generators do |g|
+      g.test_framework :rspec,
+                       request_specs: true,
+                       view_specs: true,
+                       routing_specs: true,
+                       helper_specs: true,
+                       controller_specs: true
+    end
+
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers

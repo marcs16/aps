@@ -3,10 +3,10 @@ require 'rails_helper'
 RSpec.describe Language, type: :model do
 
   context 'validation test' do
-    it "Should save successfully" do
-      language = Language.all.last
-      language2 = Language.new(abbreviation: language.abbreviation, description: language.description).save
-      expect(language2).to eq(true)
+    it "Save successfully" do
+      language = Language.new(abbreviation: "es", description: "español").save
+      expect(language).to eq(true)
     end
+    it ""
   end
 end
