@@ -1,3 +1,4 @@
+
 # README
 
 This README would normally document whatever steps are necessary to get the
@@ -30,4 +31,3 @@ Things you may want to cover:
 * Database initialization
   run rails db:seeds to create languages (by default english and spanish),and create the test user as t@t.com and password abc123 to login (gonna create the seed soon)
 * How to run the test suite
-
