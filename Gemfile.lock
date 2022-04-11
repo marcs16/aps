@@ -1,4 +1,3 @@
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -346,4 +345,3 @@ RUBY VERSION
 
 BUNDLED WITH
    1.17.3
-
