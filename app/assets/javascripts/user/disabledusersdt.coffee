@@ -4,22 +4,22 @@ window.disabledusersdt = do ->
       $(dom_element).DataTable().destroy()
       $('tbody',dom_element).empty()
 
-  abbr = $('.change_language').data 'abbr'
   I18nDatatable = (language) ->
     url_languages =
       es: 'https://cdn.datatables.net/plug-ins/1.10.20/i18n/Spanish.json'
       en: 'https://cdn.datatables.net/plug-ins/1.10.20/i18n/English.json'
 
     if language == 'en'
-      url = 'https://cdn.datatables.net/plug-ins/1.10.20/i18n/English.json'
+      url = url_languages['es']
     else
-      url = 'https://cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json'
+        url = url_languages['en']
 
     url
 
+
    create_ajax_datatable = (dom_element) ->
     validate_datatable dom_element
-
+    abbr = $('.change_language').data 'abbr'
     $(dom_element).dataTable
       processing: true
       serverSide: true

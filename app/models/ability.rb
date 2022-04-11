@@ -10,16 +10,17 @@ class Ability
     alias_action :read, :show, :update, to: :reshup
         user ||= User.new
         if user.is_gerente?
-          can :resh, User
-          can :disabled_users_index, User
-          can :resh, Salary
-          can :resh, Vacation
-          can :resh, Contract
-          can :report_devices, Device
-          can :resh, Maintaince
-          can :export_maintainces, Maintaince
-          can :create, Event
-          can :resh, Event
+          can :manage, :all
+          # can :resh, User
+          # can :disabled_users_index, User
+          # can :resh, Salary
+          # can :resh, Vacation
+          # can :resh, Contract
+          # can :report_devices, Device
+          # can :resh, Maintaince
+          # can :export_maintainces, Maintaince
+          # can :create, Event
+          # can :resh, Event
           can :update, Event do |event|
             event.user_id == user.id
           end

@@ -92,6 +92,10 @@ class ContractsController < ApplicationController
         @users = User.where(can_login: "si").select("full_name")
     end
 
+    # to reciube an  imported file
+    def import_file(file)
+      Archive.import(file)
+    end
 
     # Only allow a list of trusted parameters through.
     def contract_params
